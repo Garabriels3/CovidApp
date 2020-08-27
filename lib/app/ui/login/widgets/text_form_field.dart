@@ -1,28 +1,22 @@
+import 'package:covid_app/core/constants/dimens.dart';
 import 'package:flutter/material.dart';
 
-class TextFormFieldComponent extends StatelessWidget {
+// ignore: must_be_immutable
+class TextFormFieldComponent extends StatefulWidget {
+  var hintText;
+  TextFormFieldComponent(this.hintText);
+  @override
+  _TextFormFieldComponentState createState() => _TextFormFieldComponentState();
+}
+
+class _TextFormFieldComponentState extends State<TextFormFieldComponent> {
   @override
   Widget build(BuildContext context) {
-    return TextFormField(
+    return TextField(
       decoration: InputDecoration(
-        disabledBorder: OutlineInputBorder(
-          borderRadius: BorderRadius.circular(25.0),
-          borderSide: BorderSide(
-            color: Colors.white38,
-          ),
-        ),
-        focusedBorder: OutlineInputBorder(
-          borderRadius: BorderRadius.circular(25.0),
-          borderSide: BorderSide(
-            color: Colors.blue,
-          ),
-        ),
-        enabledBorder: OutlineInputBorder(
-          borderRadius: BorderRadius.circular(25.0),
-          borderSide: BorderSide(
-            color: Colors.red,
-            width: 2.0,
-          ),
+        hintText: widget.hintText,
+        border: OutlineInputBorder(
+          borderRadius: BorderRadius.all(Radius.circular(twentyFour)),
         ),
       ),
     );
