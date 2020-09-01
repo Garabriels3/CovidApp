@@ -1,7 +1,9 @@
 import 'package:covid_app/app/widgets/KeyboardHideable.dart';
+import 'package:covid_app/core/constants/colors.dart';
 import 'package:covid_app/core/constants/dimens.dart';
 import 'package:flutter/material.dart';
-import 'widgets/text_form_field.dart';
+import '../../widgets/button_component.dart';
+import 'widgets/text_form_field_component.dart';
 
 class LoginPage extends StatefulWidget {
   @override
@@ -13,7 +15,7 @@ class _LoginPageState extends State<LoginPage> {
   Widget build(BuildContext context) {
     return KeyboardHideable(
       child: Scaffold(
-        backgroundColor: Colors.white70,
+        backgroundColor: darkPrimaryColor,
         body: SafeArea(
           child: Center(
             child: Padding(
@@ -25,8 +27,8 @@ class _LoginPageState extends State<LoginPage> {
                     child: Card(
                       elevation: twelve,
                       shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.only(
-                            bottomLeft: Radius.circular(hundredNinetySix)),
+                        borderRadius:
+                            BorderRadius.all(Radius.circular(twentyFour)),
                       ),
                       child: Padding(
                         padding: const EdgeInsets.all(thirtyTwo),
@@ -45,25 +47,7 @@ class _LoginPageState extends State<LoginPage> {
                             SizedBox(
                               height: thirtyTwo,
                             ),
-                            Container(
-                              width: hundredSeventyTwo,
-                              height: fortyFour,
-                              child: RaisedButton(
-                                shape: RoundedRectangleBorder(
-                                  borderRadius: BorderRadius.circular(
-                                    twentyFour,
-                                  ),
-                                ),
-                                onPressed: null,
-                                color: Colors.white30,
-                                child: Text(
-                                  "Login",
-                                  style: TextStyle(
-                                    color: Colors.white,
-                                  ),
-                                ),
-                              ),
-                            ),
+                            ButtonComponent()
                           ],
                         ),
                       ),
