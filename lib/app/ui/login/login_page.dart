@@ -23,7 +23,6 @@ class _LoginPageState extends State<LoginPage> {
 
   @override
   void initState() {
-    // TODO: implement initState
     super.initState();
     animatedTest();
   }
@@ -56,35 +55,51 @@ class _LoginPageState extends State<LoginPage> {
                               mainAxisAlignment: MainAxisAlignment.center,
                               children: <Widget>[
                                 Spacer(),
-                                AnimatedContainer(
-                                    margin: EdgeInsets.only(bottom: value),
-                                    duration: Duration(seconds: 1),
-                                    child: Image.asset(
-                                        "assets/images/logo_covid_app.png")),
-                                Column(
-                                  children: <Widget>[
-                                    TextFormFieldComponent("Email", false),
-                                    SizedBox(
-                                      height: twenty,
-                                    ),
-                                    TextFormFieldComponent("Senha", true),
-                                  ],
+                                Expanded(
+                                  flex: 5,
+                                  child: AnimatedContainer(
+                                      margin: EdgeInsets.only(bottom: value),
+                                      duration: Duration(seconds: 1),
+                                      child: Image.asset(
+                                          "assets/images/logo_covid_app.png")),
                                 ),
-                                SizedBox(
-                                  height: thirtyTwo,
+                                Expanded(
+                                  flex: 4,
+                                  child: Column(
+                                    children: <Widget>[
+                                      Expanded(
+                                          flex: 2,
+                                          child: TextFormFieldComponent(
+                                              "Email", false)),
+                                      SizedBox(
+                                        height: twenty,
+                                      ),
+                                      Expanded(
+                                          flex: 2,
+                                          child: TextFormFieldComponent(
+                                              "Senha", true)),
+                                    ],
+                                  ),
                                 ),
-                                ButtonComponent(
-                                  title: "Login",
-                                  fillColor: rosePrimaryColor,
-                                  textColor: Colors.white,
+                                Spacer(),
+                                Expanded(
+                                  flex: 1,
+                                  child: ButtonComponent(
+                                    title: "Login",
+                                    fillColor: rosePrimaryColor,
+                                    textColor: Colors.white,
+                                  ),
                                 ),
                                 SizedBox(
                                   height: twenty,
                                 ),
-                                ButtonComponent(
-                                  title: "Cadastrar",
-                                  fillColor: darkPrimaryColor,
-                                  textColor: Colors.white,
+                                Expanded(
+                                  flex: 1,
+                                  child: ButtonComponent(
+                                    title: "Cadastrar",
+                                    fillColor: darkPrimaryColor,
+                                    textColor: Colors.white,
+                                  ),
                                 ),
                                 Spacer(),
                               ],
