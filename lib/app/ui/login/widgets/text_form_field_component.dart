@@ -5,7 +5,8 @@ import 'package:flutter/material.dart';
 // ignore: must_be_immutable
 class TextFormFieldComponent extends StatefulWidget {
   var hintText;
-  TextFormFieldComponent(this.hintText);
+  var hideText;
+  TextFormFieldComponent(this.hintText, this.hideText);
   @override
   _TextFormFieldComponentState createState() => _TextFormFieldComponentState();
 }
@@ -16,6 +17,7 @@ class _TextFormFieldComponentState extends State<TextFormFieldComponent> {
     return Theme(
       data: ThemeData(cursorColor: rosePrimaryColor, hintColor: darkPrimaryColor),
       child: TextFormField(
+        obscureText: widget.hideText,
         decoration: InputDecoration(
           hintText: widget.hintText,
           border: OutlineInputBorder(

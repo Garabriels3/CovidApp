@@ -3,6 +3,12 @@ import 'package:covid_app/core/constants/dimens.dart';
 import 'package:flutter/material.dart';
 
 class ButtonComponent extends StatefulWidget {
+
+  var title;
+  var fillColor;
+  var textColor;
+  ButtonComponent({Key key, this.title, this.fillColor, this.textColor});
+
   @override
   _ButtonComponentState createState() => _ButtonComponentState();
 }
@@ -21,11 +27,11 @@ class _ButtonComponentState extends State<ButtonComponent> {
           ),
         ),
         onPressed: () {},
-        color: rosePrimaryColor,
+        color: widget.fillColor,
         child: Text(
-          "Login",
+          widget.title,
           style: TextStyle(
-            color: Colors.white,
+            color: widget.textColor,
           ),
         ),
       ),
