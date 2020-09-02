@@ -11,6 +11,23 @@ class LoginPage extends StatefulWidget {
 }
 
 class _LoginPageState extends State<LoginPage> {
+  var value = twenty;
+
+  void animatedTest() async {
+    Future.delayed(Duration(seconds: 0), () {
+      setState(() {
+        value = sixtyEight;
+      });
+    });
+  }
+
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    animatedTest();
+  }
+
   @override
   Widget build(BuildContext context) {
     return KeyboardHideable(
@@ -40,12 +57,10 @@ class _LoginPageState extends State<LoginPage> {
                               children: <Widget>[
                                 Spacer(),
                                 AnimatedContainer(
-                                  duration: Duration(milliseconds: 100),
+                                    margin: EdgeInsets.only(bottom: value),
+                                    duration: Duration(seconds: 1),
                                     child: Image.asset(
                                         "assets/images/logo_covid_app.png")),
-                                SizedBox(
-                                  height: sixtyEight,
-                                ),
                                 Column(
                                   children: <Widget>[
                                     TextFormFieldComponent("Email", false),
