@@ -2,12 +2,13 @@ import 'package:covid_app/core/constants/colors.dart';
 import 'package:covid_app/core/constants/dimens.dart';
 import 'package:flutter/material.dart';
 
+// ignore: must_be_immutable
 class ButtonComponent extends StatefulWidget {
-
   var title;
   var fillColor;
   var textColor;
-  ButtonComponent({Key key, this.title, this.fillColor, this.textColor});
+  Function loginFun;
+  ButtonComponent({Key key, this.title, this.fillColor, this.textColor, this.loginFun});
 
   @override
   _ButtonComponentState createState() => _ButtonComponentState();
@@ -26,7 +27,7 @@ class _ButtonComponentState extends State<ButtonComponent> {
             twentyFour,
           ),
         ),
-        onPressed: () {},
+        onPressed: widget.loginFun,
         color: widget.fillColor,
         child: Text(
           widget.title,
