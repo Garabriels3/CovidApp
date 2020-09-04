@@ -115,7 +115,6 @@ abstract class LoginViewModelBase with Store {
             ),
             actions: <Widget>[
               Container(
-                margin: EdgeInsets.only(right: eighty),
                 height: fortyFour,
                 width: hundred,
                 child: RaisedButton(
