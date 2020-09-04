@@ -18,8 +18,7 @@ class _ButtonComponentState extends State<ButtonComponent> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      width: hundredSeventyTwo,
-      height: fortyFour,
+      width: twoHundredTwentyFour,
       child: RaisedButton(
         disabledColor: Colors.grey,
         shape: RoundedRectangleBorder(
@@ -33,6 +32,8 @@ class _ButtonComponentState extends State<ButtonComponent> {
           widget.title,
           style: TextStyle(
             color: widget.textColor,
+            fontSize: 18,
+            fontWeight: FontWeight.w400
           ),
         ),
       ),

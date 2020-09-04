@@ -101,14 +101,15 @@ class _LoginPageState extends State<LoginPage> {
                                           flex: 3,
                                           child: Observer(builder: (_) {
                                             return TextFormFieldComponent(
-                                                hintText: passwordHintText,
-                                                hideText: true,
-                                                genericControler:
-                                                    controllerPassword,
-                                                onChangedGeneric:
-                                                    vm.changePassword,
-                                                errorMessage:
-                                                    vm.passwordIsValid());
+                                              hintText: passwordHintText,
+                                              hideText: true,
+                                              genericControler:
+                                                  controllerPassword,
+                                              onChangedGeneric:
+                                                  vm.changePassword,
+                                              errorMessage:
+                                                  vm.passwordIsValid(),
+                                            );
                                           }),
                                         ),
                                       ],
