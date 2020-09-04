@@ -10,8 +10,8 @@ class TextFormFieldComponent extends StatefulWidget {
   String errorMessage;
   Function onChangedGeneric;
 
-  TextFormFieldComponent(this.hintText, this.hideText, this.genericControler,
-      this.onChangedGeneric, this.errorMessage);
+  TextFormFieldComponent({this.hintText, this.hideText, this.genericControler,
+      this.onChangedGeneric, this.errorMessage});
 
   @override
   _TextFormFieldComponentState createState() => _TextFormFieldComponentState();

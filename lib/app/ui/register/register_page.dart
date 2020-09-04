@@ -1,30 +1,26 @@
-import 'package:covid_app/app/ui/login/login_viewmodel.dart';
+import 'package:covid_app/app/widgets/text_form_field_component.dart';
 import 'package:covid_app/app/widgets/KeyboardHideable.dart';
+import 'package:covid_app/app/widgets/button_component.dart';
 import 'package:covid_app/core/constants/colors.dart';
 import 'package:covid_app/core/constants/dimens.dart';
 import 'package:covid_app/core/constants/string.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
-import '../../widgets/button_component.dart';
-import '../../widgets/text_form_field_component.dart';
 
-class LoginPage extends StatefulWidget {
+class RegisterPage extends StatefulWidget {
   @override
-  _LoginPageState createState() => _LoginPageState();
+  _RegisterPageState createState() => _RegisterPageState();
 }
 
-class _LoginPageState extends State<LoginPage> {
-  var vm = LoginViewModel();
-  var value = zero;
-  var valueTextFields = sixtyEight;
-  TextEditingController controllerEmail = TextEditingController();
-  TextEditingController controllerPassword = TextEditingController();
+class _RegisterPageState extends State<RegisterPage> {
+  var valueImage = ninetyTwo;
+  var valueTextFields = twelve;
 
   void animatedTest() async {
     Future.delayed(Duration(seconds: 0), () {
       setState(() {
-        value = sixtyEight;
-        valueTextFields = zero;
+        valueImage = zero;
+        valueTextFields = eighty;
       });
     });
   }
@@ -62,17 +58,18 @@ class _LoginPageState extends State<LoginPage> {
                             child: Column(
                               mainAxisAlignment: MainAxisAlignment.center,
                               children: <Widget>[
-                                Spacer(),
+                                SizedBox(height: twentyEight,),
                                 Expanded(
-                                  flex: 8,
+                                  flex: 3,
                                   child: AnimatedContainer(
-                                      margin: EdgeInsets.only(bottom: value),
+                                      margin:
+                                          EdgeInsets.only(bottom: valueImage),
                                       duration: Duration(seconds: 1),
                                       child: Image.asset(
-                                          "assets/images/logo_covid_app.png")),
+                                          "assets/images/register.png")),
                                 ),
                                 Expanded(
-                                  flex: 7,
+                                  flex: 6,
                                   child: AnimatedContainer(
                                     margin:
                                         EdgeInsets.only(top: valueTextFields),
@@ -80,35 +77,25 @@ class _LoginPageState extends State<LoginPage> {
                                     child: Column(
                                       children: <Widget>[
                                         Expanded(
-                                          flex: 3,
+                                          flex: 4,
                                           child: Observer(
                                             builder: (_) =>
                                                 TextFormFieldComponent(
-                                                    hintText: emailHintText,
-                                                    hideText: false,
-                                                    genericControler:
-                                                        controllerEmail,
-                                                    onChangedGeneric:
-                                                        vm.changeEmail,
-                                                    errorMessage:
-                                                        vm.emailIsValid()),
+                                              hintText: registerEmailHintText,
+                                              hideText: false,
+                                            ),
                                           ),
                                         ),
                                         SizedBox(
-                                          height: four,
+                                          height: twenty,
                                         ),
                                         Expanded(
-                                          flex: 3,
+                                          flex: 4,
                                           child: Observer(builder: (_) {
                                             return TextFormFieldComponent(
-                                                hintText: passwordHintText,
-                                                hideText: true,
-                                                genericControler:
-                                                    controllerPassword,
-                                                onChangedGeneric:
-                                                    vm.changePassword,
-                                                errorMessage:
-                                                    vm.passwordIsValid());
+                                                hintText:
+                                                    registerPasswordHintText,
+                                                hideText: false);
                                           }),
                                         ),
                                       ],
@@ -119,30 +106,14 @@ class _LoginPageState extends State<LoginPage> {
                                   height: twentyEight,
                                 ),
                                 Expanded(
-                                  flex: 2,
-                                  child: Observer(
-                                    builder: (_) => ButtonComponent(
-                                      title: loginButtonLabel,
-                                      fillColor: rosePrimaryColor,
-                                      textColor: Colors.white,
-                                      loginFun: vm.formIsValid
-                                          ? () => vm.firebaseLogin(context)
-                                          : null,
-                                    ),
-                                  ),
-                                ),
-                                SizedBox(
-                                  height: twenty,
-                                ),
-                                Expanded(
-                                  flex: 2,
+                                  flex: 1,
                                   child: ButtonComponent(
                                       title: registerButtonLabel,
                                       fillColor: darkPrimaryColor,
                                       textColor: Colors.white,
                                       loginFun: () {}),
                                 ),
-                                Spacer()
+                                SizedBox(height: sixteen,)
                               ],
                             ),
                           ),

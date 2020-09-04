@@ -8,8 +8,11 @@ class HomePage extends StatefulWidget {
 class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
-    return Container(
-        child: Text("Bem vindo a Home")
+    return WillPopScope(
+      onWillPop: () async {
+        return false;
+      },
+      child: Container(child: Text("Bem vindo a Home")),
     );
   }
 }

@@ -1,4 +1,3 @@
-import 'package:covid_app/app/service/firebase/firebase_auth.dart';
 import 'package:covid_app/app/service/firebase/firebase_auth_impl.dart';
 import 'package:covid_app/app/ui/home/home_page.dart';
 import 'package:flutter/material.dart';
@@ -25,6 +24,7 @@ abstract class LoginViewModelBase with Store {
   bool passwordErrorLabel = false;
 
   final _auth = Auth();
+  String userId;
 
   @action
   changeEmail(String newEmail) => email = newEmail;
@@ -64,7 +64,6 @@ abstract class LoginViewModelBase with Store {
   Future<void> firebaseLogin(dynamic context) async {
     try {
       if (email.isNotEmpty && password.isNotEmpty) {
-        var userId;
         await _auth.signIn(email, password).then((value) => userId = value);
         userId.length > 0 ? homeNavigator(context) : error = true;
       } else {
