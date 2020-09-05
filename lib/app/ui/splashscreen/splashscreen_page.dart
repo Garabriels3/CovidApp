@@ -1,7 +1,6 @@
 import 'package:covid_app/app/ui/login/login_page.dart';
 import 'package:covid_app/core/constants/colors.dart';
 import 'package:covid_app/core/constants/dimens.dart';
-import 'package:covid_app/core/constants/fonts.dart';
 import 'package:flutter/material.dart';
 import 'package:splashscreen/splashscreen.dart';
 

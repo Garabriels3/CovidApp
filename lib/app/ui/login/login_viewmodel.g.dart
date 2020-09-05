@@ -94,6 +94,21 @@ mixin _$LoginViewModel on LoginViewModelBase, Store {
     });
   }
 
+  final _$userIdAtom = Atom(name: 'LoginViewModelBase.userId');
+
+  @override
+  String get userId {
+    _$userIdAtom.reportRead();
+    return super.userId;
+  }
+
+  @override
+  set userId(String value) {
+    _$userIdAtom.reportWrite(value, super.userId, () {
+      super.userId = value;
+    });
+  }
+
   final _$firebaseLoginAsyncAction =
       AsyncAction('LoginViewModelBase.firebaseLogin');
 
@@ -157,6 +172,7 @@ password: ${password},
 error: ${error},
 emailErrorLabel: ${emailErrorLabel},
 passwordErrorLabel: ${passwordErrorLabel},
+userId: ${userId},
 formIsValid: ${formIsValid}
     ''';
   }

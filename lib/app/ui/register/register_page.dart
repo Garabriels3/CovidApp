@@ -1,3 +1,4 @@
+import 'package:covid_app/app/ui/register/register_viewmodel.dart';
 import 'package:covid_app/app/widgets/text_form_field_component.dart';
 import 'package:covid_app/app/widgets/KeyboardHideable.dart';
 import 'package:covid_app/app/widgets/button_component.dart';
@@ -13,6 +14,7 @@ class RegisterPage extends StatefulWidget {
 }
 
 class _RegisterPageState extends State<RegisterPage> {
+  var vm = RegisterViewModel();
   var valueImage = ninetyTwo;
   var valueTextFields = twelve;
 
@@ -58,7 +60,9 @@ class _RegisterPageState extends State<RegisterPage> {
                             child: Column(
                               mainAxisAlignment: MainAxisAlignment.center,
                               children: <Widget>[
-                                SizedBox(height: twentyEight,),
+                                SizedBox(
+                                  height: twentyEight,
+                                ),
                                 Expanded(
                                   flex: 3,
                                   child: AnimatedContainer(
@@ -69,51 +73,52 @@ class _RegisterPageState extends State<RegisterPage> {
                                           "assets/images/register.png")),
                                 ),
                                 Expanded(
-                                  flex: 6,
+                                  flex: 5,
                                   child: AnimatedContainer(
                                     margin:
                                         EdgeInsets.only(top: valueTextFields),
                                     duration: Duration(seconds: 1),
                                     child: Column(
                                       children: <Widget>[
-                                        Expanded(
-                                          flex: 4,
-                                          child: Observer(
-                                            builder: (_) =>
-                                                TextFormFieldComponent(
-                                              hintText: registerEmailHintText,
-                                              hideText: false,
-                                            ),
+                                        Observer(
+                                          builder: (_) =>
+                                              TextFormFieldComponent(
+                                            hintText: registerEmailHintText,
+                                            hideText: false,
+                                            onChangedGeneric: vm.changeEmail,
+                                            errorMessage: vm.emailIsValid(),
                                           ),
                                         ),
                                         SizedBox(
                                           height: twenty,
                                         ),
-                                        Expanded(
-                                          flex: 4,
-                                          child: Observer(builder: (_) {
-                                            return TextFormFieldComponent(
-                                                hintText:
-                                                    registerPasswordHintText,
-                                                hideText: false);
-                                          }),
-                                        ),
+                                        Observer(builder: (_) {
+                                          return TextFormFieldComponent(
+                                              hintText:
+                                                  registerPasswordHintText,
+                                              hideText: true,
+                                              onChangedGeneric:
+                                                  vm.changePassword,
+                                              errorMessage:
+                                                  vm.passwordIsValid());
+                                        }),
                                       ],
                                     ),
                                   ),
                                 ),
-                                SizedBox(
-                                  height: twentyEight,
-                                ),
                                 Expanded(
                                   flex: 1,
-                                  child: ButtonComponent(
-                                      title: registerButtonLabel,
-                                      fillColor: darkPrimaryColor,
-                                      textColor: Colors.white,
-                                      loginFun: () {}),
+                                  child: Observer(builder: (_) {
+                                    return ButtonComponent(
+                                        title: registerButtonLabel,
+                                        fillColor: darkPrimaryColor,
+                                        textColor: Colors.white,
+                                        loginFun: vm.formIsValid
+                                            ? () => vm.firebaseRegister(context)
+                                            : null);
+                                  }),
                                 ),
-                                SizedBox(height: sixteen,)
+                                Spacer()
                               ],
                             ),
                           ),

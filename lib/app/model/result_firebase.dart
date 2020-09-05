@@ -12,6 +12,7 @@ class VoidResult {
   bool get success => errorMessage == null;
 
   final String errorMessage;
+  final String userId;
 
-  VoidResult({this.errorMessage});
+  VoidResult({this.errorMessage, this.userId});
 }

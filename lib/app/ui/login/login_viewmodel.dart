@@ -1,4 +1,3 @@
-import 'package:covid_app/app/model/result_firebase.dart';
 import 'package:covid_app/app/service/firebase/firebase_auth_impl.dart';
 import 'package:covid_app/app/ui/home/home_page.dart';
 import 'package:covid_app/core/constants/colors.dart';
@@ -26,6 +25,9 @@ abstract class LoginViewModelBase with Store {
 
   @observable
   bool passwordErrorLabel = false;
+
+  @observable
+  String userId = "";
 
   final _auth = Auth();
   String errorMessageLogin;
@@ -84,6 +86,7 @@ abstract class LoginViewModelBase with Store {
   @action
   Future<void> firebaseLogin(dynamic context) async {
     var result = await _auth.signIn(email, password);
+    userId = result.userId;
     result.success ? homeNavigator(context) : errorDialog(context);
   }
 

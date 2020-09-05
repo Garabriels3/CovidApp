@@ -1,4 +1,3 @@
-import 'package:covid_app/core/constants/colors.dart';
 import 'package:covid_app/core/constants/dimens.dart';
 import 'package:flutter/material.dart';
 

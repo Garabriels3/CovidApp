@@ -9,6 +9,14 @@ part of 'register_viewmodel.dart';
 // ignore_for_file: non_constant_identifier_names, unnecessary_brace_in_string_interps, unnecessary_lambdas, prefer_expression_function_bodies, lines_longer_than_80_chars, avoid_as, avoid_annotating_with_dynamic
 
 mixin _$RegisterViewModel on _RegisterViewModelBase, Store {
+  Computed<bool> _$formIsValidComputed;
+
+  @override
+  bool get formIsValid =>
+      (_$formIsValidComputed ??= Computed<bool>(() => super.formIsValid,
+              name: '_RegisterViewModelBase.formIsValid'))
+          .value;
+
   final _$emailAtom = Atom(name: '_RegisterViewModelBase.email');
 
   @override
@@ -39,27 +47,13 @@ mixin _$RegisterViewModel on _RegisterViewModelBase, Store {
     });
   }
 
-  final _$errorAtom = Atom(name: '_RegisterViewModelBase.error');
+  final _$firebaseRegisterAsyncAction =
+      AsyncAction('_RegisterViewModelBase.firebaseRegister');
 
   @override
-  bool get error {
-    _$errorAtom.reportRead();
-    return super.error;
-  }
-
-  @override
-  set error(bool value) {
-    _$errorAtom.reportWrite(value, super.error, () {
-      super.error = value;
-    });
-  }
-
-  final _$firebaseLoginAsyncAction =
-      AsyncAction('_RegisterViewModelBase.firebaseLogin');
-
-  @override
-  Future<void> firebaseLogin(dynamic context) {
-    return _$firebaseLoginAsyncAction.run(() => super.firebaseLogin(context));
+  Future<void> firebaseRegister(dynamic context) {
+    return _$firebaseRegisterAsyncAction
+        .run(() => super.firebaseRegister(context));
   }
 
   final _$_RegisterViewModelBaseActionController =
@@ -92,7 +86,7 @@ mixin _$RegisterViewModel on _RegisterViewModelBase, Store {
     return '''
 email: ${email},
 password: ${password},
-error: ${error}
+formIsValid: ${formIsValid}
     ''';
   }
 }
