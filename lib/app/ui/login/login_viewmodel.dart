@@ -1,7 +1,6 @@
 import 'package:covid_app/app/service/firebase/firebase_auth_impl.dart';
 import 'package:covid_app/app/ui/home/home_page.dart';
-import 'package:covid_app/core/constants/colors.dart';
-import 'package:covid_app/core/constants/dimens.dart';
+import 'package:covid_app/app/utils/generic_dialog.dart';
 import 'package:covid_app/core/constants/string.dart';
 import 'package:flutter/material.dart';
 import 'package:mobx/mobx.dart';
@@ -87,58 +86,13 @@ abstract class LoginViewModelBase with Store {
   Future<void> firebaseLogin(dynamic context) async {
     var result = await _auth.signIn(email, password);
     userId = result.userId;
-    result.success ? homeNavigator(context) : errorDialog(context);
+    result.success
+        ? homeNavigator(context)
+        : genericDialog(context, wrongCredentials, wrongCredentialsOrientation, () => Navigator.pop(context));
   }
 
   void homeNavigator(context) {
     Navigator.push(
         context, MaterialPageRoute(builder: (context) => HomePage()));
-  }
-
-  Future errorDialog(dynamic context) {
-    return showDialog(
-        context: context,
-        builder: (context) {
-          return AlertDialog(
-            shape: RoundedRectangleBorder(
-              borderRadius: BorderRadius.all(Radius.circular(twentyFour)),
-            ),
-            title: Text(
-              wrongCredentials,
-              textAlign: TextAlign.center,
-            ),
-            content: Column(
-              mainAxisSize: MainAxisSize.min,
-              children: <Widget>[
-                Text(
-                  wrongCredentialsOrientation,
-                  textAlign: TextAlign.center,
-                ),
-              ],
-            ),
-            actions: <Widget>[
-              Container(
-                height: fortyFour,
-                width: hundred,
-                child: RaisedButton(
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(
-                      twentyFour,
-                    ),
-                  ),
-                  child: Text(
-                    dismissDialogs,
-                    style: TextStyle(fontSize: sixteen),
-                  ),
-                  textColor: Colors.white,
-                  color: darkPrimaryColor,
-                  onPressed: () async {
-                    Navigator.pop(context);
-                  },
-                ),
-              )
-            ],
-          );
-        });
   }
 }

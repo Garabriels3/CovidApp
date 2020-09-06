@@ -1,4 +1,5 @@
 import 'package:covid_app/app/ui/login/login_viewmodel.dart';
+import 'package:covid_app/app/ui/register/register_page.dart';
 import 'package:covid_app/app/widgets/KeyboardHideable.dart';
 import 'package:covid_app/core/constants/colors.dart';
 import 'package:covid_app/core/constants/dimens.dart';
@@ -62,7 +63,6 @@ class _LoginPageState extends State<LoginPage> {
                             child: Column(
                               mainAxisAlignment: MainAxisAlignment.center,
                               children: <Widget>[
-                                Spacer(),
                                 Expanded(
                                   flex: 8,
                                   child: AnimatedContainer(
@@ -79,6 +79,9 @@ class _LoginPageState extends State<LoginPage> {
                                     duration: Duration(seconds: 1),
                                     child: Column(
                                       children: <Widget>[
+                                        Spacer(
+                                          flex: 1,
+                                        ),
                                         Expanded(
                                           flex: 3,
                                           child: Observer(
@@ -95,7 +98,7 @@ class _LoginPageState extends State<LoginPage> {
                                           ),
                                         ),
                                         SizedBox(
-                                          height: four,
+                                          height: twelve,
                                         ),
                                         Expanded(
                                           flex: 3,
@@ -112,6 +115,7 @@ class _LoginPageState extends State<LoginPage> {
                                             );
                                           }),
                                         ),
+                                        Spacer()
                                       ],
                                     ),
                                   ),
@@ -141,9 +145,15 @@ class _LoginPageState extends State<LoginPage> {
                                       title: registerButtonLabel,
                                       fillColor: darkPrimaryColor,
                                       textColor: Colors.white,
-                                      loginFun: () {}),
+                                      loginFun: () {
+                                        Navigator.push(
+                                            context,
+                                            MaterialPageRoute(
+                                                builder:
+                                                    (BuildContext context) =>
+                                                        RegisterPage()));
+                                      }),
                                 ),
-                                Spacer()
                               ],
                             ),
                           ),

@@ -1,4 +1,8 @@
 import 'package:covid_app/app/service/firebase/firebase_auth_impl.dart';
+import 'package:covid_app/app/ui/login/login_page.dart';
+import 'package:covid_app/app/utils/generic_dialog.dart';
+import 'package:covid_app/core/constants/string.dart';
+import 'package:flutter/material.dart';
 import 'package:mobx/mobx.dart';
 
 part 'register_viewmodel.g.dart';
@@ -62,12 +66,22 @@ abstract class _RegisterViewModelBase with Store {
 
   @action
   Future<void> firebaseRegister(dynamic context) async {
-    try {
-      if (email.isNotEmpty && password.isNotEmpty) {
-        await _auth.signUp(email, password).then((value) => userId = value);
-      } else {}
-    } catch (Exception) {
-      print("Login Error: $Exception");
-    }
+    var result = await _auth.signUp(email, password);
+    userId = result.userId;
+    sendEmailVerification(result.success);
+    result.success
+        ? genericDialog(context, registerSuccess, registerSucessOrientation,
+            () => goToLogin(context))
+        : genericDialog(context, wrongDataInRegister, wrongDataInOrientation,
+            () => Navigator.pop(context));
+  }
+
+  Future<void> sendEmailVerification(bool success) async {
+    if (success) _auth.sendEmailVerification();
+  }
+
+  void goToLogin(context) {
+    Navigator.push(
+        context, MaterialPageRoute(builder: (context) => LoginPage()));
   }
 }

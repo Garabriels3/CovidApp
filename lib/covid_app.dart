@@ -11,7 +11,7 @@ class CovidApp extends StatelessWidget {
       theme: ThemeData(
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
-      home: RegisterPage(),
+      home: SplashPage(),
     );
   }
 }

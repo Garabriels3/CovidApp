@@ -51,6 +51,7 @@ flutter:
     - assets/images/logo_covid_app.png
     - assets/images/logo_covid_app_3x.png
     - assets/images/register.png
+    - assets/images/previous.png
     - assets/fonts/
   fonts:
     - family: AvenirLTStd

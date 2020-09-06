@@ -15,23 +15,6 @@ class RegisterPage extends StatefulWidget {
 
 class _RegisterPageState extends State<RegisterPage> {
   var vm = RegisterViewModel();
-  var valueImage = ninetyTwo;
-  var valueTextFields = twelve;
-
-  void animatedTest() async {
-    Future.delayed(Duration(seconds: 0), () {
-      setState(() {
-        valueImage = zero;
-        valueTextFields = eighty;
-      });
-    });
-  }
-
-  @override
-  void initState() {
-    super.initState();
-    animatedTest();
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -59,25 +42,27 @@ class _RegisterPageState extends State<RegisterPage> {
                             padding: const EdgeInsets.all(thirtyTwo),
                             child: Column(
                               mainAxisAlignment: MainAxisAlignment.center,
+                              crossAxisAlignment: CrossAxisAlignment.start,
                               children: <Widget>[
-                                SizedBox(
-                                  height: twentyEight,
+                                Container(
+                                  height: fortyFour,
+                                  width: fortyFour,
+                                  child: GestureDetector(
+                                    onTap: () => Navigator.pop(context),
+                                    child: Image.asset(
+                                        "assets/images/previous.png"),
+                                  ),
                                 ),
-                                Expanded(
-                                  flex: 3,
-                                  child: AnimatedContainer(
-                                      margin:
-                                          EdgeInsets.only(bottom: valueImage),
-                                      duration: Duration(seconds: 1),
-                                      child: Image.asset(
-                                          "assets/images/register.png")),
+                                Spacer(),
+                                Container(
+                                  margin: EdgeInsets.only(left: seventyTwo, right: seventyTwo),
+                                  child:
+                                      Image.asset("assets/images/register.png"),
                                 ),
+                                Spacer(),
                                 Expanded(
-                                  flex: 5,
-                                  child: AnimatedContainer(
-                                    margin:
-                                        EdgeInsets.only(top: valueTextFields),
-                                    duration: Duration(seconds: 1),
+                                  flex: 4,
+                                  child: Container(
                                     child: Column(
                                       children: <Widget>[
                                         Observer(
@@ -109,16 +94,21 @@ class _RegisterPageState extends State<RegisterPage> {
                                 Expanded(
                                   flex: 1,
                                   child: Observer(builder: (_) {
-                                    return ButtonComponent(
-                                        title: registerButtonLabel,
-                                        fillColor: darkPrimaryColor,
-                                        textColor: Colors.white,
-                                        loginFun: vm.formIsValid
-                                            ? () => vm.firebaseRegister(context)
-                                            : null);
+                                    return Container(
+                                      margin: EdgeInsets.only(
+                                          left: fortyEight,
+                                          right: fortyEight),
+                                      child: ButtonComponent(
+                                          title: registerButtonLabel,
+                                          fillColor: darkPrimaryColor,
+                                          textColor: Colors.white,
+                                          loginFun: vm.formIsValid
+                                              ? () =>
+                                                  vm.firebaseRegister(context)
+                                              : null),
+                                    );
                                   }),
                                 ),
-                                Spacer()
                               ],
                             ),
                           ),
