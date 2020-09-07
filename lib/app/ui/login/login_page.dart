@@ -120,9 +120,16 @@ class _LoginPageState extends State<LoginPage> {
                                     ),
                                   ),
                                 ),
-                                SizedBox(
-                                  height: twentyEight,
+                                GestureDetector(
+                                  child: Text(
+                                    forgotPasswordLabel,
+                                    style: TextStyle(
+                                        color: darkPrimaryColor,
+                                        fontSize: 18,
+                                        fontWeight: FontWeight.w400),
+                                  ),
                                 ),
+                                Spacer(),
                                 Expanded(
                                   flex: 2,
                                   child: Observer(

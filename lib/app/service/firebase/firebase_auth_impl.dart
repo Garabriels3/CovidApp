@@ -27,6 +27,16 @@ class Auth implements BaseAuth {
     }
   }
 
+  @override
+  Future<VoidResult> resetPassword(String email) async {
+    try {
+      await _firebaseAuth.sendPasswordResetEmail(email: email);
+      return VoidResult();
+    } catch (e) {
+      return VoidResult(errorMessage: e.toString());
+    }
+  }
+
   Future<FirebaseUser> getCurrentUser() async {
     FirebaseUser user = await _firebaseAuth.currentUser();
     return user;

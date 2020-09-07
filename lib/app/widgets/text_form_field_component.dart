@@ -5,7 +5,7 @@ import 'package:flutter/material.dart';
 // ignore: must_be_immutable
 class TextFormFieldComponent extends StatefulWidget {
   String hintText;
-  bool hideText;
+  bool hideText = false;
   TextEditingController genericControler;
   String errorMessage;
   Function onChangedGeneric;
