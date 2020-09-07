@@ -121,6 +121,8 @@ class _LoginPageState extends State<LoginPage> {
                                   ),
                                 ),
                                 GestureDetector(
+                                  onTap: () =>
+                                      vm.forgotPasswordNavigator(context),
                                   child: Text(
                                     forgotPasswordLabel,
                                     style: TextStyle(
@@ -149,17 +151,12 @@ class _LoginPageState extends State<LoginPage> {
                                 Expanded(
                                   flex: 2,
                                   child: ButtonComponent(
-                                      title: registerButtonLabel,
-                                      fillColor: darkPrimaryColor,
-                                      textColor: Colors.white,
-                                      loginFun: () {
-                                        Navigator.push(
-                                            context,
-                                            MaterialPageRoute(
-                                                builder:
-                                                    (BuildContext context) =>
-                                                        RegisterPage()));
-                                      }),
+                                    title: registerButtonLabel,
+                                    fillColor: darkPrimaryColor,
+                                    textColor: Colors.white,
+                                    loginFun: () =>
+                                        vm.registerNavigator(context),
+                                  ),
                                 ),
                               ],
                             ),

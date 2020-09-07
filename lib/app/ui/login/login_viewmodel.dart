@@ -1,5 +1,7 @@
 import 'package:covid_app/app/service/firebase/firebase_auth_impl.dart';
+import 'package:covid_app/app/ui/forgot_password/forgot_password_page.dart';
 import 'package:covid_app/app/ui/home/home_page.dart';
+import 'package:covid_app/app/ui/register/register_page.dart';
 import 'package:covid_app/app/utils/generic_dialog.dart';
 import 'package:covid_app/core/constants/string.dart';
 import 'package:flutter/material.dart';
@@ -88,11 +90,22 @@ abstract class LoginViewModelBase with Store {
     userId = result.userId;
     result.success
         ? homeNavigator(context)
-        : genericDialog(context, wrongCredentials, wrongCredentialsOrientation, () => Navigator.pop(context));
+        : genericDialog(context, wrongCredentials, wrongCredentialsOrientation,
+            () => Navigator.pop(context));
   }
 
   void homeNavigator(context) {
     Navigator.push(
         context, MaterialPageRoute(builder: (context) => HomePage()));
+  }
+
+  void forgotPasswordNavigator(context) {
+    Navigator.push(
+        context, MaterialPageRoute(builder: (context) => FortgotPassword()));
+  }
+
+  void registerNavigator(context) {
+    Navigator.push(context,
+        MaterialPageRoute(builder: (BuildContext context) => RegisterPage()));
   }
 }
