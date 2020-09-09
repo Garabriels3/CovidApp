@@ -73,51 +73,30 @@ class _LoginPageState extends State<LoginPage> {
                                 ),
                                 Expanded(
                                   flex: 7,
-                                  child: AnimatedContainer(
-                                    margin:
-                                        EdgeInsets.only(top: valueTextFields),
-                                    duration: Duration(seconds: 1),
-                                    child: Column(
-                                      children: <Widget>[
-                                        Spacer(
-                                          flex: 1,
+                                  child: Column(
+                                    children: <Widget>[
+                                      Observer(
+                                        builder: (_) => TextFormFieldComponent(
+                                          hintText: emailHintText,
+                                          hideText: false,
+                                          genericControler: controllerEmail,
+                                          onChangedGeneric: vm.changeEmail,
+                                          errorMessage: vm.emailIsValid(),
                                         ),
-                                        Expanded(
-                                          flex: 3,
-                                          child: Observer(
-                                            builder: (_) =>
-                                                TextFormFieldComponent(
-                                                    hintText: emailHintText,
-                                                    hideText: false,
-                                                    genericControler:
-                                                        controllerEmail,
-                                                    onChangedGeneric:
-                                                        vm.changeEmail,
-                                                    errorMessage:
-                                                        vm.emailIsValid()),
-                                          ),
-                                        ),
-                                        SizedBox(
-                                          height: twelve,
-                                        ),
-                                        Expanded(
-                                          flex: 3,
-                                          child: Observer(builder: (_) {
-                                            return TextFormFieldComponent(
-                                              hintText: passwordHintText,
-                                              hideText: true,
-                                              genericControler:
-                                                  controllerPassword,
-                                              onChangedGeneric:
-                                                  vm.changePassword,
-                                              errorMessage:
-                                                  vm.passwordIsValid(),
-                                            );
-                                          }),
-                                        ),
-                                        Spacer()
-                                      ],
-                                    ),
+                                      ),
+                                      SizedBox(
+                                        height: sixteen,
+                                      ),
+                                      Observer(builder: (_) {
+                                        return TextFormFieldComponent(
+                                          hintText: passwordHintText,
+                                          hideText: true,
+                                          genericControler: controllerPassword,
+                                          onChangedGeneric: vm.changePassword,
+                                          errorMessage: vm.passwordIsValid(),
+                                        );
+                                      }),
+                                    ],
                                   ),
                                 ),
                                 GestureDetector(
@@ -132,31 +111,24 @@ class _LoginPageState extends State<LoginPage> {
                                   ),
                                 ),
                                 Spacer(),
-                                Expanded(
-                                  flex: 2,
-                                  child: Observer(
-                                    builder: (_) => ButtonComponent(
-                                      title: loginButtonLabel,
-                                      fillColor: rosePrimaryColor,
-                                      textColor: Colors.white,
-                                      loginFun: vm.formIsValid
-                                          ? () => vm.firebaseLogin(context)
-                                          : null,
-                                    ),
+                                Observer(
+                                  builder: (_) => ButtonComponent(
+                                    title: loginButtonLabel,
+                                    fillColor: rosePrimaryColor,
+                                    textColor: Colors.white,
+                                    loginFun: vm.formIsValid
+                                        ? () => vm.firebaseLogin(context)
+                                        : null,
                                   ),
                                 ),
                                 SizedBox(
-                                  height: twenty,
+                                  height: sixteen,
                                 ),
-                                Expanded(
-                                  flex: 2,
-                                  child: ButtonComponent(
-                                    title: registerButtonLabel,
-                                    fillColor: darkPrimaryColor,
-                                    textColor: Colors.white,
-                                    loginFun: () =>
-                                        vm.registerNavigator(context),
-                                  ),
+                                ButtonComponent(
+                                  title: registerButtonLabel,
+                                  fillColor: darkPrimaryColor,
+                                  textColor: Colors.white,
+                                  loginFun: () => vm.registerNavigator(context),
                                 ),
                               ],
                             ),

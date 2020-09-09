@@ -7,7 +7,8 @@ class ButtonComponent extends StatefulWidget {
   var fillColor;
   var textColor;
   Function loginFun;
-  ButtonComponent({Key key, this.title, this.fillColor, this.textColor, this.loginFun});
+  ButtonComponent(
+      {Key key, this.title, this.fillColor, this.textColor, this.loginFun});
 
   @override
   _ButtonComponentState createState() => _ButtonComponentState();
@@ -16,8 +17,11 @@ class ButtonComponent extends StatefulWidget {
 class _ButtonComponentState extends State<ButtonComponent> {
   @override
   Widget build(BuildContext context) {
+    var screenSize = MediaQuery.of(context).size;
+
     return Container(
-      width: twoHundredTwentyFour,
+      height: screenSize.height / 14,
+      width: screenSize.width / 2,
       child: RaisedButton(
         disabledColor: Colors.grey,
         shape: RoundedRectangleBorder(
@@ -30,10 +34,9 @@ class _ButtonComponentState extends State<ButtonComponent> {
         child: Text(
           widget.title,
           style: TextStyle(
-            color: widget.textColor,
-            fontSize: 18,
-            fontWeight: FontWeight.w400
-          ),
+              color: widget.textColor,
+              fontSize: 18,
+              fontWeight: FontWeight.w400),
         ),
       ),
     );

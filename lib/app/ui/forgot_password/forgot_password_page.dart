@@ -18,6 +18,8 @@ class _FortgotPasswordState extends State<FortgotPassword> {
 
   @override
   Widget build(BuildContext context) {
+    var screenSize = MediaQuery.of(context).size;
+
     return KeyboardHideable(
       child: Scaffold(
         backgroundColor: darkPrimaryColor,
@@ -46,8 +48,7 @@ class _FortgotPasswordState extends State<FortgotPassword> {
                                 Row(
                                   children: [
                                     Container(
-                                      height: fortyFour,
-                                      width: fortyFour,
+                                  height: screenSize.height / 14,
                                       child: GestureDetector(
                                         onTap: () => Navigator.pop(context),
                                         child: Image.asset(
@@ -57,6 +58,7 @@ class _FortgotPasswordState extends State<FortgotPassword> {
                                   ],
                                 ),
                                 Container(
+                                  height: screenSize.height / 5,
                                   child:
                                       Image.asset("assets/images/password.png"),
                                 ),
@@ -89,21 +91,18 @@ class _FortgotPasswordState extends State<FortgotPassword> {
                                     ),
                                   ),
                                 ),
-                                Expanded(
-                                  flex: 1,
-                                  child: Observer(builder: (_) {
-                                    return Container(
-                                      child: ButtonComponent(
-                                        title: sendResetEmail,
-                                        fillColor: darkPrimaryColor,
-                                        textColor: Colors.white,
-                                        loginFun: vm.emailIsValidButton()
-                                            ? () => vm.resetPassword(context)
-                                            : null,
-                                      ),
-                                    );
-                                  }),
-                                ),
+                                Observer(builder: (_) {
+                                  return Container(
+                                    child: ButtonComponent(
+                                      title: sendResetEmail,
+                                      fillColor: darkPrimaryColor,
+                                      textColor: Colors.white,
+                                      loginFun: vm.emailIsValidButton()
+                                          ? () => vm.resetPassword(context)
+                                          : null,
+                                    ),
+                                  );
+                                }),
                               ],
                             ),
                           ),

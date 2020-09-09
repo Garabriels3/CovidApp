@@ -18,6 +18,8 @@ class _RegisterPageState extends State<RegisterPage> {
 
   @override
   Widget build(BuildContext context) {
+    var screenSize = MediaQuery.of(context).size;
+
     return KeyboardHideable(
       child: Scaffold(
         backgroundColor: darkPrimaryColor,
@@ -46,8 +48,7 @@ class _RegisterPageState extends State<RegisterPage> {
                                 Row(
                                   children: [
                                     Container(
-                                      height: fortyFour,
-                                      width: fortyFour,
+                                      height: screenSize.height / 14,
                                       child: GestureDetector(
                                         onTap: () => Navigator.pop(context),
                                         child: Image.asset(
@@ -58,6 +59,7 @@ class _RegisterPageState extends State<RegisterPage> {
                                 ),
                                 Spacer(),
                                 Container(
+                                  height: screenSize.height / 5,
                                   child:
                                       Image.asset("assets/images/register.png"),
                                 ),
@@ -77,7 +79,7 @@ class _RegisterPageState extends State<RegisterPage> {
                                           ),
                                         ),
                                         SizedBox(
-                                          height: twenty,
+                                          height: sixteen,
                                         ),
                                         Observer(builder: (_) {
                                           return TextFormFieldComponent(
