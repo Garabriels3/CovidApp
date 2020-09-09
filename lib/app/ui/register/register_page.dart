@@ -42,20 +42,22 @@ class _RegisterPageState extends State<RegisterPage> {
                             padding: const EdgeInsets.all(thirtyTwo),
                             child: Column(
                               mainAxisAlignment: MainAxisAlignment.center,
-                              crossAxisAlignment: CrossAxisAlignment.start,
                               children: <Widget>[
-                                Container(
-                                  height: fortyFour,
-                                  width: fortyFour,
-                                  child: GestureDetector(
-                                    onTap: () => Navigator.pop(context),
-                                    child: Image.asset(
-                                        "assets/images/previous.png"),
-                                  ),
+                                Row(
+                                  children: [
+                                    Container(
+                                      height: fortyFour,
+                                      width: fortyFour,
+                                      child: GestureDetector(
+                                        onTap: () => Navigator.pop(context),
+                                        child: Image.asset(
+                                            "assets/images/previous.png"),
+                                      ),
+                                    ),
+                                  ],
                                 ),
                                 Spacer(),
                                 Container(
-                                  margin: EdgeInsets.only(left: seventyTwo, right: seventyTwo),
                                   child:
                                       Image.asset("assets/images/register.png"),
                                 ),
@@ -95,9 +97,6 @@ class _RegisterPageState extends State<RegisterPage> {
                                   flex: 1,
                                   child: Observer(builder: (_) {
                                     return Container(
-                                      margin: EdgeInsets.only(
-                                          left: fortyEight,
-                                          right: fortyEight),
                                       child: ButtonComponent(
                                           title: registerButtonLabel,
                                           fillColor: darkPrimaryColor,

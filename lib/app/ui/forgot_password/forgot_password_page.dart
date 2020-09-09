@@ -42,20 +42,21 @@ class _FortgotPasswordState extends State<FortgotPassword> {
                             padding: const EdgeInsets.all(thirtyTwo),
                             child: Column(
                               mainAxisAlignment: MainAxisAlignment.center,
-                              crossAxisAlignment: CrossAxisAlignment.start,
                               children: <Widget>[
-                                Container(
-                                  height: fortyFour,
-                                  width: fortyFour,
-                                  child: GestureDetector(
-                                    onTap: () => Navigator.pop(context),
-                                    child: Image.asset(
-                                        "assets/images/previous.png"),
-                                  ),
+                                Row(
+                                  children: [
+                                    Container(
+                                      height: fortyFour,
+                                      width: fortyFour,
+                                      child: GestureDetector(
+                                        onTap: () => Navigator.pop(context),
+                                        child: Image.asset(
+                                            "assets/images/previous.png"),
+                                      ),
+                                    ),
+                                  ],
                                 ),
                                 Container(
-                                  margin: EdgeInsets.only(
-                                      left: seventyTwo, right: seventyTwo),
                                   child:
                                       Image.asset("assets/images/password.png"),
                                 ),
@@ -92,13 +93,13 @@ class _FortgotPasswordState extends State<FortgotPassword> {
                                   flex: 1,
                                   child: Observer(builder: (_) {
                                     return Container(
-                                      margin: EdgeInsets.only(
-                                          left: fortyEight, right: fortyEight),
                                       child: ButtonComponent(
                                         title: sendResetEmail,
                                         fillColor: darkPrimaryColor,
                                         textColor: Colors.white,
-                                        loginFun: vm.emailIsValidButton() ? () => vm.resetPassword(context) : null,
+                                        loginFun: vm.emailIsValidButton()
+                                            ? () => vm.resetPassword(context)
+                                            : null,
                                       ),
                                     );
                                   }),
