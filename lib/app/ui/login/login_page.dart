@@ -101,7 +101,7 @@ class _LoginPageState extends State<LoginPage> {
                                     fontWeight: FontWeight.w400),
                               ),
                             ),
-                            SizedBox(height: screenSize.height * 0.05),
+                            SizedBox(height: screenSize.height * 0.1),
                             Observer(
                               builder: (_) => ButtonComponent(
                                 title: loginButtonLabel,
