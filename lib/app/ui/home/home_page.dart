@@ -12,7 +12,29 @@ class _HomePageState extends State<HomePage> {
       onWillPop: () async {
         return false;
       },
-      child: Container(child: Text("Bem vindo a Home")),
+      child: Scaffold(
+        appBar: AppBar(),
+        bottomNavigationBar: BottomNavigationBar(
+          currentIndex: 0,
+          onTap: (int index) {
+            setState(() {});
+          },
+          items: [
+            BottomNavigationBarItem(
+              icon: new Icon(Icons.home),
+              title: new Text('Home'),
+            ),
+            BottomNavigationBarItem(
+              icon: new Icon(Icons.question_answer),
+              title: new Text('Quiz'),
+            ),
+            BottomNavigationBarItem(
+              icon: Icon(Icons.local_hospital),
+              title: Text('Hospitais'),
+            )
+          ],
+        ),
+      ),
     );
   }
 }
