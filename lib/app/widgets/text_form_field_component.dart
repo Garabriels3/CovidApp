@@ -24,37 +24,27 @@ class TextFormFieldComponent extends StatefulWidget {
 class _TextFormFieldComponentState extends State<TextFormFieldComponent> {
   @override
   Widget build(BuildContext context) {
-    var screenSize = MediaQuery.of(context).size;
-
-    return Theme(
-      data:
-          ThemeData(cursorColor: rosePrimaryColor, hintColor: darkPrimaryColor),
-      child: SizedBox(
-        height: 50,
-        width: screenSize.width,
-        child: TextFormField(
-          onChanged: widget.onChangedGeneric,
-          controller: widget.genericControler,
-          obscureText: widget.hideText,
-          decoration: InputDecoration(
-                  contentPadding: new EdgeInsets.symmetric(vertical: four, horizontal: sixteen),
-
-            hintText: widget.hintText,
-            errorText: widget.errorMessage != null ? widget.errorMessage : null,
-            border: OutlineInputBorder(
-              borderRadius: BorderRadius.all(Radius.circular(twentyFour)),
-            ),
-            enabledBorder: OutlineInputBorder(
-              borderRadius: BorderRadius.all(Radius.circular(twentyFour)),
-              borderSide: BorderSide(width: two, color: darkPrimaryColor),
-            ),
-            focusedBorder: OutlineInputBorder(
-              borderRadius: BorderRadius.all(Radius.circular(twentyFour)),
-              borderSide: BorderSide(
-                width: two,
-                color: defaultPrimaryColor,
-              ),
-            ),
+    return TextFormField(
+      onChanged: widget.onChangedGeneric,
+      controller: widget.genericControler,
+      obscureText: widget.hideText,
+      decoration: InputDecoration(
+        contentPadding:
+            new EdgeInsets.symmetric(horizontal: sixteen),
+        hintText: widget.hintText,
+        errorText: widget.errorMessage != null ? widget.errorMessage : null,
+        border: OutlineInputBorder(
+          borderRadius: BorderRadius.all(Radius.circular(twentyFour)),
+        ),
+        enabledBorder: OutlineInputBorder(
+          borderRadius: BorderRadius.all(Radius.circular(twentyFour)),
+          borderSide: BorderSide(width: two, color: darkPrimaryColor),
+        ),
+        focusedBorder: OutlineInputBorder(
+          borderRadius: BorderRadius.all(Radius.circular(twentyFour)),
+          borderSide: BorderSide(
+            width: two,
+            color: defaultPrimaryColor,
           ),
         ),
       ),

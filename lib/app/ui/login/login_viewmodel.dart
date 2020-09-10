@@ -55,7 +55,7 @@ abstract class LoginViewModelBase with Store {
 
   String passwordIsValid() {
     if (password.isNotEmpty && password.length < 8) {
-      return "Senha deve conter pelo menos 8 caracteres";
+      return "";
     } else {
       return null;
     }
