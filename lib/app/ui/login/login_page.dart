@@ -90,7 +90,7 @@ class _LoginPageState extends State<LoginPage> {
                                 errorMessage: vm.passwordIsValid(),
                               );
                             }),
-                            SizedBox(height: screenSize.height * 0.07),
+                            SizedBox(height: screenSize.height * 0.04),
                             GestureDetector(
                               onTap: () => vm.forgotPasswordNavigator(context),
                               child: Text(
@@ -101,7 +101,7 @@ class _LoginPageState extends State<LoginPage> {
                                     fontWeight: FontWeight.w400),
                               ),
                             ),
-                            SizedBox(height: screenSize.height * 0.03),
+                            SizedBox(height: screenSize.height * 0.05),
                             Observer(
                               builder: (_) => ButtonComponent(
                                 title: loginButtonLabel,
