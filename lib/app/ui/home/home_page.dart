@@ -1,3 +1,5 @@
+import 'package:covid_app/app/ui/containers/news/news_container.dart';
+import 'package:covid_app/core/constants/colors.dart';
 import 'package:flutter/material.dart';
 
 class HomePage extends StatefulWidget {
@@ -6,6 +8,18 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
+  int _currentIndex = 0;
+
+  List<Widget> viewContainer = [
+    NewsContainer(
+      color: Colors.red,
+    ),
+    NewsContainer(color: darkPrimaryColor),
+    NewsContainer()
+  ];
+
+  List<String> titleContainers = ["Noticias", "Quiz", "Hospitais"];
+
   @override
   Widget build(BuildContext context) {
     return WillPopScope(
@@ -13,11 +27,18 @@ class _HomePageState extends State<HomePage> {
         return false;
       },
       child: Scaffold(
-        appBar: AppBar(),
+        appBar: AppBar(
+          backgroundColor: darkPrimaryColor,
+          title: Text(titleContainers[_currentIndex]),
+        ),
+        body: viewContainer[_currentIndex],
         bottomNavigationBar: BottomNavigationBar(
-          currentIndex: 0,
+          fixedColor: rosePrimaryColor,
+          currentIndex: _currentIndex,
           onTap: (int index) {
-            setState(() {});
+            setState(() {
+              _currentIndex = index;
+            });
           },
           items: [
             BottomNavigationBarItem(
