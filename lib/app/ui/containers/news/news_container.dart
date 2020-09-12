@@ -20,24 +20,35 @@ class NewsContainer extends StatelessWidget {
               itemCount: snapshot.data.length,
               itemBuilder: (context, index) {
                 return Container(
-                  height: 200,
+                  height: twoHundredFiftyTwo,
                   child: Card(
                     elevation: four,
                     child: Stack(
                       children: <Widget>[
                         Image.network(
                           snapshot.data[index].urlToImage,
+                          width: double.infinity,
+                          height: double.infinity,
                           fit: BoxFit.fill,
                         ),
                         Align(
+                          alignment: Alignment.bottomCenter,
                           child: ListTile(
                             onTap: () {},
-                            title: Text(
-                              snapshot.data[index].title,
-                              style: TextStyle(
-                                  fontWeight: FontWeight.bold,
-                                  fontSize: 20,
-                                  color: Colors.white),
+                            title: Container(
+                              padding: EdgeInsets.symmetric(
+                                  horizontal: sixteen, vertical: sixteen),
+                              decoration: BoxDecoration(
+                                  color: Colors.black45,
+                                  borderRadius:
+                                      BorderRadius.all(Radius.circular(four))),
+                              child: Text(
+                                snapshot.data[index].title,
+                                style: TextStyle(
+                                    fontWeight: FontWeight.w500,
+                                    fontSize: sixteen,
+                                    color: textPrimaryColor),
+                              ),
                             ),
                           ),
                         ),
