@@ -1,4 +1,6 @@
+import 'package:covid_app/app/ui/containers/health/health_container.dart';
 import 'package:covid_app/app/ui/containers/news/news_container.dart';
+import 'package:covid_app/app/ui/containers/quiz/quiz_container.dart';
 import 'package:covid_app/core/constants/colors.dart';
 import 'package:flutter/material.dart';
 
@@ -11,14 +13,12 @@ class _HomePageState extends State<HomePage> {
   int _currentIndex = 0;
 
   List<Widget> viewContainer = [
-    NewsContainer(
-      color: Colors.red,
-    ),
-    NewsContainer(color: darkPrimaryColor),
-    NewsContainer()
+    NewsContainer(),
+    QuizContainer(color: Colors.orange,),
+    HealthContainer(color: Colors.green)
   ];
 
-  List<String> titleContainers = ["Noticias", "Quiz", "Hospitais"];
+  List<String> titleContainers = ["Noticias do momento", "Quiz", "Hospitais"];
 
   @override
   Widget build(BuildContext context) {
