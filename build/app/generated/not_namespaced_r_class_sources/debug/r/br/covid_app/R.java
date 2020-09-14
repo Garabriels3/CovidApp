@@ -265,18 +265,19 @@ public final class R {
     public static final int googleg_disabled_color_18=0x7f040013;
     public static final int googleg_standard_color_18=0x7f040014;
     public static final int launch_background=0x7f040015;
-    public static final int notification_action_background=0x7f040016;
-    public static final int notification_bg=0x7f040017;
-    public static final int notification_bg_low=0x7f040018;
-    public static final int notification_bg_low_normal=0x7f040019;
-    public static final int notification_bg_low_pressed=0x7f04001a;
-    public static final int notification_bg_normal=0x7f04001b;
-    public static final int notification_bg_normal_pressed=0x7f04001c;
-    public static final int notification_icon_background=0x7f04001d;
-    public static final int notification_template_icon_bg=0x7f04001e;
-    public static final int notification_template_icon_low_bg=0x7f04001f;
-    public static final int notification_tile_bg=0x7f040020;
-    public static final int notify_panel_notification_icon_bg=0x7f040021;
+    public static final int logo_ic_laucher_background=0x7f040016;
+    public static final int notification_action_background=0x7f040017;
+    public static final int notification_bg=0x7f040018;
+    public static final int notification_bg_low=0x7f040019;
+    public static final int notification_bg_low_normal=0x7f04001a;
+    public static final int notification_bg_low_pressed=0x7f04001b;
+    public static final int notification_bg_normal=0x7f04001c;
+    public static final int notification_bg_normal_pressed=0x7f04001d;
+    public static final int notification_icon_background=0x7f04001e;
+    public static final int notification_template_icon_bg=0x7f04001f;
+    public static final int notification_template_icon_low_bg=0x7f040020;
+    public static final int notification_tile_bg=0x7f040021;
+    public static final int notify_panel_notification_icon_bg=0x7f040022;
   }
   public static final class id {
     public static final int accessibility_action_clickable_span=0x7f050000;
@@ -371,6 +372,9 @@ public final class R {
   }
   public static final class mipmap {
     public static final int ic_launcher=0x7f080000;
+    public static final int logo_ic_laucher=0x7f080001;
+    public static final int logo_ic_laucher_foreground=0x7f080002;
+    public static final int logo_ic_laucher_round=0x7f080003;
   }
   public static final class string {
     public static final int common_google_play_services_enable_button=0x7f090000;

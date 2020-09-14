@@ -76,6 +76,7 @@ drawable common_google_signin_btn_text_light_normal_background
 drawable googleg_disabled_color_18
 drawable googleg_standard_color_18
 drawable launch_background
+drawable logo_ic_laucher_background
 drawable notification_action_background
 drawable notification_bg
 drawable notification_bg_low
@@ -174,6 +175,9 @@ layout notification_template_icon_group
 layout notification_template_part_chronometer
 layout notification_template_part_time
 mipmap ic_launcher
+mipmap logo_ic_laucher
+mipmap logo_ic_laucher_foreground
+mipmap logo_ic_laucher_round
 string common_google_play_services_enable_button
 string common_google_play_services_enable_text
 string common_google_play_services_enable_title

@@ -108,9 +108,9 @@ MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.0] C:\Users\ag
 	android:appComponentFactory
 		ADDED from [androidx.core:core:1.1.0] C:\Users\agrim\.gradle\caches\transforms-2\files-2.1\3aaf6e5219b7f981ec263df919098c6f\core-1.1.0\AndroidManifest.xml:24:18-86
 	android:label
-		ADDED from C:\Users\agrim\Documents\GitHub\CovidApp\android\app\src\main\AndroidManifest.xml:10:9-34
+		ADDED from C:\Users\agrim\Documents\GitHub\CovidApp\android\app\src\main\AndroidManifest.xml:10:9-39
 	android:icon
-		ADDED from C:\Users\agrim\Documents\GitHub\CovidApp\android\app\src\main\AndroidManifest.xml:11:9-43
+		ADDED from C:\Users\agrim\Documents\GitHub\CovidApp\android\app\src\main\AndroidManifest.xml:11:9-53
 	android:name
 		ADDED from C:\Users\agrim\Documents\GitHub\CovidApp\android\app\src\main\AndroidManifest.xml:9:9-57
 activity#br.covid_app.MainActivity

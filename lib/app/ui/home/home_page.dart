@@ -14,7 +14,7 @@ class _HomePageState extends State<HomePage> {
 
   List<Widget> viewContainer = [
     NewsContainer(),
-    QuizContainer(color: Colors.orange,),
+    QuizContainer(),
     HealthContainer(color: Colors.green)
   ];
 

@@ -1,3 +1,4 @@
+import 'package:covid_app/app/ui/quiz/quiz_page.dart';
 import 'package:flutter/material.dart';
 
 // ignore: must_be_immutable
@@ -7,8 +8,6 @@ class QuizContainer extends StatelessWidget {
   QuizContainer({this.color});
   @override
   Widget build(BuildContext context) {
-    return Container(
-      color: color,
-    );
+    return QuizPage();
   }
 }

@@ -37,10 +37,10 @@
 27        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
 27-->[androidx.core:core:1.1.0] C:\Users\agrim\.gradle\caches\transforms-2\files-2.1\3aaf6e5219b7f981ec263df919098c6f\core-1.1.0\AndroidManifest.xml:24:18-86
 28        android:debuggable="true"
-29        android:icon="@mipmap/ic_launcher"
-29-->C:\Users\agrim\Documents\GitHub\CovidApp\android\app\src\main\AndroidManifest.xml:11:9-43
-30        android:label="covid_app" >
-30-->C:\Users\agrim\Documents\GitHub\CovidApp\android\app\src\main\AndroidManifest.xml:10:9-34
+29        android:icon="@mipmap/logo_ic_laucher_round"
+29-->C:\Users\agrim\Documents\GitHub\CovidApp\android\app\src\main\AndroidManifest.xml:11:9-53
+30        android:label="Covid Analytic" >
+30-->C:\Users\agrim\Documents\GitHub\CovidApp\android\app\src\main\AndroidManifest.xml:10:9-39
 31        <activity
 31-->C:\Users\agrim\Documents\GitHub\CovidApp\android\app\src\main\AndroidManifest.xml:12:9-40:20
 32            android:name="br.covid_app.MainActivity"
