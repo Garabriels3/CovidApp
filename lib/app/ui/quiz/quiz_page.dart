@@ -1,46 +1,68 @@
-import 'dart:ui';
-
+import 'package:covid_app/app/respository/covid_api.dart';
+import 'package:covid_app/app/service/geolocator/geocoding_service.dart';
+import 'package:covid_app/app/service/geolocator/geolocator_service.dart';
+import 'package:covid_app/app/ui/quiz/get_uf_viewmodel.dart';
+import 'package:covid_app/app/ui/quiz/quiz_page_viewmodel.dart';
 import 'package:covid_app/app/widgets/button_component.dart';
 import 'package:covid_app/core/constants/colors.dart';
 import 'package:flutter/material.dart';
 
 class QuizPage extends StatelessWidget {
+  QuizPageViewModel vm = QuizPageViewModel(GeolocatorService(),
+      GeocodingService(), CovidApiRepository(), GetUfViewModel());
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: _body(context),
+      body: _body(context, vm),
     );
   }
 }
 
-Widget _body(BuildContext context) {
+Widget _body(BuildContext context, QuizPageViewModel vm) {
   return Column(
     crossAxisAlignment: CrossAxisAlignment.center,
     children: <Widget>[
-      Container(
-        margin: EdgeInsets.all(5),
-        padding: EdgeInsets.all(5),
-        decoration: BoxDecoration(
-          color: Color.fromRGBO(50, 92, 127, 0.8),
-          borderRadius: BorderRadius.circular(10),
-        ),
-        child: Column(
-          children: <Widget>[
-            _text(title: "São Paulo, SP", color: Colors.white),
-            _underlineBlackGradient(),
-            _row(labelTextTitle: "Casos", dataTextTitle: "123123"),
-            _underlineBlackGradient(),
-            _row(labelTextTitle: "Suspeitos", dataTextTitle: "123123"),
-            _underlineBlackGradient(),
-            _row(labelTextTitle: "Mortos", dataTextTitle: "123123"),
-            _underlineBlackGradient(),
-            Align(
-              alignment: Alignment.center,
-              child:
-                  _text(title: "04/09/2020", fontSize: 15, color: Colors.white),
-            ),
-          ],
-        ),
+      FutureBuilder(
+        future: vm.getData(),
+        builder: (context, snapshot) {
+          if (snapshot.hasData) {
+            return Container(
+              margin: EdgeInsets.all(5),
+              padding: EdgeInsets.all(5),
+              decoration: BoxDecoration(
+                color: Color.fromRGBO(50, 92, 127, 0.8),
+                borderRadius: BorderRadius.circular(10),
+              ),
+              child: Column(
+                children: <Widget>[
+                  _text(title: "${snapshot.data.state}", color: Colors.white),
+                  _underlineBlackGradient(),
+                  _row(
+                      labelTextTitle: "Casos",
+                      dataTextTitle: "${snapshot.data.cases}"),
+                  _underlineBlackGradient(),
+                  _row(
+                      labelTextTitle: "Suspeitos",
+                      dataTextTitle: "${snapshot.data.suspects}"),
+                  _underlineBlackGradient(),
+                  _row(
+                      labelTextTitle: "Mortos",
+                      dataTextTitle: "${snapshot.data.deaths}"),
+                  _underlineBlackGradient(),
+                  Align(
+                    alignment: Alignment.center,
+                    child: _text(
+                        title: "${snapshot.data.datetime}",
+                        fontSize: 15,
+                        color: Colors.white),
+                  ),
+                ],
+              ),
+            );
+          } else {
+            return Container(child: Text("Erro"));
+          }
+        },
       ),
       ButtonComponent(
         fillColor: darkPrimaryColor,
@@ -51,6 +73,10 @@ Widget _body(BuildContext context) {
     ],
   );
 }
+
+//
+
+//
 
 Row _row({
   String labelTextTitle = "default",
