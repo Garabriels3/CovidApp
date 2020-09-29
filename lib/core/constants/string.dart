@@ -28,6 +28,9 @@ const sendEmailSucessOrientarion = "Um link para resetar sua senha, foi enviado 
 const articlesJsonList = "articles";
 
 // BASE URL
-const baseUrl = "http://newsapi.org/v2/top-headlines?country=br&q=covid&apiKey=ebcb8413b826477a902fd8fc88f25e04";
+const baseUrl = "http://newsapi.org/v2/everything?q=covid&apiKey=ebcb8413b826477a902fd8fc88f25e04";
 // END POINTS
 const articlesBr = "top-headlines?country=de&category=business&apiKey=ebcb8413b826477a902fd8fc88f25e04";
+
+const GENERIC_ERROR_MESSAGE_TRY_AGAIN_LATER =
+    "Ocorreu um erro inesperado. Por gentileza, tente novamente e entre em contato se o problema persistir.";

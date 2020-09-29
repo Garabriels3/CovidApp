@@ -1,4 +1,5 @@
 import 'package:covid_app/app/model/result_firebase.dart';
+import 'package:covid_app/core/constants/string.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'firebase_auth.dart';
 
@@ -42,8 +43,13 @@ class Auth implements BaseAuth {
     return user;
   }
 
-  Future<void> signOut() async {
-    return _firebaseAuth.signOut();
+  Future<VoidResult> signOut() async {
+    try {
+      await _firebaseAuth.signOut();
+      return VoidResult();
+    } catch (e) {
+      return VoidResult(errorMessage: GENERIC_ERROR_MESSAGE_TRY_AGAIN_LATER);
+    }
   }
 
   Future<void> sendEmailVerification() async {

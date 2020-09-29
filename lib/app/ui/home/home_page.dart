@@ -1,8 +1,11 @@
 import 'package:covid_app/app/ui/containers/health/health_container.dart';
 import 'package:covid_app/app/ui/containers/news/news_container.dart';
 import 'package:covid_app/app/ui/containers/quiz/quiz_container.dart';
+import 'package:covid_app/app/ui/home/home_viewmodel.dart';
 import 'package:covid_app/core/constants/colors.dart';
 import 'package:flutter/material.dart';
+
+import 'intern_components/drawer_component.dart';
 
 class HomePage extends StatefulWidget {
   @override
@@ -11,6 +14,7 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage> {
   int _currentIndex = 0;
+  final vm = HomeViewModel();
 
   List<Widget> viewContainer = [
     NewsContainer(),
@@ -27,6 +31,7 @@ class _HomePageState extends State<HomePage> {
         return false;
       },
       child: Scaffold(
+        drawer: DrawerComponent(logout: () => vm.signOut(context)),
         appBar: AppBar(
           backgroundColor: darkPrimaryColor,
           title: Text(titleContainers[_currentIndex]),
