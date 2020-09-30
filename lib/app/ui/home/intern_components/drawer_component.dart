@@ -1,10 +1,15 @@
 import 'package:covid_app/core/constants/colors.dart';
+import 'package:covid_app/core/constants/dimens.dart';
 import 'package:flutter/material.dart';
 
 // ignore: must_be_immutable
 class DrawerComponent extends StatefulWidget {
   Function logout;
-  DrawerComponent({this.logout});
+  String email;
+  String name;
+
+  DrawerComponent({this.email, this.name, this.logout});
+  
   @override
   _DrawerComponentState createState() => _DrawerComponentState();
 }
@@ -23,17 +28,17 @@ class _DrawerComponentState extends State<DrawerComponent> {
                 decoration: BoxDecoration(
                   color: darkPrimaryColor,
                 ),
-                accountName: Text("Gabriel"),
-                accountEmail: Text("gabrieldos@gmail.com"),
+                accountName: Text(widget.name),
+                accountEmail: Text(widget.email),
                 currentAccountPicture: CircleAvatar(
                   backgroundColor:
                       Theme.of(context).platform == TargetPlatform.iOS
                           ? Colors.blue
                           : Colors.white,
                   child: Text(
-                    "G",
+                    widget.name[0],
                     style: TextStyle(
-                      fontSize: 40.0,
+                      fontSize: forty,
                       color: rosePrimaryColor,
                     ),
                   ),

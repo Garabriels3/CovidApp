@@ -11,6 +11,7 @@ const registerPasswordHintText = "Registre sua senha";
 const dismissDialogs = 'Ok';
 const wrongCredentials = "Email ou senha incorretos!";
 const wrongCredentialsOrientation = "Verifique e tente novamente.";
+const registerNameHintText = "Nome Completo";
 
 const registerSuccess = "Conta registrada com sucesso!";
 const registerSucessOrientation = "Clique em Ok para continuar";

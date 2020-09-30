@@ -1,3 +1,4 @@
+import 'package:covid_app/app/model/user.dart';
 import 'package:covid_app/app/ui/containers/health/health_container.dart';
 import 'package:covid_app/app/ui/containers/news/news_container.dart';
 import 'package:covid_app/app/ui/containers/quiz/quiz_container.dart';
@@ -8,6 +9,10 @@ import 'package:flutter/material.dart';
 import 'intern_components/drawer_component.dart';
 
 class HomePage extends StatefulWidget {
+
+  User user = User();
+
+  HomePage({this.user});
   @override
   _HomePageState createState() => _HomePageState();
 }
@@ -18,7 +23,9 @@ class _HomePageState extends State<HomePage> {
 
   List<Widget> viewContainer = [
     NewsContainer(),
-    QuizContainer(color: Colors.orange,),
+    QuizContainer(
+      color: Colors.orange,
+    ),
     HealthContainer(color: Colors.green)
   ];
 
@@ -31,7 +38,10 @@ class _HomePageState extends State<HomePage> {
         return false;
       },
       child: Scaffold(
-        drawer: DrawerComponent(logout: () => vm.signOut(context)),
+        drawer: DrawerComponent(
+            email: widget.user.email,
+            name: widget.user.name,
+            logout: () => vm.signOut(context)),
         appBar: AppBar(
           backgroundColor: darkPrimaryColor,
           title: Text(titleContainers[_currentIndex]),
