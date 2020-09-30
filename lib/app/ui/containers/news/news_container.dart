@@ -23,16 +23,29 @@ class NewsContainer extends StatelessWidget {
                     elevation: four,
                     child: Stack(
                       children: <Widget>[
-                        Image.network(
-                          snapshot.data[index].urlToImage,
-                          width: double.infinity,
-                          height: double.infinity,
-                          fit: BoxFit.fill,
+                        GestureDetector(
+                          child: Image.network(
+                            snapshot.data[index].urlToImage,
+                            width: double.infinity,
+                            height: double.infinity,
+                            fit: BoxFit.fill,
+                          ),
+                          onTap: () => vm.navigateToDetails(
+                              context,
+                              snapshot.data[index].title,
+                              snapshot.data[index].author,
+                              snapshot.data[index].publishedAt,
+                              snapshot.data[index].content),
                         ),
                         Align(
                           alignment: Alignment.bottomCenter,
                           child: ListTile(
-                            onTap: () {},
+                            onTap: () => vm.navigateToDetails(
+                                context,
+                                snapshot.data[index].title,
+                                snapshot.data[index].author,
+                                snapshot.data[index].publishedAt,
+                                snapshot.data[index].content),
                             title: Container(
                               padding: EdgeInsets.symmetric(
                                   horizontal: sixteen, vertical: sixteen),

@@ -34,3 +34,6 @@ const articlesBr = "top-headlines?country=de&category=business&apiKey=ebcb8413b8
 
 const GENERIC_ERROR_MESSAGE_TRY_AGAIN_LATER =
     "Ocorreu um erro inesperado. Por gentileza, tente novamente e entre em contato se o problema persistir.";
+
+// EMPTY STATE
+const emptyStateDescription = "Não há nada para ver aqui :)";

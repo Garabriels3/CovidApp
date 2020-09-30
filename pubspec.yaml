@@ -53,6 +53,7 @@ flutter:
     - assets/images/register.png
     - assets/images/previous.png
     - assets/images/password.png
+    - assets/images/empty_state.png
 
     - assets/fonts/
   fonts:
