@@ -3,7 +3,7 @@ import 'package:covid_app/app/model/result_firebase.dart';
 import 'package:covid_app/app/model/user.dart';
 import 'package:covid_app/app/service/firebase_store/base_firestore.dart';
 
-class CreateUserFireStore implements BaseFireStore {
+class FirebaseStore implements BaseFireStore {
   Firestore databaseReference = Firestore();
 
   @override
@@ -21,7 +21,7 @@ class CreateUserFireStore implements BaseFireStore {
   }
 
   @override
-  Future<Result<User>> getData(String userUID) async {
+  Future<Result<User>> getBasicUserData(String userUID) async {
     DocumentSnapshot data;
     try {
       data =

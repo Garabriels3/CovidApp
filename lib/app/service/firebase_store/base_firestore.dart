@@ -3,5 +3,5 @@ import 'package:covid_app/app/model/user.dart';
 
 abstract class BaseFireStore {
   Future<VoidResult> createUser(String userUID, User user);
-  void getData(String userUID);
+  void getBasicUserData(String userUID);
 }

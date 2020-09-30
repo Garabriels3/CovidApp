@@ -1,6 +1,6 @@
 import 'package:covid_app/app/model/user.dart';
 import 'package:covid_app/app/service/firebaseAuth/firebase_auth_impl.dart';
-import 'package:covid_app/app/service/firebase_store/create_user_firestore.dart';
+import 'package:covid_app/app/service/firebase_store/firebase_store.dart';
 import 'package:covid_app/app/ui/forgot_password/forgot_password_page.dart';
 import 'package:covid_app/app/ui/home/home_page.dart';
 import 'package:covid_app/app/ui/register/register_page.dart';
@@ -36,7 +36,7 @@ abstract class LoginViewModelBase with Store {
   String userId = "";
 
   final _auth = Auth();
-  final store = CreateUserFireStore();
+  final store = FirebaseStore();
 
   String errorMessageLogin;
 
@@ -95,7 +95,7 @@ abstract class LoginViewModelBase with Store {
   Future<void> firebaseLogin(dynamic context) async {
     var result = await _auth.signIn(email, password);
     userId = result.userId;
-    user = await store.getData(userId).then((value) => value.item);
+    user = await store.getBasicUserData(userId).then((value) => value.item);
     print(user.email);
     result.success
         ? homeNavigator(context)
