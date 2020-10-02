@@ -11,13 +11,16 @@ class QuizPageViewModel {
   final GeocodingService geocodingService;
   final CovidApiRepository repository;
 
-  QuizPageViewModel(this.geolocatorService, this.geocodingService,
-      this.repository);
+  QuizPageViewModel(
+      this.geolocatorService, this.geocodingService, this.repository);
 
   Future<DevicePositionModel> getCurrentPosition() async {
     DevicePositionModel positionModel =
         await geolocatorService.getCurrentDevicePosition();
-    return positionModel;
+    if (positionModel != null)
+      return positionModel;
+    else
+      return null;
   }
 
   Future<DeviceAdressModel> getCurrentAdress(
@@ -27,35 +30,83 @@ class QuizPageViewModel {
     return adressModel;
   }
 
-  Future<CovidApiModel> getApiData(String uf) async {
-    CovidApiModel apiModel = await repository.getApiData(uf);
-    return apiModel;
-  }
-
   Future<CovidApiModel> getData() async {
     DevicePositionModel positionModel = await getCurrentPosition();
-    DeviceAdressModel adressModel = await getCurrentAdress(positionModel);
-    String uf = state(adressModel.administrativeArea);
-    CovidApiModel apiModel = await repository.getApiData(uf);
-    return apiModel;
+    if (positionModel != null) {
+      DeviceAdressModel adressModel = await getCurrentAdress(positionModel);
+      String uf = state(adressModel.administrativeArea);
+      if (uf != null) {
+        CovidApiModel apiModel = await repository.getApiData(uf: uf);
+        return apiModel;
+      } else {
+        CovidApiModel apiModel = await repository.getApiData();
+        return apiModel;
+      }
+    } else {
+      CovidApiModel apiModel = await repository.getApiData();
+      return apiModel;
+    }
   }
 
   String state(String state) {
     switch (state) {
-      case rondonia:
-        return RO;
       case acre:
         return AC;
+      case alagoas:
+        return AL;
+      case amapa:
+        return AM;
       case amazonas:
         return AM;
-      case roraima:
-        return RR;
-      case saoPaulo:
-        return SP;
+      case bahia:
+        return BA;
+      case ceara:
+        return CE;
+      case distritoFederal:
+        return DF;
+      case espiritoSanto:
+        return ES;
+      case goias:
+        return GO;
+      case maranhao:
+        return MA;
+      case matoGrosso:
+        return MT;
+      case matoGrossoSul:
+        return MS;
+      case minasGerais:
+        return MG;
+      case para:
+        return PA;
+      case paraiba:
+        return PB;
+      case parana:
+        return PR;
+      case pernambuco:
+        return PE;
+      case piaui:
+        return PI;
       case rioJaneiro:
         return RJ;
+      case rioGrandeNorte:
+        return RN;
+      case rioGrandeSul:
+        return RS;
+      case rondonia:
+        return RO;
+      case roraima:
+        return RR;
+      case santaCatarina:
+        return SC;
+      case saoPaulo:
+        return SP;
+      case sergipe:
+        return SE;
+      case tocantins:
+        return TO;
         break;
-      default: return SP;
+      default:
+        return null;
     }
   }
 }

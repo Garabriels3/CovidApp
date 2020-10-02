@@ -50,6 +50,7 @@ const maranhao = "Maranhão";
 const piaui = "Piauí";
 const ceara = "Ceará";
 const rioGrandeNorte = "Rio Grande do Norte";
+const rioGrandeSul = "Rio Grande do Sul";
 const paraiba = "Paraíba";
 const pernambuco = "Pernambuco";
 const alagoas = "Alagoas";
@@ -62,6 +63,7 @@ const saoPaulo = "São Paulo";
 const parana = "Paraná";
 const santaCatarina = "Santa Catarina";
 const matoGrosso = "Mato Grosso";
+const matoGrossoSul = "Mato Grosso do Sul";
 const goias = "Goiás";
 const distritoFederal = "Distrito Federal";
 
