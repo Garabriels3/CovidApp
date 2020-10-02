@@ -1,7 +1,7 @@
 import 'package:covid_app/app/model/articles.dart';
 import 'package:covid_app/app/model/news.dart';
-import 'package:covid_app/app/respository/news_container_repository.dart';
-import 'package:covid_app/app/ui/new_details/news_details_page.dart';
+import 'package:covid_app/app/repository/news_container_repository.dart';
+import 'package:covid_app/app/ui/news_details/news_details_page.dart';
 import 'package:flutter/material.dart';
 import 'package:mobx/mobx.dart';
 
@@ -22,7 +22,7 @@ abstract class _NewsContainerViewModelBase with Store {
     return response;
   }
 
-  void navigateToDetails(context, title, author, publicationAt, content) {
+  void navigateToDetails(context, title, author, publicationAt, content, imageUrl) {
     Navigator.push(
         context,
         MaterialPageRoute(
@@ -31,6 +31,7 @@ abstract class _NewsContainerViewModelBase with Store {
                   author: author,
                   publicationAt: publicationAt,
                   description: content,
+                  imageUrl: imageUrl,
                 )));
   }
 }

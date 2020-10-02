@@ -1,5 +1,5 @@
 import 'package:covid_app/app/model/articles.dart';
-import 'package:covid_app/app/service/api/api_client.dart';
+import 'package:covid_app/app/service/remote/api/api_client.dart';
 import 'package:covid_app/core/constants/string.dart';
 import 'package:dio/dio.dart';
 

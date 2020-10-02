@@ -1,7 +1,7 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:covid_app/app/model/user.dart';
-import 'package:covid_app/app/service/firebaseAuth/firebase_auth_impl.dart';
-import 'package:covid_app/app/service/firebase_store/firebase_store.dart';
+import 'package:covid_app/app/service/remote/firebase_auth/firebase_auth_impl.dart';
+import 'package:covid_app/app/service/remote/firebase_store/firebase_store.dart';
 import 'package:covid_app/app/ui/login/login_page.dart';
 import 'package:covid_app/app/utils/generic_dialog.dart';
 import 'package:covid_app/core/constants/string.dart';

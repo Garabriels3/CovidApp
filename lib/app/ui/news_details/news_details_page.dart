@@ -1,8 +1,8 @@
-import 'package:covid_app/app/ui/new_details/details_component.dart';
 import 'package:covid_app/app/utils/empty_state.dart';
 import 'package:covid_app/core/constants/colors.dart';
 import 'package:covid_app/core/constants/dimens.dart';
 import 'package:flutter/material.dart';
+import 'details_component.dart';
 
 // ignore: must_be_immutable
 class NewsDetailsPage extends StatelessWidget {
@@ -10,9 +10,10 @@ class NewsDetailsPage extends StatelessWidget {
   String author;
   String publicationAt;
   String description;
+  String imageUrl;
 
   NewsDetailsPage(
-      {this.title, this.author, this.publicationAt, this.description});
+      {this.title, this.author, this.publicationAt, this.description, this.imageUrl});
 
   Widget returnDetails() {
     if (title == null ||
@@ -26,6 +27,7 @@ class NewsDetailsPage extends StatelessWidget {
         author: author,
         publicationAt: publicationAt,
         description: description,
+        imageUrl: imageUrl,
       );
     }
   }

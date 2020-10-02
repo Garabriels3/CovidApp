@@ -35,7 +35,8 @@ class NewsContainer extends StatelessWidget {
                               snapshot.data[index].title,
                               snapshot.data[index].author,
                               snapshot.data[index].publishedAt,
-                              snapshot.data[index].content),
+                              snapshot.data[index].content,
+                              snapshot.data[index].urlToImage),
                         ),
                         Align(
                           alignment: Alignment.bottomCenter,
@@ -45,7 +46,8 @@ class NewsContainer extends StatelessWidget {
                                 snapshot.data[index].title,
                                 snapshot.data[index].author,
                                 snapshot.data[index].publishedAt,
-                                snapshot.data[index].content),
+                                snapshot.data[index].content,
+                                snapshot.data[index].urlToImage),
                             title: Container(
                               padding: EdgeInsets.symmetric(
                                   horizontal: sixteen, vertical: sixteen),

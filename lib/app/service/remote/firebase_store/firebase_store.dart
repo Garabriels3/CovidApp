@@ -1,7 +1,7 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:covid_app/app/model/result_firebase.dart';
 import 'package:covid_app/app/model/user.dart';
-import 'package:covid_app/app/service/firebase_store/base_firestore.dart';
+import 'base_firestore.dart';
 
 class FirebaseStore implements BaseFireStore {
   Firestore databaseReference = Firestore();

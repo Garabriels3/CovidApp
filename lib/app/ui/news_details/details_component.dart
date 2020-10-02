@@ -6,11 +6,16 @@ import 'package:flutter/material.dart';
 class DetailsComponent extends StatelessWidget {
   String title;
   String author;
+  String imageUrl;
   String publicationAt;
   String description;
 
   DetailsComponent(
-      {this.title, this.author, this.publicationAt, this.description});
+      {this.title,
+      this.author,
+      this.publicationAt,
+      this.description,
+      this.imageUrl});
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -32,10 +37,11 @@ class DetailsComponent extends StatelessWidget {
                   ),
                   child: Text(
                     title.toUpperCase(),
+                    textAlign: TextAlign.center,
                     style: TextStyle(
-                        color: darkPrimaryColor.withOpacity(0.7),
+                        color: darkPrimaryColor.withOpacity(0.9),
                         fontSize: thirtyTwo,
-                        fontWeight: FontWeight.w300),
+                        fontWeight: FontWeight.w900),
                   ),
                 ),
                 SizedBox(
@@ -52,22 +58,22 @@ class DetailsComponent extends StatelessWidget {
                             style: TextStyle(
                                 color: darkPrimaryColor,
                                 fontSize: sixteen,
-                                fontWeight: FontWeight.w500),
+                                fontWeight: FontWeight.w400),
                             text: "Autor: $author"),
                       ),
                     ),
                     Spacer(),
                     Text(
-                      publicationAt.replaceRange(10, 20, ""),
+                      "data: $publicationAt".replaceRange(16, 26, ""),
                       style: TextStyle(
                           color: darkPrimaryColor,
                           fontSize: sixteen,
-                          fontWeight: FontWeight.w500),
+                          fontWeight: FontWeight.w400),
                     ),
                   ],
                 ),
                 Container(
-                  height: one,
+                  height: 0.8,
                   width: double.infinity,
                   decoration: BoxDecoration(
                     color: rosePrimaryColor,
