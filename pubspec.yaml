@@ -27,6 +27,7 @@ dependencies:
   firebase_core: ^0.4.0
   firebase_auth: ^0.14.0+5
   splashscreen: ^1.2.0
+  vnum: ^1.2.6
   mobx: ^1.0.0
   flutter_mobx: ^1.0.0
   cupertino_icons: ^0.1.3

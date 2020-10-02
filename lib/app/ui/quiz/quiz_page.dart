@@ -1,7 +1,6 @@
 import 'package:covid_app/app/respository/covid_api.dart';
 import 'package:covid_app/app/service/geolocator/geocoding_service.dart';
 import 'package:covid_app/app/service/geolocator/geolocator_service.dart';
-import 'package:covid_app/app/ui/quiz/get_uf_viewmodel.dart';
 import 'package:covid_app/app/ui/quiz/quiz_page_viewmodel.dart';
 import 'package:covid_app/app/widgets/button_component.dart';
 import 'package:covid_app/core/constants/colors.dart';
@@ -9,8 +8,9 @@ import 'package:covid_app/core/constants/dimens.dart';
 import 'package:flutter/material.dart';
 
 class QuizPage extends StatelessWidget {
+  
   QuizPageViewModel vm = QuizPageViewModel(GeolocatorService(),
-      GeocodingService(), CovidApiRepository(), GetUfViewModel());
+      GeocodingService(), CovidApiRepository());
 
   @override
   Widget build(BuildContext context) {
