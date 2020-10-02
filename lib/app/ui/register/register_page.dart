@@ -63,12 +63,21 @@ class _RegisterPageState extends State<RegisterPage> {
                                   child:
                                       Image.asset("assets/images/register.png"),
                                 ),
-                                Spacer(),
+                                SizedBox(height: twentyFour),
                                 Expanded(
-                                  flex: 4,
+                                  flex: 5,
                                   child: Container(
                                     child: Column(
                                       children: <Widget>[
+                                        Observer(builder: (_) {
+                                          return TextFormFieldComponent(
+                                              hintText: registerNameHintText,
+                                              hideText: false,
+                                              onChangedGeneric: vm.changeName);
+                                        }),
+                                        SizedBox(
+                                          height: sixteen,
+                                        ),
                                         Observer(
                                           builder: (_) =>
                                               TextFormFieldComponent(

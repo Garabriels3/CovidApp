@@ -11,6 +11,7 @@ const registerPasswordHintText = "Registre sua senha";
 const dismissDialogs = 'Ok';
 const wrongCredentials = "Email ou senha incorretos!";
 const wrongCredentialsOrientation = "Verifique e tente novamente.";
+const registerNameHintText = "Nome Completo";
 
 const registerSuccess = "Conta registrada com sucesso!";
 const registerSucessOrientation = "Clique em Ok para continuar";
@@ -91,3 +92,9 @@ const MS = "MS";
 const MT = "MT";
 const GO = "GO";
 const DF = "DF";
+
+const GENERIC_ERROR_MESSAGE_TRY_AGAIN_LATER =
+    "Ocorreu um erro inesperado. Por gentileza, tente novamente e entre em contato se o problema persistir.";
+
+// EMPTY STATE
+const emptyStateDescription = "Não há nada para ver aqui :)";

@@ -1,4 +1,4 @@
-import 'package:covid_app/app/service/firebase/firebase_auth_impl.dart';
+import 'package:covid_app/app/service/firebaseAuth/firebase_auth_impl.dart';
 import 'package:covid_app/app/utils/generic_dialog.dart';
 import 'package:covid_app/core/constants/string.dart';
 import 'package:flutter/material.dart';

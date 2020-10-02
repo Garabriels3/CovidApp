@@ -47,6 +47,21 @@ mixin _$RegisterViewModel on _RegisterViewModelBase, Store {
     });
   }
 
+  final _$nameAtom = Atom(name: '_RegisterViewModelBase.name');
+
+  @override
+  String get name {
+    _$nameAtom.reportRead();
+    return super.name;
+  }
+
+  @override
+  set name(String value) {
+    _$nameAtom.reportWrite(value, super.name, () {
+      super.name = value;
+    });
+  }
+
   final _$firebaseRegisterAsyncAction =
       AsyncAction('_RegisterViewModelBase.firebaseRegister');
 
@@ -82,10 +97,22 @@ mixin _$RegisterViewModel on _RegisterViewModelBase, Store {
   }
 
   @override
+  dynamic changeName(String newName) {
+    final _$actionInfo = _$_RegisterViewModelBaseActionController.startAction(
+        name: '_RegisterViewModelBase.changeName');
+    try {
+      return super.changeName(newName);
+    } finally {
+      _$_RegisterViewModelBaseActionController.endAction(_$actionInfo);
+    }
+  }
+
+  @override
   String toString() {
     return '''
 email: ${email},
 password: ${password},
+name: ${name},
 formIsValid: ${formIsValid}
     ''';
   }

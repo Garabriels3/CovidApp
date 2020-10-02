@@ -26,6 +26,7 @@ dependencies:
   dio: ^3.0.3
   firebase_core: ^0.4.0
   firebase_auth: ^0.14.0+5
+  cloud_firestore: ^0.11.0+2
   splashscreen: ^1.2.0
   vnum: ^1.2.6
   mobx: ^1.0.0
@@ -56,6 +57,7 @@ flutter:
     - assets/images/register.png
     - assets/images/previous.png
     - assets/images/password.png
+    - assets/images/empty_state.png
 
     - assets/fonts/
   fonts:

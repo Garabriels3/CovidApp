@@ -1,16 +1,26 @@
+import 'package:covid_app/app/model/user.dart';
 import 'package:covid_app/app/ui/containers/health/health_container.dart';
 import 'package:covid_app/app/ui/containers/news/news_container.dart';
 import 'package:covid_app/app/ui/containers/quiz/quiz_container.dart';
+import 'package:covid_app/app/ui/home/home_viewmodel.dart';
 import 'package:covid_app/core/constants/colors.dart';
 import 'package:flutter/material.dart';
 
+import 'intern_components/drawer_component.dart';
+
+// ignore: must_be_immutable
 class HomePage extends StatefulWidget {
+
+  User user = User();
+
+  HomePage({this.user});
   @override
   _HomePageState createState() => _HomePageState();
 }
 
 class _HomePageState extends State<HomePage> {
   int _currentIndex = 0;
+  final vm = HomeViewModel();
 
   List<Widget> viewContainer = [
     NewsContainer(),
@@ -27,6 +37,10 @@ class _HomePageState extends State<HomePage> {
         return false;
       },
       child: Scaffold(
+        drawer: DrawerComponent(
+            email: widget.user.email,
+            name: widget.user.name,
+            logout: () => vm.signOut(context)),
         appBar: AppBar(
           backgroundColor: darkPrimaryColor,
           title: Text(titleContainers[_currentIndex]),

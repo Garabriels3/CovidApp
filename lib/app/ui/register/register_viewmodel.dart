@@ -1,4 +1,6 @@
-import 'package:covid_app/app/service/firebase/firebase_auth_impl.dart';
+import 'package:covid_app/app/model/user.dart';
+import 'package:covid_app/app/service/firebaseAuth/firebase_auth_impl.dart';
+import 'package:covid_app/app/service/firebase_store/firebase_store.dart';
 import 'package:covid_app/app/ui/login/login_page.dart';
 import 'package:covid_app/app/utils/generic_dialog.dart';
 import 'package:covid_app/core/constants/string.dart';
@@ -16,7 +18,13 @@ abstract class _RegisterViewModelBase with Store {
   @observable
   String password = "";
 
+  @observable
+  String name = "";
+
   final _auth = Auth();
+
+  final _store = FirebaseStore();
+
   String userId;
 
   @action
@@ -24,6 +32,9 @@ abstract class _RegisterViewModelBase with Store {
 
   @action
   changePassword(String newPassword) => password = newPassword;
+
+  @action
+  changeName(String newName) => name = newName;
 
   String emailIsValid() {
     if (email.isNotEmpty && !email.contains("@")) {
@@ -39,6 +50,13 @@ abstract class _RegisterViewModelBase with Store {
     } else {
       return null;
     }
+  }
+
+  bool nameIsValidButton() {
+    if (name.isEmpty) {
+      return false;
+    }
+    return true;
   }
 
   bool emailIsValidButton() {
@@ -61,14 +79,17 @@ abstract class _RegisterViewModelBase with Store {
 
   @computed
   bool get formIsValid {
-    return emailIsValidButton() == true && passwordIsValidButton() == true;
+    return emailIsValidButton() == true &&
+        passwordIsValidButton() == true &&
+        nameIsValidButton() == true;
   }
 
   @action
   Future<void> firebaseRegister(dynamic context) async {
-    var result = await _auth.signUp(email, password);
+    var result = await _auth.signUp(email.trim(), password.trim());
     userId = result.userId;
     sendEmailVerification(result.success);
+    createAccountFireStore(result.success, userUID: userId);
     result.success
         ? genericDialog(context, registerSuccess, registerSucessOrientation,
             () => goToLogin(context))
@@ -78,6 +99,16 @@ abstract class _RegisterViewModelBase with Store {
 
   Future<void> sendEmailVerification(bool success) async {
     if (success) _auth.sendEmailVerification();
+  }
+
+  Future<void> createAccountFireStore(bool success, {String userUID}) async {
+    User user = User();
+    user.email = email.trim();
+    user.name = name.trim();
+
+    if (user.email != null && user.name != null) {
+      if (success) await _store.createUser(userUID, user);
+    }
   }
 
   void goToLogin(context) {
