@@ -7,18 +7,12 @@ class CovidApiModel {
   int suspects;
   int refuses;
   String datetime;
+  String country;
+  int confirmed;
+  int recovered;
+  String updatedAt;
 
-  CovidApiModel(
-      {this.uid,
-      this.uf,
-      this.state,
-      this.cases,
-      this.deaths,
-      this.suspects,
-      this.refuses,
-      this.datetime});
-
-  CovidApiModel.fromJson(Map<String, dynamic> json) {
+  CovidApiModel.fromJsonByState(Map<String, dynamic> json) {
     uid = json['uid'];
     uf = json['uf'];
     state = json['state'];
@@ -28,17 +22,12 @@ class CovidApiModel {
     refuses = json['refuses'];
     datetime = json['datetime'];
   }
-
-  Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = new Map<String, dynamic>();
-    data['uid'] = this.uid;
-    data['uf'] = this.uf;
-    data['state'] = this.state;
-    data['cases'] = this.cases;
-    data['deaths'] = this.deaths;
-    data['suspects'] = this.suspects;
-    data['refuses'] = this.refuses;
-    data['datetime'] = this.datetime;
-    return data;
+  CovidApiModel.fromJsonByCountry(Map<String, dynamic> json) {
+    country = json['country'];
+    cases = json['cases'];
+    confirmed = json['confirmed'];
+    deaths = json['deaths'];
+    recovered = json['recovered'];
+    updatedAt = json['updated_at'];
   }
 }
