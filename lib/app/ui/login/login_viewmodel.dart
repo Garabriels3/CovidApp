@@ -93,7 +93,7 @@ abstract class LoginViewModelBase with Store {
 
   @action
   Future<void> firebaseLogin(dynamic context) async {
-    var result = await _auth.signIn(email, password);
+    var result = await _auth.signIn(email.trim(), password.trim());
     userId = result.userId;
     user = await store.getBasicUserData(userId).then((value) => value.item);
     print(user.email);

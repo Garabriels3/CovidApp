@@ -9,7 +9,7 @@ class Auth implements BaseAuth {
   Future<VoidResult> signIn(String email, String password) async {
     try {
       AuthResult result = await _firebaseAuth.signInWithEmailAndPassword(
-          email: email.trim(), password: password.trim());
+          email: email, password: password);
       FirebaseUser user = result.user;
       return VoidResult(userId: user.uid);
     } catch (e) {
@@ -20,7 +20,7 @@ class Auth implements BaseAuth {
   Future<VoidResult> signUp(String email, String password) async {
     try {
       AuthResult result = await _firebaseAuth.createUserWithEmailAndPassword(
-          email: email.trim(), password: password.trim());
+          email: email, password: password);
       FirebaseUser user = result.user;
       return VoidResult(userId: user.uid);
     } catch (e) {

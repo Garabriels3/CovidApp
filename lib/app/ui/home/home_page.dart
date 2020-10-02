@@ -8,6 +8,7 @@ import 'package:flutter/material.dart';
 
 import 'intern_components/drawer_component.dart';
 
+// ignore: must_be_immutable
 class HomePage extends StatefulWidget {
 
   User user = User();
@@ -23,9 +24,7 @@ class _HomePageState extends State<HomePage> {
 
   List<Widget> viewContainer = [
     NewsContainer(),
-    QuizContainer(
-      color: Colors.orange,
-    ),
+    QuizContainer(),
     HealthContainer(color: Colors.green)
   ];
 

@@ -86,7 +86,7 @@ abstract class _RegisterViewModelBase with Store {
 
   @action
   Future<void> firebaseRegister(dynamic context) async {
-    var result = await _auth.signUp(email, password);
+    var result = await _auth.signUp(email.trim(), password.trim());
     userId = result.userId;
     sendEmailVerification(result.success);
     createAccountFireStore(result.success, userUID: userId);
@@ -103,8 +103,8 @@ abstract class _RegisterViewModelBase with Store {
 
   Future<void> createAccountFireStore(bool success, {String userUID}) async {
     User user = User();
-    user.email = email;
-    user.name = name;
+    user.email = email.trim();
+    user.name = name.trim();
 
     if (user.email != null && user.name != null) {
       if (success) await _store.createUser(userUID, user);
