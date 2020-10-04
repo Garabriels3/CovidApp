@@ -1,5 +1,6 @@
 import 'package:covid_app/app/ui/forgot_password/forgot_password_page.dart';
 import 'package:covid_app/app/ui/home/home_page.dart';
+import 'package:covid_app/app/ui/quiz/quiz_page.dart';
 import 'package:covid_app/app/ui/register/register_page.dart';
 import 'package:covid_app/app/utils/empty_state.dart';
 import 'package:flutter/cupertino.dart';

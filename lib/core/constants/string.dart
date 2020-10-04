@@ -28,6 +28,12 @@ const sendEmailSucess = "Muito bem!";
 const sendEmailSucessOrientarion =
     "Um link para resetar sua senha, foi enviado para o email informado";
 
+// quiz
+const answerSymptoms = "Esta com algum desses sintomas?";
+const answerLastPlaces = "Nos ultimos dias você...";
+const SECOND_STEP_QUESTION_TEXT = "Quais sintomas está sentindo?";
+const THIRD_STEP_QUESTION_TEXT = "Nos últimos 14 dias...";
+
 //json
 const articlesJsonList = "articles";
 

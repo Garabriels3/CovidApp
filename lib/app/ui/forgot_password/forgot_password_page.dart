@@ -48,7 +48,7 @@ class _FortgotPasswordState extends State<FortgotPassword> {
                                 Row(
                                   children: [
                                     Container(
-                                  height: screenSize.height / 14,
+                                      height: screenSize.height / 14,
                                       child: GestureDetector(
                                         onTap: () => Navigator.pop(context),
                                         child: Image.asset(
@@ -100,6 +100,7 @@ class _FortgotPasswordState extends State<FortgotPassword> {
                                       loginFun: vm.emailIsValidButton()
                                           ? () => vm.resetPassword(context)
                                           : null,
+                                      textSize: twenty,
                                     ),
                                   );
                                 }),

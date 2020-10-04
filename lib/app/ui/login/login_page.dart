@@ -110,6 +110,7 @@ class _LoginPageState extends State<LoginPage> {
                                 loginFun: vm.formIsValid
                                     ? () => vm.firebaseLogin(context)
                                     : null,
+                                textSize: twenty,
                               ),
                             ),
                             SizedBox(height: screenSize.height * 0.02),
@@ -118,6 +119,7 @@ class _LoginPageState extends State<LoginPage> {
                               fillColor: darkPrimaryColor,
                               textColor: Colors.white,
                               loginFun: () => vm.registerNavigator(context),
+                              textSize: twenty,
                             ),
                           ],
                         ),

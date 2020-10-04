@@ -109,13 +109,14 @@ class _RegisterPageState extends State<RegisterPage> {
                                   child: Observer(builder: (_) {
                                     return Container(
                                       child: ButtonComponent(
-                                          title: registerButtonLabel,
-                                          fillColor: darkPrimaryColor,
-                                          textColor: Colors.white,
-                                          loginFun: vm.formIsValid
-                                              ? () =>
-                                                  vm.firebaseRegister(context)
-                                              : null),
+                                        title: registerButtonLabel,
+                                        fillColor: darkPrimaryColor,
+                                        textColor: Colors.white,
+                                        loginFun: vm.formIsValid
+                                            ? () => vm.firebaseRegister(context)
+                                            : null,
+                                        textSize: twenty,
+                                      ),
                                     );
                                   }),
                                 ),
