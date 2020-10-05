@@ -29,8 +29,15 @@ const sendEmailSucessOrientarion =
     "Um link para resetar sua senha, foi enviado para o email informado";
 
 // quiz
+const quizButtonLabel = "Quiz";
 const answerSymptoms = "Esta com algum desses sintomas?";
 const answerLastPlaces = "Nos ultimos dias você...";
+const buttonNextLabel = "Proximo";
+const buttonFinishLabel = "Finalizar";
+const casesLabel = "Casos";
+const suspiciousLabel = "Suspeitos";
+const deadLabel = "Mortos";
+const makeASpeedTestLabel = "Faça uma rápida auto-avaliação para saber sobre o estado atual da sua saúde :)";
 const SECOND_STEP_QUESTION_TEXT = "Quais sintomas está sentindo?";
 const THIRD_STEP_QUESTION_TEXT = "Nos últimos 14 dias...";
 

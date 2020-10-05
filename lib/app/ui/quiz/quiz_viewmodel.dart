@@ -1,13 +1,17 @@
 import 'package:covid_app/app/model/covid_symptom.dart';
 import 'package:covid_app/app/model/questions.dart';
 import 'package:covid_app/app/model/typeQuestions.dart';
+import 'package:covid_app/app/model/user.dart';
 import 'package:covid_app/app/service/firebase_store/firebase_store.dart';
+import 'package:covid_app/app/service/local/shared_preferences.dart';
 import 'package:covid_app/app/ui/containers/questions/questions_container.dart';
 import 'package:covid_app/app/ui/containers/quiz/quiz_container.dart';
 import 'package:covid_app/app/ui/containers/symptoms/symptoms_container.dart';
+import 'package:covid_app/app/ui/finish_quiz.dart/quiz_result.dart';
 import 'package:covid_app/app/utils/empty_state.dart';
 import 'package:covid_app/core/constants/string.dart';
 import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
 import 'package:flutter_tags/selectable_tags.dart';
 import 'package:mobx/mobx.dart';
 
@@ -111,6 +115,8 @@ abstract class _QuizViewModelBase with Store {
           questionTitle = SECOND_STEP_QUESTION_TEXT;
           stepValue--;
         } else {
+          Navigator.push(
+              context, MaterialPageRoute(builder: (_) => QuizResult()));
           // await saveData(context);
         }
         break;

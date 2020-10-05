@@ -1,6 +1,7 @@
 import 'package:covid_app/app/model/user.dart';
 import 'package:covid_app/app/service/firebaseAuth/firebase_auth_impl.dart';
 import 'package:covid_app/app/service/firebase_store/firebase_store.dart';
+import 'package:covid_app/app/service/local/shared_preferences.dart';
 import 'package:covid_app/app/ui/forgot_password/forgot_password_page.dart';
 import 'package:covid_app/app/ui/home/home_page.dart';
 import 'package:covid_app/app/ui/register/register_page.dart';
@@ -37,6 +38,7 @@ abstract class LoginViewModelBase with Store {
 
   final _auth = Auth();
   final store = FirebaseStore();
+  final _cache = SharedPreferencesCache();
 
   String errorMessageLogin;
 
@@ -96,11 +98,19 @@ abstract class LoginViewModelBase with Store {
     var result = await _auth.signIn(email.trim(), password.trim());
     userId = result.userId;
     user = await store.getBasicUserData(userId).then((value) => value.item);
-    print(user.email);
-    result.success
-        ? homeNavigator(context)
-        : genericDialog(context, wrongCredentials, wrongCredentialsOrientation,
-            () => Navigator.pop(context));
+
+    if (result.success) {
+      homeNavigator(context);
+      saveDataInCache(user);
+    } else {
+      genericDialog(context, wrongCredentials, wrongCredentialsOrientation,
+          () => Navigator.pop(context));
+    }
+  }
+
+  void saveDataInCache(User user) {
+    _cache.addStringToSF("name", user.name);
+    _cache.addStringToSF("email", user.email);
   }
 
   void homeNavigator(context) {

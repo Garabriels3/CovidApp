@@ -6,6 +6,7 @@ import 'package:covid_app/app/ui/quiz/quiz_page.dart';
 import 'package:covid_app/app/widgets/button_component.dart';
 import 'package:covid_app/core/constants/colors.dart';
 import 'package:covid_app/core/constants/dimens.dart';
+import 'package:covid_app/core/constants/string.dart';
 import 'package:flutter/material.dart';
 
 // ignore: must_be_immutable
@@ -37,8 +38,8 @@ Widget _body(context, vm) {
                 height: MediaQuery.of(context).size.height * 0.35,
                 color: Color.fromRGBO(50, 92, 127, 0.9),
                 child: Container(
-                  width: 200,
-                  height: 200,
+                  width: twoHundred,
+                  height: twoHundred,
                   alignment: Alignment.center,
                   child: CircularProgressIndicator(
                     valueColor: AlwaysStoppedAnimation<Color>(Colors.white),
@@ -61,14 +62,14 @@ Widget _body(context, vm) {
                                 "${snapshot.data.state}, ${snapshot.data.uf}",
                             fontSize: twentyFour),
                         _underlineBlackGradient(),
-                        _row(title1: "Casos", title2: "${snapshot.data.cases}"),
+                        _row(title1: casesLabel, title2: "${snapshot.data.cases}"),
                         _underlineBlackGradient(),
                         _row(
-                            title1: "Suspeitos",
+                            title1: suspiciousLabel,
                             title2: "${snapshot.data.suspects}"),
                         _underlineBlackGradient(),
                         _row(
-                            title1: "Mortos",
+                            title1: deadLabel,
                             title2: "${snapshot.data.deaths}3"),
                         _underlineBlackGradient(),
                       ],
@@ -84,7 +85,7 @@ Widget _body(context, vm) {
         padding: EdgeInsets.symmetric(horizontal: thirtyTwo),
         child: _text(
             title:
-                "Faça uma rápida auto-avaliação para saber sobre o estado atual da sua saúde :)",
+                makeASpeedTestLabel,
             color: darkPrimaryColor,
             fontSize: twentyFour),
       ),
@@ -93,7 +94,7 @@ Widget _body(context, vm) {
       ),
       Container(
         child: ButtonComponent(
-          title: "Quiz",
+          title: quizButtonLabel,
           fillColor: rosePrimaryColor,
           textColor: Colors.white,
           loginFun: () => Navigator.push(
