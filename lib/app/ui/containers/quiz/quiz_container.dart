@@ -126,6 +126,7 @@ Widget _body(context, vm) {
             }
           },
         ),
+        SizedBox(height: twentyEight,),
         Padding(
           padding: EdgeInsets.symmetric(horizontal: thirtyTwo),
           child: _text(
