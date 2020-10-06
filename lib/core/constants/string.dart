@@ -37,10 +37,14 @@ const buttonFinishLabel = "Finalizar";
 const casesLabel = "Casos";
 const suspiciousLabel = "Suspeitos";
 const deadLabel = "Mortos";
-const GOOD_RESULT = "Você não apresenta nenhum dos sintomas comuns ou graves de Covid-19 :). Continue cuidando da sua saúde e use máscara ao sair.";
-const REGULAR_RESULT = "Você apresenta alguns dos sintomas comuns de Covid-19, recomendamos que se possivel, procure atendimento médico, para realização de exames.";
-const BAD_RESULT = "Você apresenta a maioria dos sintomas graves de Covid-19, recomendamos que procure ajuda médica o mais breve possivel.";
-const makeASpeedTestLabel = "Faça uma rápida auto-avaliação para saber sobre o estado atual da sua saúde :)";
+const GOOD_RESULT =
+    "Você não apresenta nenhum dos sintomas comuns ou graves de Covid-19 :). Continue cuidando da sua saúde e use máscara ao sair.";
+const REGULAR_RESULT =
+    "Você apresenta alguns dos sintomas comuns de Covid-19, recomendamos que se possivel, procure atendimento médico, para realização de exames.";
+const BAD_RESULT =
+    "Você apresenta a maioria dos sintomas graves de Covid-19, recomendamos que procure ajuda médica o mais breve possivel.";
+const makeASpeedTestLabel =
+    "Faça uma rápida auto-avaliação para saber sobre o estado atual da sua saúde :)";
 const SECOND_STEP_QUESTION_TEXT = "Quais sintomas está sentindo?";
 const THIRD_STEP_QUESTION_TEXT = "Nos últimos 14 dias...";
 const makeExamLabel = "Fazer exame";
@@ -69,6 +73,7 @@ const maranhao = "Maranhão";
 const piaui = "Piauí";
 const ceara = "Ceará";
 const rioGrandeNorte = "Rio Grande do Norte";
+const rioGrandeSul = "Rio Grande do Sul";
 const paraiba = "Paraíba";
 const pernambuco = "Pernambuco";
 const alagoas = "Alagoas";
@@ -81,6 +86,7 @@ const saoPaulo = "São Paulo";
 const parana = "Paraná";
 const santaCatarina = "Santa Catarina";
 const matoGrosso = "Mato Grosso";
+const matoGrossoSul = "Mato Grosso do Sul";
 const goias = "Goiás";
 const distritoFederal = "Distrito Federal";
 
@@ -118,12 +124,10 @@ const GENERIC_ERROR_MESSAGE_TRY_AGAIN_LATER =
 // EMPTY STATE
 const emptyStateDescription = "Não há nada para ver aqui :)";
 
-
 // IMAGENS
 
 const badResultImage = "assets/images/urgent_warn.png";
 const goodResultImage = "assets/images/goodResult.png";
-
 
 // SHARED PREFERENCES KEYS
 const nameKey = "name";

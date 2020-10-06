@@ -6,17 +6,7 @@ class GeolocatorService {
     LocationPermission permission = await checkPermission();
     switch (permission) {
       case LocationPermission.always:
-      case LocationPermission.whileInUse:
         return true;
-      default:
-        return false;
-    }
-  }
-
-  Future<bool> requestDevicePermission() async {
-    LocationPermission permission = await requestPermission();
-    switch (permission) {
-      case LocationPermission.always:
       case LocationPermission.whileInUse:
         return true;
       default:
@@ -25,8 +15,13 @@ class GeolocatorService {
   }
 
   Future<DevicePositionModel> getCurrentDevicePosition() async {
-    Position position =
-        await getCurrentPosition(desiredAccuracy: LocationAccuracy.medium);
-    return DevicePositionModel.fromPosition(position);
+    bool check = await checkDevicePermission();
+    if (check) {
+      Position position =
+          await getCurrentPosition(desiredAccuracy: LocationAccuracy.medium);
+      return DevicePositionModel.fromPosition(position);
+    } else {
+      return null;
+    }
   }
 }
