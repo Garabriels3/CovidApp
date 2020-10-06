@@ -285,7 +285,7 @@
     },
     {
       "name": "html",
-      "rootUri": "file:///Users/gabriel.nascimento/development/flutter/.pub-cache/hosted/pub.dartlang.org/html-0.14.0+3",
+      "rootUri": "file:///Users/gabriel.nascimento/development/flutter/.pub-cache/hosted/pub.dartlang.org/html-0.14.0+4",
       "packageUri": "lib/",
       "languageVersion": "2.3"
     },
@@ -674,7 +674,7 @@
       "languageVersion": "2.7"
     }
   ],
-  "generated": "2020-10-06T03:16:16.475187Z",
+  "generated": "2020-10-06T18:41:52.795407Z",
   "generator": "pub",
   "generatorVersion": "2.10.0"
 }

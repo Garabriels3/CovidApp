@@ -1,15 +1,10 @@
-import 'package:covid_app/app/model/user.dart';
-import 'package:covid_app/app/service/local/shared_preferences.dart';
-import 'package:covid_app/app/ui/containers/quiz/quiz_container.dart';
 import 'package:covid_app/app/ui/finish_quiz.dart/quiz_result_viewmodel.dart';
 import 'package:covid_app/app/ui/home/home_page.dart';
-import 'package:covid_app/app/ui/quiz/quiz_page.dart';
 import 'package:covid_app/app/widgets/button_component.dart';
 import 'package:covid_app/core/constants/colors.dart';
 import 'package:covid_app/core/constants/dimens.dart';
 import 'package:covid_app/core/constants/string.dart';
 import 'package:flutter/material.dart';
-import 'package:shared_preferences/shared_preferences.dart';
 
 class QuizResult extends StatefulWidget {
   String orientationLabel;
