@@ -12,9 +12,6 @@
 		<string>6.0</string>
 		<key>CFBundleName</key>
 		<string>covid_app</string>
-		<array>
-			<string>UIInterfaceOrientationPortrait</string>
-		</array>
 		<key>CFBundlePackageType</key>
 		<string>APPL</string>
 		<key>CFBundleShortVersionString</key>
