@@ -60,7 +60,7 @@ class _RegisterPageState extends State<RegisterPage> {
                                 Spacer(),
                                 Container(
                                   height: screenSize.height / 5,
-                                  child:
+                                  child: 
                                       Image.asset("assets/images/register.png"),
                                 ),
                                 SizedBox(height: twentyFour),
