@@ -8,6 +8,7 @@ import 'package:covid_app/core/constants/colors.dart';
 import 'package:covid_app/core/constants/dimens.dart';
 import 'package:covid_app/core/constants/string.dart';
 import 'package:flutter/material.dart';
+import 'package:mobx/mobx.dart';
 
 // ignore: must_be_immutable
 class QuizContainer extends StatelessWidget {
@@ -62,7 +63,9 @@ Widget _body(context, vm) {
                                 "${snapshot.data.state}, ${snapshot.data.uf}",
                             fontSize: twentyFour),
                         _underlineBlackGradient(),
-                        _row(title1: casesLabel, title2: "${snapshot.data.cases}"),
+                        _row(
+                            title1: casesLabel,
+                            title2: "${snapshot.data.cases}"),
                         _underlineBlackGradient(),
                         _row(
                             title1: suspiciousLabel,
@@ -84,8 +87,7 @@ Widget _body(context, vm) {
       Padding(
         padding: EdgeInsets.symmetric(horizontal: thirtyTwo),
         child: _text(
-            title:
-                makeASpeedTestLabel,
+            title: makeASpeedTestLabel,
             color: darkPrimaryColor,
             fontSize: twentyFour),
       ),

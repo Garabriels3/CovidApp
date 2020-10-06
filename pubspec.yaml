@@ -61,6 +61,8 @@ flutter:
     - assets/images/previous.png
     - assets/images/password.png
     - assets/images/empty_state.png
+    - assets/images/urgent_warn.png
+    - assets/images/goodResult.png
 
     - assets/fonts/
   fonts:

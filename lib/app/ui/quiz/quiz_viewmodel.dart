@@ -23,12 +23,6 @@ enum Screen { FEELING_WELL, SYMPTOMS, QUESTIONS, RESULT }
 
 abstract class _QuizViewModelBase with Store {
   @observable
-  List<CovidSymptoms> symptoms;
-
-  @observable
-  List<TypeQuestions> questions;
-
-  @observable
   var stepValue = 0;
 
   @observable
@@ -40,57 +34,63 @@ abstract class _QuizViewModelBase with Store {
   @observable
   int severalScore = 0;
 
-  final _store = FirebaseStore();
+  @observable
+  bool isBadResult = false;
 
   @observable
-  List<Tag> listSymptons = [];
+  bool isRegularResult = false;
+
+  @observable
+  bool isGoodResult = false;
+
+  @observable
+  String orientarionLabel = "";
+
+  @observable
+  List<Tag> listSymptoms = [];
 
   @observable
   List<Tag> listQuestion = [];
 
+  final _store = FirebaseStore();
+
   @action
-  Future<List<Tag>> getSymptoms() async {
+  Future getSymptoms() async {
     final result = await _store.getSymptomsData();
-    listSymptons.clear();
+    listSymptoms.clear();
 
     if (result.success) {
-      symptoms = result.item;
-      listSymptons.addAll(
+      List<CovidSymptoms> symptoms = result.item;
+      listSymptoms.addAll(
         symptoms.map(
           (e) => Tag(title: "${e.symptom}", active: false, customData: e),
         ),
       );
-      return listSymptons;
-    } else {
-      return listSymptons;
     }
   }
 
   @action
-  Future<List<Tag>> getQuestions() async {
+  Future getQuestions() async {
     final result = await _store.getQuestionList();
     listQuestion.clear();
 
     if (result.success) {
-      questions = result.item;
+      List<TypeQuestions> questions = result.item;
       listQuestion.addAll(
         questions.map(
-          (e) => Tag(title: "${e.question}", active: false, customData: e),
+          (e) => Tag(title: "${e.question}", customData: e),
         ),
       );
-      return listQuestion;
-    } else {
-      return listQuestion;
     }
   }
 
   Widget widgetForCurrentPosition() {
     switch (stepValue) {
       case 0:
-        return SymptomsContainer();
+        return SymptomsContainer(vm: this);
         break;
       case 1:
-        return QuestionsContainer();
+        return QuestionsContainer(vm: this);
         break;
       default:
         return QuestionsContainer();
@@ -105,7 +105,6 @@ abstract class _QuizViewModelBase with Store {
         if (isNext) {
           questionTitle = THIRD_STEP_QUESTION_TEXT;
           stepValue++;
-          captureScore();
         } else {
           Navigator.pop(context);
         }
@@ -115,8 +114,17 @@ abstract class _QuizViewModelBase with Store {
           questionTitle = SECOND_STEP_QUESTION_TEXT;
           stepValue--;
         } else {
+          captureScore();
+          calculateTotalScore();
           Navigator.push(
-              context, MaterialPageRoute(builder: (_) => QuizResult()));
+            context,
+            MaterialPageRoute(
+              builder: (_) => QuizResult(
+                orientationLabel: orientarionLabel,
+                isBadResult: isBadResult,
+              ),
+            ),
+          );
           // await saveData(context);
         }
         break;
@@ -126,13 +134,26 @@ abstract class _QuizViewModelBase with Store {
 
   @action
   void captureScore() {
-    final allegedSymptoms = listSymptons
-        .where((element) => element.active)
+    final allegedSymptoms = listSymptoms
+        .where((element) => element.active == true)
         .map((e) => e.customData as CovidSymptoms)
+        .where((element) => element != null)
         .toList();
+
+    final allegedQuestions = listQuestion
+        .where((element) => element.active == true)
+        .map((e) => e.customData as TypeQuestions)
+        .where((element) => element != null)
+        .toList();
+
+    print(allegedSymptoms);
 
     allegedSymptoms.forEach((element) {
       verifySymptomsScore(element);
+    });
+
+    allegedQuestions.forEach((element) {
+      verifyQuestionScore(element);
     });
   }
 
@@ -144,6 +165,34 @@ abstract class _QuizViewModelBase with Store {
     } else {
       commonScore++;
       print(commonScore);
+    }
+  }
+
+  @action
+  void verifyQuestionScore(TypeQuestions element) {
+    if (element.isSevere == true) {
+      severalScore++;
+      print(severalScore);
+    } else {
+      commonScore++;
+      print(commonScore);
+    }
+  }
+
+  @action
+  void calculateTotalScore() {
+    if (commonScore > 0 && severalScore > 0) {
+      isBadResult = true;
+      orientarionLabel = BAD_RESULT;
+    } else if (commonScore > 3 && severalScore == 0) {
+      isBadResult = true;
+      orientarionLabel = REGULAR_RESULT;
+    } else if (commonScore < 4 && severalScore == 0) {
+      isBadResult = false;
+      orientarionLabel = GOOD_RESULT;
+    } else if (severalScore > 0) {
+      isBadResult = true;
+      orientarionLabel = BAD_RESULT;
     }
   }
 }

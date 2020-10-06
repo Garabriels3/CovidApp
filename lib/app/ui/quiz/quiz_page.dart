@@ -8,11 +8,10 @@ import 'package:covid_app/core/constants/dimens.dart';
 import 'package:covid_app/core/constants/string.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
-import 'package:step_progress_indicator/step_progress_indicator.dart';
-
 import 'components/step_indicator_component.dart';
 
 class QuizPage extends StatefulWidget {
+
   @override
   _QuizPageState createState() => _QuizPageState();
 }

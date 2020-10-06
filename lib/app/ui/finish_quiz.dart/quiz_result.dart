@@ -7,10 +7,15 @@ import 'package:covid_app/app/ui/quiz/quiz_page.dart';
 import 'package:covid_app/app/widgets/button_component.dart';
 import 'package:covid_app/core/constants/colors.dart';
 import 'package:covid_app/core/constants/dimens.dart';
+import 'package:covid_app/core/constants/string.dart';
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 class QuizResult extends StatefulWidget {
+  String orientationLabel;
+  bool isBadResult;
+
+  QuizResult({this.isBadResult, this.orientationLabel});
   @override
   _QuizResultState createState() => _QuizResultState();
 }
@@ -28,18 +33,49 @@ class _QuizResultState extends State<QuizResult> {
   Widget build(BuildContext context) {
     var sizeDinamyc = MediaQuery.of(context).size;
     return Scaffold(
-      backgroundColor: darkPrimaryColor,
+      backgroundColor: widget.isBadResult ? darkPrimaryColor : Colors.white,
       body: SafeArea(
         child: Padding(
-          padding: const EdgeInsets.all(twenty),
+          padding:
+              const EdgeInsets.only(right: twenty, left: twenty, top: sixteen),
           child: Column(
             children: <Widget>[
+              SizedBox(height: twenty),
               Text(
-                "Você não apresenta nenhum dos sintomas comuns ou graves de Covid-19 :). Continue cuidando da sua saúde e tome muito cuidado ao sair",
-                style: TextStyle(fontSize: sizeDinamyc.height * 0.035),
+                widget.orientationLabel,
+                textAlign: TextAlign.center,
+                style: TextStyle(
+                    fontSize: sizeDinamyc.height * 0.035,
+                    color: widget.isBadResult ? Colors.white : darkPrimaryColor,
+                    fontWeight:
+                        widget.isBadResult ? FontWeight.w300 : FontWeight.w400),
+              ),
+              Image.asset(
+                widget.isBadResult ? badResultImage : goodResultImage,
+                width: threeHundredFiftyTwo,
+                height: threeHundredFiftyTwo,
+              ),
+              SizedBox(height: twelve),
+              Visibility(
+                visible: widget.isBadResult,
+                child: ButtonComponent(
+                  title: makeExamLabel,
+                  textColor: Colors.white,
+                  fillColor: rosePrimaryColor,
+                  loginFun: () => Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (_) => HomePage(user: vm.user),
+                    ),
+                  ),
+                ),
+              ),
+              Visibility(
+                visible: widget.isBadResult,
+                child: SizedBox(height: twelve),
               ),
               ButtonComponent(
-                title: "Voltar",
+                title: backButtonLabel,
                 textColor: Colors.white,
                 fillColor: rosePrimaryColor,
                 loginFun: () => Navigator.push(
@@ -48,7 +84,7 @@ class _QuizResultState extends State<QuizResult> {
                     builder: (_) => HomePage(user: vm.user),
                   ),
                 ),
-              )
+              ),
             ],
           ),
         ),
