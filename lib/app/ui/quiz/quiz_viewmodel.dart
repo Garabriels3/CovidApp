@@ -19,8 +19,6 @@ part 'quiz_viewmodel.g.dart';
 
 class QuizViewModel = _QuizViewModelBase with _$QuizViewModel;
 
-enum Screen { FEELING_WELL, SYMPTOMS, QUESTIONS, RESULT }
-
 abstract class _QuizViewModelBase with Store {
   @observable
   var stepValue = 0;

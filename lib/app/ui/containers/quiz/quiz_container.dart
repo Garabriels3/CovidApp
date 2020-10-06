@@ -8,7 +8,6 @@ import 'package:covid_app/core/constants/colors.dart';
 import 'package:covid_app/core/constants/dimens.dart';
 import 'package:covid_app/core/constants/string.dart';
 import 'package:flutter/material.dart';
-import 'package:mobx/mobx.dart';
 
 // ignore: must_be_immutable
 class QuizContainer extends StatelessWidget {
