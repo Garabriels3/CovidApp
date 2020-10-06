@@ -15,16 +15,14 @@ class LoginPage extends StatefulWidget {
 
 class _LoginPageState extends State<LoginPage> {
   var vm = LoginViewModel();
-  var value = zero;
-  var valueTextFields = sixtyEight;
+  var value = fortyFour;
   TextEditingController controllerEmail = TextEditingController();
   TextEditingController controllerPassword = TextEditingController();
 
   void animatedTest() async {
     Future.delayed(Duration(seconds: 0), () {
       setState(() {
-        value = fortyFour;
-        valueTextFields = zero;
+        value = zero;
       });
     });
   }
@@ -61,7 +59,10 @@ class _LoginPageState extends State<LoginPage> {
                               BorderRadius.all(Radius.circular(twentyFour)),
                         ),
                         child: Padding(
-                          padding: const EdgeInsets.all(thirtyTwo),
+                          padding: const EdgeInsets.only(
+                              left: thirtyTwo,
+                              right: thirtyTwo,
+                              top: thirtyTwo),
                           child: Column(
                             children: <Widget>[
                               SizedBox(
@@ -69,6 +70,7 @@ class _LoginPageState extends State<LoginPage> {
                               ),
                               AnimatedContainer(
                                 height: screenSize.height / 6,
+                                margin: EdgeInsets.only(top: value),
                                 duration: Duration(seconds: 1),
                                 child: Image.asset(
                                     "assets/images/logo_covid_app.png"),
