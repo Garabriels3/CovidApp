@@ -1,5 +1,4 @@
 import 'package:covid_app/app/ui/login/login_viewmodel.dart';
-import 'package:covid_app/app/ui/register/register_page.dart';
 import 'package:covid_app/app/widgets/KeyboardHideable.dart';
 import 'package:covid_app/core/constants/colors.dart';
 import 'package:covid_app/core/constants/dimens.dart';
@@ -115,6 +114,7 @@ class _LoginPageState extends State<LoginPage> {
                                   loginFun: vm.formIsValid
                                       ? () => vm.firebaseLogin(context)
                                       : null,
+                                  textSize: twenty,
                                 ),
                               ),
                               SizedBox(height: screenSize.height * 0.02),
@@ -123,6 +123,7 @@ class _LoginPageState extends State<LoginPage> {
                                 fillColor: darkPrimaryColor,
                                 textColor: Colors.white,
                                 loginFun: () => vm.registerNavigator(context),
+                                textSize: twenty,
                               ),
                             ],
                           ),

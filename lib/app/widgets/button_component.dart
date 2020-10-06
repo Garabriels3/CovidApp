@@ -6,9 +6,10 @@ class ButtonComponent extends StatefulWidget {
   var title;
   var fillColor;
   var textColor;
+  var textSize;
   Function loginFun;
   ButtonComponent(
-      {Key key, this.title, this.fillColor, this.textColor, this.loginFun});
+      {Key key, this.title, this.fillColor, this.textColor, this.loginFun, this.textSize});
 
   @override
   _ButtonComponentState createState() => _ButtonComponentState();
@@ -35,7 +36,7 @@ class _ButtonComponentState extends State<ButtonComponent> {
           widget.title,
           style: TextStyle(
               color: widget.textColor,
-              fontSize: 18,
+              fontSize: widget.textSize,
               fontWeight: FontWeight.w400),
         ),
       ),
