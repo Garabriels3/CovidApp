@@ -47,6 +47,21 @@ mixin _$LoginViewModel on LoginViewModelBase, Store {
     });
   }
 
+  final _$currentUserAtom = Atom(name: 'LoginViewModelBase.currentUser');
+
+  @override
+  String get currentUser {
+    _$currentUserAtom.reportRead();
+    return super.currentUser;
+  }
+
+  @override
+  set currentUser(String value) {
+    _$currentUserAtom.reportWrite(value, super.currentUser, () {
+      super.currentUser = value;
+    });
+  }
+
   final _$passwordAtom = Atom(name: 'LoginViewModelBase.password');
 
   @override
@@ -184,6 +199,7 @@ mixin _$LoginViewModel on LoginViewModelBase, Store {
     return '''
 email: ${email},
 user: ${user},
+currentUser: ${currentUser},
 password: ${password},
 error: ${error},
 emailErrorLabel: ${emailErrorLabel},

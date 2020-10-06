@@ -22,6 +22,9 @@ abstract class LoginViewModelBase with Store {
   User user = User();
 
   @observable
+  String currentUser = "";
+
+  @observable
   String password = "";
 
   @observable
@@ -100,6 +103,7 @@ abstract class LoginViewModelBase with Store {
     user = await store.getBasicUserData(userId).then((value) => value.item);
 
     if (result.success) {
+      getCurrentUser();
       homeNavigator(context);
       saveDataInCache(user);
     } else {
@@ -108,9 +112,14 @@ abstract class LoginViewModelBase with Store {
     }
   }
 
+  Future getCurrentUser() async {
+    currentUser = await _auth.getCurrentUser().then((value) => value.item);
+  }
+
   void saveDataInCache(User user) {
-    _cache.addStringToSF("name", user.name);
-    _cache.addStringToSF("email", user.email);
+    _cache.addStringToSF(nameKey, user.name);
+    _cache.addStringToSF(emailKey, user.email);
+    _cache.addStringToSF(userId, currentUser);
   }
 
   void homeNavigator(context) {

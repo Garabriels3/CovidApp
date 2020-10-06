@@ -24,6 +24,21 @@ mixin _$QuizViewModel on _QuizViewModelBase, Store {
     });
   }
 
+  final _$currentUserAtom = Atom(name: '_QuizViewModelBase.currentUser');
+
+  @override
+  String get currentUser {
+    _$currentUserAtom.reportRead();
+    return super.currentUser;
+  }
+
+  @override
+  set currentUser(String value) {
+    _$currentUserAtom.reportWrite(value, super.currentUser, () {
+      super.currentUser = value;
+    });
+  }
+
   final _$questionTitleAtom = Atom(name: '_QuizViewModelBase.questionTitle');
 
   @override
@@ -146,6 +161,22 @@ mixin _$QuizViewModel on _QuizViewModelBase, Store {
     });
   }
 
+  final _$allegedSymptomsAtom =
+      Atom(name: '_QuizViewModelBase.allegedSymptoms');
+
+  @override
+  List<CovidSymptoms> get allegedSymptoms {
+    _$allegedSymptomsAtom.reportRead();
+    return super.allegedSymptoms;
+  }
+
+  @override
+  set allegedSymptoms(List<CovidSymptoms> value) {
+    _$allegedSymptomsAtom.reportWrite(value, super.allegedSymptoms, () {
+      super.allegedSymptoms = value;
+    });
+  }
+
   final _$listQuestionAtom = Atom(name: '_QuizViewModelBase.listQuestion');
 
   @override
@@ -237,6 +268,7 @@ mixin _$QuizViewModel on _QuizViewModelBase, Store {
   String toString() {
     return '''
 stepValue: ${stepValue},
+currentUser: ${currentUser},
 questionTitle: ${questionTitle},
 commonScore: ${commonScore},
 severalScore: ${severalScore},
@@ -245,6 +277,7 @@ isRegularResult: ${isRegularResult},
 isGoodResult: ${isGoodResult},
 orientarionLabel: ${orientarionLabel},
 listSymptoms: ${listSymptoms},
+allegedSymptoms: ${allegedSymptoms},
 listQuestion: ${listQuestion}
     ''';
   }

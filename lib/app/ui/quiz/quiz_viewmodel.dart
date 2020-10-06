@@ -2,6 +2,7 @@ import 'package:covid_app/app/model/covid_symptom.dart';
 import 'package:covid_app/app/model/questions.dart';
 import 'package:covid_app/app/model/typeQuestions.dart';
 import 'package:covid_app/app/model/user.dart';
+import 'package:covid_app/app/service/firebaseAuth/firebase_auth_impl.dart';
 import 'package:covid_app/app/service/firebase_store/firebase_store.dart';
 import 'package:covid_app/app/service/local/shared_preferences.dart';
 import 'package:covid_app/app/ui/containers/questions/questions_container.dart';
@@ -22,6 +23,9 @@ class QuizViewModel = _QuizViewModelBase with _$QuizViewModel;
 abstract class _QuizViewModelBase with Store {
   @observable
   var stepValue = 0;
+
+  @observable
+  var currentUser = "";
 
   @observable
   var questionTitle = SECOND_STEP_QUESTION_TEXT;
@@ -48,9 +52,13 @@ abstract class _QuizViewModelBase with Store {
   List<Tag> listSymptoms = [];
 
   @observable
+  List<CovidSymptoms> allegedSymptoms = [];
+
+  @observable
   List<Tag> listQuestion = [];
 
   final _store = FirebaseStore();
+  final _auth = Auth();
 
   @action
   Future getSymptoms() async {
@@ -103,6 +111,7 @@ abstract class _QuizViewModelBase with Store {
         if (isNext) {
           questionTitle = THIRD_STEP_QUESTION_TEXT;
           stepValue++;
+          getCurrentUser();
         } else {
           Navigator.pop(context);
         }
@@ -114,6 +123,7 @@ abstract class _QuizViewModelBase with Store {
         } else {
           captureScore();
           calculateTotalScore();
+          sendAnswers();
           Navigator.push(
             context,
             MaterialPageRoute(
@@ -132,7 +142,7 @@ abstract class _QuizViewModelBase with Store {
 
   @action
   void captureScore() {
-    final allegedSymptoms = listSymptoms
+    allegedSymptoms = listSymptoms
         .where((element) => element.active == true)
         .map((e) => e.customData as CovidSymptoms)
         .where((element) => element != null)
@@ -192,5 +202,13 @@ abstract class _QuizViewModelBase with Store {
       isBadResult = true;
       orientarionLabel = BAD_RESULT;
     }
+  }
+
+  Future getCurrentUser() async {
+    currentUser = await _auth.getCurrentUser().then((value) => value.item);
+  }
+
+  Future sendAnswers() async {
+    _store.setQuestionList(currentUser, allegedSymptoms, orientarionLabel);
   }
 }

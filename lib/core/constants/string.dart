@@ -52,6 +52,7 @@ const articlesJsonList = "articles";
 // BASE URL
 const baseUrl =
     "http://newsapi.org/v2/top-headlines?country=br&q=covid&apiKey=ebcb8413b826477a902fd8fc88f25e04";
+const urlMakeExam = 'https://agendamentoonline.lavoisier.com.br/login/email';
 // END POINTS
 const articlesBr =
     "top-headlines?country=de&category=business&apiKey=ebcb8413b826477a902fd8fc88f25e04";
@@ -122,3 +123,9 @@ const emptyStateDescription = "Não há nada para ver aqui :)";
 
 const badResultImage = "assets/images/urgent_warn.png";
 const goodResultImage = "assets/images/goodResult.png";
+
+
+// SHARED PREFERENCES KEYS
+const nameKey = "name";
+const emailKey = "email";
+const userIdKey = "userID";

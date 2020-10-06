@@ -12,4 +12,8 @@ class CovidSymptoms {
 
     return CovidSymptoms(symptom: symptom, isSevere: isSevere);
   }
+
+  Map<String, dynamic> toJson() {
+    return {"symptom": symptom, "isSevere": isSevere};
+  }
 }

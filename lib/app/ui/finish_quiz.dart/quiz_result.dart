@@ -62,12 +62,7 @@ class _QuizResultState extends State<QuizResult> {
                   title: makeExamLabel,
                   textColor: Colors.white,
                   fillColor: rosePrimaryColor,
-                  loginFun: () => Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                      builder: (_) => HomePage(user: vm.user),
-                    ),
-                  ),
+                  loginFun: () => vm.launchURL()
                 ),
               ),
               Visibility(
