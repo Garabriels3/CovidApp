@@ -126,7 +126,9 @@ Widget _body(context, vm) {
             }
           },
         ),
-        SizedBox(height: twentyEight,),
+        SizedBox(
+          height: twentyFour,
+        ),
         Padding(
           padding: EdgeInsets.symmetric(horizontal: thirtyTwo),
           child: _text(
@@ -135,7 +137,7 @@ Widget _body(context, vm) {
               fontSize: twentyFour),
         ),
         Container(
-          margin: EdgeInsets.only(top: sixty, bottom: sixteen),
+          margin: EdgeInsets.only(top: fortyEight, bottom: twelve),
           child: ButtonComponent(
             title: quizButtonLabel,
             fillColor: rosePrimaryColor,
