@@ -28,12 +28,35 @@ const sendEmailSucess = "Muito bem!";
 const sendEmailSucessOrientarion =
     "Um link para resetar sua senha, foi enviado para o email informado";
 
+// quiz
+const quizButtonLabel = "Quiz";
+const answerSymptoms = "Esta com algum desses sintomas?";
+const answerLastPlaces = "Nos ultimos dias você...";
+const buttonNextLabel = "Proximo";
+const buttonFinishLabel = "Finalizar";
+const casesLabel = "Casos";
+const suspiciousLabel = "Suspeitos";
+const deadLabel = "Mortos";
+const GOOD_RESULT =
+    "Você não apresenta nenhum dos sintomas comuns ou graves de Covid-19 :). Continue cuidando da sua saúde e use máscara ao sair.";
+const REGULAR_RESULT =
+    "Você apresenta alguns dos sintomas comuns de Covid-19, recomendamos que se possivel, procure atendimento médico, para realização de exames.";
+const BAD_RESULT =
+    "Você apresenta a maioria dos sintomas graves de Covid-19, recomendamos que procure ajuda médica o mais breve possivel.";
+const makeASpeedTestLabel =
+    "Faça uma rápida auto-avaliação para saber sobre o estado atual da sua saúde :)";
+const SECOND_STEP_QUESTION_TEXT = "Quais sintomas está sentindo?";
+const THIRD_STEP_QUESTION_TEXT = "Nos últimos 14 dias...";
+const makeExamLabel = "Fazer exame";
+const backButtonLabel = "Voltar";
+
 //json
 const articlesJsonList = "articles";
 
 // BASE URL
 const baseUrl =
     "http://newsapi.org/v2/top-headlines?country=br&q=covid&apiKey=ebcb8413b826477a902fd8fc88f25e04";
+const urlMakeExam = 'https://agendamentoonline.lavoisier.com.br/login/email';
 // END POINTS
 const articlesBr =
     "top-headlines?country=de&category=business&apiKey=ebcb8413b826477a902fd8fc88f25e04";
@@ -100,3 +123,13 @@ const GENERIC_ERROR_MESSAGE_TRY_AGAIN_LATER =
 
 // EMPTY STATE
 const emptyStateDescription = "Não há nada para ver aqui :)";
+
+// IMAGENS
+
+const badResultImage = "assets/images/urgent_warn.png";
+const goodResultImage = "assets/images/goodResult.png";
+
+// SHARED PREFERENCES KEYS
+const nameKey = "name";
+const emailKey = "email";
+const userIdKey = "userID";

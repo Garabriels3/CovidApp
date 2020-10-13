@@ -11,13 +11,14 @@ class CovidApiRepository {
       Response response = await ApiClient.dio
           .get("https://covid19-brazil-api.now.sh/api/report/v1/brazil/uf/$uf");
       if (response.data['error'] != "state not found") {
-        CovidApiModel model = CovidApiModel.fromJsonByState(response.data);
+        CovidApiModel model =
+            CovidApiModel.fromJsonToModelWithState(response.data);
         return model;
       } else {
         Response response = await ApiClient.dio
             .get("https://covid19-brazil-api.now.sh/api/report/v1/$country");
         CovidApiModel model =
-            CovidApiModel.fromJsonByCountry(response.data['data']);
+            CovidApiModel.fromJsonToModelWithCountry(response.data['data']);
         return model;
       }
     } on DioError catch (e) {
