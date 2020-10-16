@@ -5,7 +5,6 @@ import 'package:covid_app/app/respository/covid_api.dart';
 import 'package:covid_app/app/service/geocoding/geocoding_service.dart';
 import 'package:covid_app/app/service/geolocator/geolocator_service.dart';
 import 'package:covid_app/core/constants/string.dart';
-import 'package:geolocator/geolocator.dart';
 import 'package:get_it/get_it.dart';
 
 class QuizContainerViewModel {

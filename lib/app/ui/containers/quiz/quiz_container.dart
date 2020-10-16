@@ -1,6 +1,3 @@
-import 'package:covid_app/app/respository/covid_api.dart';
-import 'package:covid_app/app/service/geocoding/geocoding_service.dart';
-import 'package:covid_app/app/service/geolocator/geolocator_service.dart';
 import 'package:covid_app/app/ui/containers/quiz/quiz_container_viewmodel.dart';
 import 'package:covid_app/app/ui/quiz/quiz_page.dart';
 import 'package:covid_app/app/widgets/button_component.dart';
