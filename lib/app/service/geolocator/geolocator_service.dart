@@ -1,3 +1,4 @@
+import 'package:covid_app/app/model/device_adress_model.dart';
 import 'package:covid_app/app/model/device_position_model.dart';
 import 'package:geolocator/geolocator.dart';
 
@@ -14,7 +15,7 @@ class GeolocatorService {
     }
   }
 
-  Future<DevicePositionModel> getCurrentDevicePosition() async {
+  Future<DevicePositionModel> getDevicePosition() async {
     bool check = await checkDevicePermission();
     if (check) {
       Position position =

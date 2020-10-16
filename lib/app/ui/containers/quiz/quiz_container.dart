@@ -1,5 +1,5 @@
 import 'package:covid_app/app/respository/covid_api.dart';
-import 'package:covid_app/app/service/geolocator/geocoding_service.dart';
+import 'package:covid_app/app/service/geocoding/geocoding_service.dart';
 import 'package:covid_app/app/service/geolocator/geolocator_service.dart';
 import 'package:covid_app/app/ui/containers/quiz/quiz_container_viewmodel.dart';
 import 'package:covid_app/app/ui/quiz/quiz_page.dart';
@@ -15,8 +15,7 @@ class QuizContainer extends StatelessWidget {
 
   QuizContainer({this.color});
 
-  QuizContainerViewModel vm = QuizContainerViewModel(
-      GeolocatorService(), GeocodingService(), CovidApiRepository());
+  QuizContainerViewModel vm = QuizContainerViewModel();
 
   @override
   Widget build(BuildContext context) {

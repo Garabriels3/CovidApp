@@ -2,39 +2,38 @@ import 'package:covid_app/app/model/covid_api_model.dart';
 import 'package:covid_app/app/model/device_adress_model.dart';
 import 'package:covid_app/app/model/device_position_model.dart';
 import 'package:covid_app/app/respository/covid_api.dart';
-import 'package:covid_app/app/service/geolocator/geocoding_service.dart';
+import 'package:covid_app/app/service/geocoding/geocoding_service.dart';
 import 'package:covid_app/app/service/geolocator/geolocator_service.dart';
 import 'package:covid_app/core/constants/string.dart';
+import 'package:geolocator/geolocator.dart';
+import 'package:get_it/get_it.dart';
 
 class QuizContainerViewModel {
-  final GeolocatorService geolocatorService;
-  final GeocodingService geocodingService;
-  final CovidApiRepository repository;
+  final geolocatorService = GetIt.I.get<GeolocatorService>();
+  final geocodingService = GetIt.I.get<GeocodingService>();
+  final repository = GetIt.I.get<CovidApiRepository>();
 
-  QuizContainerViewModel(
-      this.geolocatorService, this.geocodingService, this.repository);
-
-  Future<DevicePositionModel> getCurrentPosition() async {
-    DevicePositionModel positionModel =
-        await geolocatorService.getCurrentDevicePosition();
-    if (positionModel != null)
-      return positionModel;
+  Future<DevicePositionModel> getDevicePosition() async {
+    DevicePositionModel devicePosition =
+        await geolocatorService.getDevicePosition();
+    if (devicePosition != null)
+      return devicePosition;
     else
       return null;
   }
 
-  Future<DeviceAdressModel> getCurrentAdress(
-      DevicePositionModel positionModel) async {
-    DeviceAdressModel adressModel =
-        await geocodingService.getCurrentAdressDevice(positionModel);
-    return adressModel;
+  Future<DeviceAdressModel> getDeviceAdress(
+      DevicePositionModel devicePosition) async {
+    DeviceAdressModel deviceAdress =
+        await geocodingService.getDeviceAdress(devicePosition);
+    return deviceAdress;
   }
 
   Future<CovidApiModel> getData() async {
-    DevicePositionModel positionModel = await getCurrentPosition();
-    if (positionModel != null) {
-      DeviceAdressModel adressModel = await getCurrentAdress(positionModel);
-      String uf = state(adressModel.administrativeArea);
+    DevicePositionModel devicePosition = await getDevicePosition();
+    if (devicePosition != null) {
+      DeviceAdressModel deviceAdress = await getDeviceAdress(devicePosition);
+      String uf = state(deviceAdress.administrativeArea);
       if (uf != null) {
         CovidApiModel apiModel = await repository.getApiData(uf: uf);
         return apiModel;
@@ -104,7 +103,6 @@ class QuizContainerViewModel {
         return SE;
       case tocantins:
         return TO;
-        break;
       default:
         return null;
     }
