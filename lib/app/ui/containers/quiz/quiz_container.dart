@@ -55,9 +55,7 @@ Widget _body(context, vm) {
                         color: Color.fromRGBO(50, 92, 127, 0.9),
                         child: Column(
                           children: <Widget>[
-                            _text(
-                                title: "${snapshot.data.country}",
-                                fontSize: twentyFour),
+                            _text(title: "Brasil", fontSize: twentyFour),
                             _underlineBlackGradient(),
                             _row(
                                 title1: "Casos",
