@@ -10,11 +10,11 @@
          additional functionality it is fine to subclass or reimplement
          FlutterApplication and put your custom class here. -->
     <application
-        <meta-data android:name="com.google.android.geo.API_KEY"
-               android:value="AIzaSyBpOiZv85O22Ic2KnFbzS7_uTjqFGDE0bo"/>
         android:name="io.flutter.app.FlutterApplication"
         android:label="Covid Analytic"
         android:icon="@mipmap/logo_ic_laucher_round">
+        <meta-data android:name="com.google.android.geo.API_KEY"
+               android:value="AIzaSyBpOiZv85O22Ic2KnFbzS7_uTjqFGDE0bo"/>
         <activity
             android:name=".MainActivity"
             android:launchMode="singleTop"
