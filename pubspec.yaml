@@ -33,6 +33,7 @@ dependencies:
   geocoding: ^1.0.3
   geolocator: ^6.0.0
   get_it: ^5.0.1
+  google_maps_flutter: ^1.0.3
   mobx: ^1.2.1+2
   shared_preferences: 0.5.12
   splashscreen: ^1.2.0
