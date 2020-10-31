@@ -1,4 +1,4 @@
-#Mon Oct 26 15:42:14 BRT 2020
+#Tue Oct 27 16:06:25 BRT 2020
 base.2=C\:\\Users\\agrim\\Documents\\GitHub\\CovidApp\\build\\app\\intermediates\\dex\\debug\\mergeExtDexDebug\\out\\classes2.dex
 base.1=C\:\\Users\\agrim\\Documents\\GitHub\\CovidApp\\build\\app\\intermediates\\dex\\debug\\mergeProjectDexDebug\\out\\classes.dex
 base.0=C\:\\Users\\agrim\\Documents\\GitHub\\CovidApp\\build\\app\\intermediates\\dex\\debug\\mergeExtDexDebug\\out\\classes.dex

@@ -51,13 +51,13 @@
     },
     {
       "name": "build_resolvers",
-      "rootUri": "file:///C:/src/flutter/.pub-cache/hosted/pub.dartlang.org/build_resolvers-1.4.2",
+      "rootUri": "file:///C:/src/flutter/.pub-cache/hosted/pub.dartlang.org/build_resolvers-1.4.3",
       "packageUri": "lib/",
       "languageVersion": "2.9"
     },
     {
       "name": "build_runner",
-      "rootUri": "file:///C:/src/flutter/.pub-cache/hosted/pub.dartlang.org/build_runner-1.10.3",
+      "rootUri": "file:///C:/src/flutter/.pub-cache/hosted/pub.dartlang.org/build_runner-1.10.4",
       "packageUri": "lib/",
       "languageVersion": "2.10"
     },
@@ -147,7 +147,7 @@
     },
     {
       "name": "dart_style",
-      "rootUri": "file:///C:/src/flutter/.pub-cache/hosted/pub.dartlang.org/dart_style-1.3.8",
+      "rootUri": "file:///C:/src/flutter/.pub-cache/hosted/pub.dartlang.org/dart_style-1.3.8+1",
       "packageUri": "lib/",
       "languageVersion": "2.9"
     },
@@ -261,13 +261,13 @@
     },
     {
       "name": "geolocator",
-      "rootUri": "file:///C:/src/flutter/.pub-cache/hosted/pub.dartlang.org/geolocator-6.1.1",
+      "rootUri": "file:///C:/src/flutter/.pub-cache/hosted/pub.dartlang.org/geolocator-6.1.3",
       "packageUri": "lib/",
       "languageVersion": "2.7"
     },
     {
       "name": "geolocator_platform_interface",
-      "rootUri": "file:///C:/src/flutter/.pub-cache/hosted/pub.dartlang.org/geolocator_platform_interface-1.0.5",
+      "rootUri": "file:///C:/src/flutter/.pub-cache/hosted/pub.dartlang.org/geolocator_platform_interface-1.0.7",
       "packageUri": "lib/",
       "languageVersion": "2.7"
     },
@@ -285,7 +285,7 @@
     },
     {
       "name": "google_maps_flutter",
-      "rootUri": "file:///C:/src/flutter/.pub-cache/hosted/pub.dartlang.org/google_maps_flutter-1.0.3",
+      "rootUri": "file:///C:/src/flutter/.pub-cache/hosted/pub.dartlang.org/google_maps_flutter-1.0.5",
       "packageUri": "lib/",
       "languageVersion": "2.1"
     },
@@ -369,21 +369,21 @@
     },
     {
       "name": "mobx",
-      "rootUri": "file:///C:/src/flutter/.pub-cache/hosted/pub.dartlang.org/mobx-1.2.1+3",
+      "rootUri": "file:///C:/src/flutter/.pub-cache/hosted/pub.dartlang.org/mobx-1.2.1+4",
       "packageUri": "lib/",
       "languageVersion": "2.7"
     },
     {
       "name": "mobx_codegen",
-      "rootUri": "file:///C:/src/flutter/.pub-cache/hosted/pub.dartlang.org/mobx_codegen-1.1.1+1",
+      "rootUri": "file:///C:/src/flutter/.pub-cache/hosted/pub.dartlang.org/mobx_codegen-1.1.1+3",
       "packageUri": "lib/",
       "languageVersion": "2.7"
     },
     {
       "name": "node_interop",
-      "rootUri": "file:///C:/src/flutter/.pub-cache/hosted/pub.dartlang.org/node_interop-1.1.1",
+      "rootUri": "file:///C:/src/flutter/.pub-cache/hosted/pub.dartlang.org/node_interop-1.2.0",
       "packageUri": "lib/",
-      "languageVersion": "2.0"
+      "languageVersion": "2.9"
     },
     {
       "name": "node_io",
@@ -465,7 +465,7 @@
     },
     {
       "name": "quiver",
-      "rootUri": "file:///C:/src/flutter/.pub-cache/hosted/pub.dartlang.org/quiver-2.1.3",
+      "rootUri": "file:///C:/src/flutter/.pub-cache/hosted/pub.dartlang.org/quiver-2.1.4+1",
       "packageUri": "lib/",
       "languageVersion": "2.0"
     },
@@ -531,9 +531,9 @@
     },
     {
       "name": "source_gen",
-      "rootUri": "file:///C:/src/flutter/.pub-cache/hosted/pub.dartlang.org/source_gen-0.9.7+1",
+      "rootUri": "file:///C:/src/flutter/.pub-cache/hosted/pub.dartlang.org/source_gen-0.9.8",
       "packageUri": "lib/",
-      "languageVersion": "2.7"
+      "languageVersion": "2.10"
     },
     {
       "name": "source_span",
@@ -686,7 +686,7 @@
       "languageVersion": "2.7"
     }
   ],
-  "generated": "2020-10-26T18:32:10.626464Z",
+  "generated": "2020-10-31T01:21:19.706768Z",
   "generator": "pub",
   "generatorVersion": "2.10.2"
 }
