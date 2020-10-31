@@ -1,5 +1,4 @@
-import 'package:covid_app/app/ui/containers/quiz/quiz_container.dart';
-import 'package:covid_app/app/ui/containers/symptoms/symptoms_container.dart';
+
 import 'package:covid_app/app/ui/quiz/quiz_viewmodel.dart';
 import 'package:covid_app/app/widgets/button_component.dart';
 import 'package:covid_app/app/widgets/screen_background_component.dart';
