@@ -63,7 +63,7 @@ class _RegisterPageState extends State<RegisterPage> {
                                   child:
                                       Image.asset("assets/images/register.png"),
                                 ),
-                                SizedBox(height: twentyFour),
+                                SizedBox(height: thirtyTwo),
                                 Expanded(
                                   flex: 5,
                                   child: Container(
@@ -104,22 +104,19 @@ class _RegisterPageState extends State<RegisterPage> {
                                     ),
                                   ),
                                 ),
-                                Expanded(
-                                  flex: 1,
-                                  child: Observer(builder: (_) {
-                                    return Container(
-                                      child: ButtonComponent(
-                                        title: registerButtonLabel,
-                                        fillColor: darkPrimaryColor,
-                                        textColor: Colors.white,
-                                        loginFun: vm.formIsValid
-                                            ? () => vm.firebaseRegister(context)
-                                            : null,
-                                        textSize: twenty,
-                                      ),
-                                    );
-                                  }),
-                                ),
+                                Observer(builder: (_) {
+                                  return Container(
+                                    child: ButtonComponent(
+                                      title: registerButtonLabel,
+                                      fillColor: darkPrimaryColor,
+                                      textColor: Colors.white,
+                                      loginFun: vm.formIsValid
+                                          ? () => vm.firebaseRegister(context)
+                                          : null,
+                                      textSize: twenty,
+                                    ),
+                                  );
+                                }),
                               ],
                             ),
                           ),

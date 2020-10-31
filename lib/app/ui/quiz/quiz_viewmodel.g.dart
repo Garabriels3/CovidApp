@@ -9,36 +9,6 @@ part of 'quiz_viewmodel.dart';
 // ignore_for_file: non_constant_identifier_names, unnecessary_brace_in_string_interps, unnecessary_lambdas, prefer_expression_function_bodies, lines_longer_than_80_chars, avoid_as, avoid_annotating_with_dynamic
 
 mixin _$QuizViewModel on _QuizViewModelBase, Store {
-  final _$symptomsAtom = Atom(name: '_QuizViewModelBase.symptoms');
-
-  @override
-  List<CovidSymptoms> get symptoms {
-    _$symptomsAtom.reportRead();
-    return super.symptoms;
-  }
-
-  @override
-  set symptoms(List<CovidSymptoms> value) {
-    _$symptomsAtom.reportWrite(value, super.symptoms, () {
-      super.symptoms = value;
-    });
-  }
-
-  final _$questionsAtom = Atom(name: '_QuizViewModelBase.questions');
-
-  @override
-  List<TypeQuestions> get questions {
-    _$questionsAtom.reportRead();
-    return super.questions;
-  }
-
-  @override
-  set questions(List<TypeQuestions> value) {
-    _$questionsAtom.reportWrite(value, super.questions, () {
-      super.questions = value;
-    });
-  }
-
   final _$stepValueAtom = Atom(name: '_QuizViewModelBase.stepValue');
 
   @override
@@ -51,6 +21,21 @@ mixin _$QuizViewModel on _QuizViewModelBase, Store {
   set stepValue(int value) {
     _$stepValueAtom.reportWrite(value, super.stepValue, () {
       super.stepValue = value;
+    });
+  }
+
+  final _$currentUserAtom = Atom(name: '_QuizViewModelBase.currentUser');
+
+  @override
+  String get currentUser {
+    _$currentUserAtom.reportRead();
+    return super.currentUser;
+  }
+
+  @override
+  set currentUser(String value) {
+    _$currentUserAtom.reportWrite(value, super.currentUser, () {
+      super.currentUser = value;
     });
   }
 
@@ -99,18 +84,96 @@ mixin _$QuizViewModel on _QuizViewModelBase, Store {
     });
   }
 
-  final _$listSymptonsAtom = Atom(name: '_QuizViewModelBase.listSymptons');
+  final _$isBadResultAtom = Atom(name: '_QuizViewModelBase.isBadResult');
 
   @override
-  List<Tag> get listSymptons {
-    _$listSymptonsAtom.reportRead();
-    return super.listSymptons;
+  bool get isBadResult {
+    _$isBadResultAtom.reportRead();
+    return super.isBadResult;
   }
 
   @override
-  set listSymptons(List<Tag> value) {
-    _$listSymptonsAtom.reportWrite(value, super.listSymptons, () {
-      super.listSymptons = value;
+  set isBadResult(bool value) {
+    _$isBadResultAtom.reportWrite(value, super.isBadResult, () {
+      super.isBadResult = value;
+    });
+  }
+
+  final _$isRegularResultAtom =
+      Atom(name: '_QuizViewModelBase.isRegularResult');
+
+  @override
+  bool get isRegularResult {
+    _$isRegularResultAtom.reportRead();
+    return super.isRegularResult;
+  }
+
+  @override
+  set isRegularResult(bool value) {
+    _$isRegularResultAtom.reportWrite(value, super.isRegularResult, () {
+      super.isRegularResult = value;
+    });
+  }
+
+  final _$isGoodResultAtom = Atom(name: '_QuizViewModelBase.isGoodResult');
+
+  @override
+  bool get isGoodResult {
+    _$isGoodResultAtom.reportRead();
+    return super.isGoodResult;
+  }
+
+  @override
+  set isGoodResult(bool value) {
+    _$isGoodResultAtom.reportWrite(value, super.isGoodResult, () {
+      super.isGoodResult = value;
+    });
+  }
+
+  final _$orientarionLabelAtom =
+      Atom(name: '_QuizViewModelBase.orientarionLabel');
+
+  @override
+  String get orientarionLabel {
+    _$orientarionLabelAtom.reportRead();
+    return super.orientarionLabel;
+  }
+
+  @override
+  set orientarionLabel(String value) {
+    _$orientarionLabelAtom.reportWrite(value, super.orientarionLabel, () {
+      super.orientarionLabel = value;
+    });
+  }
+
+  final _$listSymptomsAtom = Atom(name: '_QuizViewModelBase.listSymptoms');
+
+  @override
+  List<Tag> get listSymptoms {
+    _$listSymptomsAtom.reportRead();
+    return super.listSymptoms;
+  }
+
+  @override
+  set listSymptoms(List<Tag> value) {
+    _$listSymptomsAtom.reportWrite(value, super.listSymptoms, () {
+      super.listSymptoms = value;
+    });
+  }
+
+  final _$allegedSymptomsAtom =
+      Atom(name: '_QuizViewModelBase.allegedSymptoms');
+
+  @override
+  List<CovidSymptoms> get allegedSymptoms {
+    _$allegedSymptomsAtom.reportRead();
+    return super.allegedSymptoms;
+  }
+
+  @override
+  set allegedSymptoms(List<CovidSymptoms> value) {
+    _$allegedSymptomsAtom.reportWrite(value, super.allegedSymptoms, () {
+      super.allegedSymptoms = value;
     });
   }
 
@@ -133,7 +196,7 @@ mixin _$QuizViewModel on _QuizViewModelBase, Store {
       AsyncAction('_QuizViewModelBase.getSymptoms');
 
   @override
-  Future<List<Tag>> getSymptoms() {
+  Future<dynamic> getSymptoms() {
     return _$getSymptomsAsyncAction.run(() => super.getSymptoms());
   }
 
@@ -141,7 +204,7 @@ mixin _$QuizViewModel on _QuizViewModelBase, Store {
       AsyncAction('_QuizViewModelBase.getQuestions');
 
   @override
-  Future<List<Tag>> getQuestions() {
+  Future<dynamic> getQuestions() {
     return _$getQuestionsAsyncAction.run(() => super.getQuestions());
   }
 
@@ -180,15 +243,41 @@ mixin _$QuizViewModel on _QuizViewModelBase, Store {
   }
 
   @override
+  void verifyQuestionScore(TypeQuestions element) {
+    final _$actionInfo = _$_QuizViewModelBaseActionController.startAction(
+        name: '_QuizViewModelBase.verifyQuestionScore');
+    try {
+      return super.verifyQuestionScore(element);
+    } finally {
+      _$_QuizViewModelBaseActionController.endAction(_$actionInfo);
+    }
+  }
+
+  @override
+  void calculateTotalScore() {
+    final _$actionInfo = _$_QuizViewModelBaseActionController.startAction(
+        name: '_QuizViewModelBase.calculateTotalScore');
+    try {
+      return super.calculateTotalScore();
+    } finally {
+      _$_QuizViewModelBaseActionController.endAction(_$actionInfo);
+    }
+  }
+
+  @override
   String toString() {
     return '''
-symptoms: ${symptoms},
-questions: ${questions},
 stepValue: ${stepValue},
+currentUser: ${currentUser},
 questionTitle: ${questionTitle},
 commonScore: ${commonScore},
 severalScore: ${severalScore},
-listSymptons: ${listSymptons},
+isBadResult: ${isBadResult},
+isRegularResult: ${isRegularResult},
+isGoodResult: ${isGoodResult},
+orientarionLabel: ${orientarionLabel},
+listSymptoms: ${listSymptoms},
+allegedSymptoms: ${allegedSymptoms},
 listQuestion: ${listQuestion}
     ''';
   }

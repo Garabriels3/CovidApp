@@ -67,4 +67,26 @@ class FirebaseStore implements BaseFireStore {
       return Result(errorMessage: e.toString());
     }
   }
+
+  @override
+  Future<VoidResult> setQuestionList(
+      String userUid, 
+      List<CovidSymptoms> finalAnswer, 
+      String result) async {
+    try {
+      await databaseReference
+          .collection("users")
+          .document(userUid)
+          .collection("quiz_answers")
+          .document()
+          .setData({
+        "listAnswers":
+            finalAnswer.map((finalAnswer) => finalAnswer.toJson()).toList(),
+        "resultQuiz": result
+      });
+      return VoidResult();
+    } catch (e) {
+      return VoidResult(errorMessage: e.toString());
+    }
+  }
 }

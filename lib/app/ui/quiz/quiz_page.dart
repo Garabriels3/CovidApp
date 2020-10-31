@@ -5,13 +5,13 @@ import 'package:covid_app/app/widgets/button_component.dart';
 import 'package:covid_app/app/widgets/screen_background_component.dart';
 import 'package:covid_app/core/constants/colors.dart';
 import 'package:covid_app/core/constants/dimens.dart';
+import 'package:covid_app/core/constants/string.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
-import 'package:step_progress_indicator/step_progress_indicator.dart';
-
 import 'components/step_indicator_component.dart';
 
 class QuizPage extends StatefulWidget {
+
   @override
   _QuizPageState createState() => _QuizPageState();
 }
@@ -77,12 +77,20 @@ class _QuizPageState extends State<QuizPage> {
                   ),
                 ),
               ),
-              ButtonComponent(
-                title: "Next",
-                fillColor: rosePrimaryColor,
-                textColor: Colors.white,
-                loginFun: () => vm.onContinueClick(context, true),
-                textSize: twenty,
+              Row(
+                mainAxisAlignment: MainAxisAlignment.end,
+                children: [
+                  Padding(
+                    padding: const EdgeInsets.only(right: sixteen),
+                    child: ButtonComponent(
+                      title: vm.stepValue == 0 ? buttonNextLabel : buttonFinishLabel,
+                      fillColor: rosePrimaryColor,
+                      textColor: Colors.white,
+                      loginFun: () => vm.onContinueClick(context, true),
+                      textSize: twenty,
+                    ),
+                  ),
+                ],
               ),
               SizedBox(height: 20),
             ],

@@ -1,11 +1,9 @@
-import 'package:covid_app/app/respository/covid_api.dart';
-import 'package:covid_app/app/service/geolocator/geocoding_service.dart';
-import 'package:covid_app/app/service/geolocator/geolocator_service.dart';
 import 'package:covid_app/app/ui/containers/quiz/quiz_container_viewmodel.dart';
 import 'package:covid_app/app/ui/quiz/quiz_page.dart';
 import 'package:covid_app/app/widgets/button_component.dart';
 import 'package:covid_app/core/constants/colors.dart';
 import 'package:covid_app/core/constants/dimens.dart';
+import 'package:covid_app/core/constants/string.dart';
 import 'package:flutter/material.dart';
 
 // ignore: must_be_immutable
@@ -14,8 +12,7 @@ class QuizContainer extends StatelessWidget {
 
   QuizContainer({this.color});
 
-  QuizContainerViewModel vm = QuizContainerViewModel(
-      GeolocatorService(), GeocodingService(), CovidApiRepository());
+  QuizContainerViewModel vm = QuizContainerViewModel();
 
   @override
   Widget build(BuildContext context) {
@@ -24,88 +21,132 @@ class QuizContainer extends StatelessWidget {
 }
 
 Widget _body(context, vm) {
-  return Column(
-    children: <Widget>[
-      FutureBuilder(
-        future: vm.getData(),
-        builder: (context, snapshot) {
-          switch (snapshot.connectionState) {
-            case ConnectionState.none:
-            case ConnectionState.waiting:
-              return Container(
-                width: MediaQuery.of(context).size.width,
-                height: MediaQuery.of(context).size.height * 0.35,
-                color: Color.fromRGBO(50, 92, 127, 0.9),
-                child: Container(
-                  width: 200,
-                  height: 200,
-                  alignment: Alignment.center,
-                  child: CircularProgressIndicator(
-                    valueColor: AlwaysStoppedAnimation<Color>(Colors.white),
-                    strokeWidth: 5,
-                  ),
-                ),
-              );
-            default:
-              return Column(
-                children: <Widget>[
-                  Container(
-                    padding: EdgeInsets.all(10),
-                    width: MediaQuery.of(context).size.width,
-                    height: MediaQuery.of(context).size.height * 0.35,
-                    color: Color.fromRGBO(50, 92, 127, 0.9),
-                    child: Column(
-                      children: <Widget>[
-                        _text(
-                            title:
-                                "${snapshot.data.state}, ${snapshot.data.uf}",
-                            fontSize: twentyFour),
-                        _underlineBlackGradient(),
-                        _row(title1: "Casos", title2: "${snapshot.data.cases}"),
-                        _underlineBlackGradient(),
-                        _row(
-                            title1: "Suspeitos",
-                            title2: "${snapshot.data.suspects}"),
-                        _underlineBlackGradient(),
-                        _row(
-                            title1: "Mortos",
-                            title2: "${snapshot.data.deaths}3"),
-                        _underlineBlackGradient(),
-                      ],
+  return SingleChildScrollView(
+    child: Column(
+      children: <Widget>[
+        FutureBuilder(
+          future: vm.getData(),
+          builder: (context, snapshot) {
+            switch (snapshot.connectionState) {
+              case ConnectionState.none:
+              case ConnectionState.waiting:
+                return Container(
+                  width: MediaQuery.of(context).size.width,
+                  height: MediaQuery.of(context).size.height * 0.35,
+                  color: Color.fromRGBO(50, 92, 127, 0.9),
+                  child: Container(
+                    width: twoHundred,
+                    height: twoHundred,
+                    alignment: Alignment.center,
+                    child: CircularProgressIndicator(
+                      valueColor: AlwaysStoppedAnimation<Color>(Colors.white),
+                      strokeWidth: 5,
                     ),
                   ),
-                ],
-              );
-          }
-        },
-      ),
-      SizedBox(height: thirtyTwo),
-      Padding(
-        padding: EdgeInsets.symmetric(horizontal: thirtyTwo),
-        child: _text(
-            title:
-                "Faça uma rápida auto-avaliação para saber sobre o estado atual da sua saúde :)",
-            color: darkPrimaryColor,
-            fontSize: twentyFour),
-      ),
-      Divider(
-        height: eightyEight,
-      ),
-      Container(
-        child: ButtonComponent(
-          title: "Quiz",
-          fillColor: rosePrimaryColor,
-          textColor: Colors.white,
-          loginFun: () => Navigator.push(
-            context,
-            MaterialPageRoute(
-              builder: (_) => QuizPage(),
-            ),
-          ),
-          textSize: twenty,
+                );
+              default:
+                if (snapshot.data.country != null) {
+                  return Column(
+                    children: <Widget>[
+                      Container(
+                        padding: EdgeInsets.all(10),
+                        width: MediaQuery.of(context).size.width,
+                        // height: MediaQuery.of(context).size.height * 0.35,
+                        color: Color.fromRGBO(50, 92, 127, 0.9),
+                        child: Column(
+                          children: <Widget>[
+                            _text(title: "Brasil", fontSize: twentyFour),
+                            _underlineBlackGradient(),
+                            _row(
+                                title1: "Casos",
+                                title2: "${snapshot.data.cases}"),
+                            _underlineBlackGradient(),
+                            _row(
+                                title1: "Confirmados",
+                                title2: "${snapshot.data.confirmed}"),
+                            _underlineBlackGradient(),
+                            _row(
+                                title1: "Mortes",
+                                title2: "${snapshot.data.deaths}"),
+                            _underlineBlackGradient(),
+                            _row(
+                                title1: "Recuperados",
+                                title2: "${snapshot.data.recovered}"),
+                            _underlineBlackGradient(),
+                            SizedBox(
+                              height: 10,
+                            ),
+                          ],
+                        ),
+                      ),
+                    ],
+                  );
+                } else {
+                  return Column(
+                    children: <Widget>[
+                      Container(
+                        padding: EdgeInsets.all(10),
+                        width: MediaQuery.of(context).size.width,
+                        // height: MediaQuery.of(context).size.height * 0.35,
+                        color: Color.fromRGBO(50, 92, 127, 0.9),
+                        child: Column(
+                          children: <Widget>[
+                            _text(
+                                title:
+                                    "${snapshot.data.state}, ${snapshot.data.uf}",
+                                fontSize: twentyFour),
+                            _underlineBlackGradient(),
+                            _row(
+                                title1: deadLabel,
+                                title2: "${snapshot.data.cases}"),
+                            _underlineBlackGradient(),
+                            _row(
+                                title1: suspiciousLabel,
+                                title2: "${snapshot.data.suspects}"),
+                            _underlineBlackGradient(),
+                            _row(
+                                title1: deadLabel,
+                                title2: "${snapshot.data.deaths}"),
+                            _underlineBlackGradient(),
+                            SizedBox(
+                              height: 10,
+                            ),
+                          ],
+                        ),
+                      ),
+                    ],
+                  );
+                }
+            }
+          },
         ),
-      ),
-    ],
+        SizedBox(
+          height: twentyFour,
+        ),
+        Padding(
+          padding: EdgeInsets.symmetric(horizontal: thirtyTwo),
+          child: _text(
+              title: makeASpeedTestLabel,
+              color: darkPrimaryColor,
+              fontSize: twentyFour),
+        ),
+        Container(
+          margin: EdgeInsets.only(top: fortyEight, bottom: twelve),
+          child: ButtonComponent(
+            title: quizButtonLabel,
+            fillColor: rosePrimaryColor,
+            textColor: Colors.white,
+            loginFun: () => Navigator.push(
+              context,
+              MaterialPageRoute(
+                builder: (_) => QuizPage(),
+              ),
+            ),
+            textSize: twenty,
+          ),
+        ),
+      ],
+    ),
   );
 }
 
@@ -114,8 +155,7 @@ _text({String title, double fontSize, Color color = Colors.white}) {
     margin: EdgeInsets.only(top: 10, bottom: 10),
     child: Text(
       title,
-      style: TextStyle(
-          fontSize: fontSize, color: color, fontWeight: FontWeight.w300),
+      style: TextStyle(fontSize: fontSize, color: color),
     ),
   );
 }

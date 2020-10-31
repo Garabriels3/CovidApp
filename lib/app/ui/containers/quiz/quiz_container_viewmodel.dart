@@ -2,60 +2,108 @@ import 'package:covid_app/app/model/covid_api_model.dart';
 import 'package:covid_app/app/model/device_adress_model.dart';
 import 'package:covid_app/app/model/device_position_model.dart';
 import 'package:covid_app/app/respository/covid_api.dart';
-import 'package:covid_app/app/service/geolocator/geocoding_service.dart';
+import 'package:covid_app/app/service/geocoding/geocoding_service.dart';
 import 'package:covid_app/app/service/geolocator/geolocator_service.dart';
 import 'package:covid_app/core/constants/string.dart';
+import 'package:get_it/get_it.dart';
 
 class QuizContainerViewModel {
-  final GeolocatorService geolocatorService;
-  final GeocodingService geocodingService;
-  final CovidApiRepository repository;
+  final geolocatorService = GetIt.I.get<GeolocatorService>();
+  final geocodingService = GetIt.I.get<GeocodingService>();
+  final repository = GetIt.I.get<CovidApiRepository>();
 
-  QuizContainerViewModel(this.geolocatorService, this.geocodingService,
-      this.repository);
-
-  Future<DevicePositionModel> getCurrentPosition() async {
-    DevicePositionModel positionModel =
-        await geolocatorService.getCurrentDevicePosition();
-    return positionModel;
+  Future<DevicePositionModel> getDevicePosition() async {
+    DevicePositionModel devicePosition =
+        await geolocatorService.getDevicePosition();
+    if (devicePosition != null)
+      return devicePosition;
+    else
+      return null;
   }
 
-  Future<DeviceAdressModel> getCurrentAdress(
-      DevicePositionModel positionModel) async {
-    DeviceAdressModel adressModel =
-        await geocodingService.getCurrentAdressDevice(positionModel);
-    return adressModel;
-  }
-
-  Future<CovidApiModel> getApiData(String uf) async {
-    CovidApiModel apiModel = await repository.getApiData(uf);
-    return apiModel;
+  Future<DeviceAdressModel> getDeviceAdress(
+      DevicePositionModel devicePosition) async {
+    DeviceAdressModel deviceAdress =
+        await geocodingService.getDeviceAdress(devicePosition);
+    return deviceAdress;
   }
 
   Future<CovidApiModel> getData() async {
-    DevicePositionModel positionModel = await getCurrentPosition();
-    DeviceAdressModel adressModel = await getCurrentAdress(positionModel);
-    String uf = state(adressModel.administrativeArea);
-    CovidApiModel apiModel = await repository.getApiData(uf);
-    return apiModel;
+    DevicePositionModel devicePosition = await getDevicePosition();
+    if (devicePosition != null) {
+      DeviceAdressModel deviceAdress = await getDeviceAdress(devicePosition);
+      String uf = state(deviceAdress.administrativeArea);
+      if (uf != null) {
+        CovidApiModel apiModel = await repository.getApiData(uf: uf);
+        return apiModel;
+      } else {
+        CovidApiModel apiModel = await repository.getApiData();
+        return apiModel;
+      }
+    } else {
+      CovidApiModel apiModel = await repository.getApiData();
+      return apiModel;
+    }
   }
 
   String state(String state) {
     switch (state) {
-      case rondonia:
-        return RO;
       case acre:
         return AC;
+      case alagoas:
+        return AL;
+      case amapa:
+        return AM;
       case amazonas:
         return AM;
-      case roraima:
-        return RR;
-      case saoPaulo:
-        return SP;
+      case bahia:
+        return BA;
+      case ceara:
+        return CE;
+      case distritoFederal:
+        return DF;
+      case espiritoSanto:
+        return ES;
+      case goias:
+        return GO;
+      case maranhao:
+        return MA;
+      case matoGrosso:
+        return MT;
+      case matoGrossoSul:
+        return MS;
+      case minasGerais:
+        return MG;
+      case para:
+        return PA;
+      case paraiba:
+        return PB;
+      case parana:
+        return PR;
+      case pernambuco:
+        return PE;
+      case piaui:
+        return PI;
       case rioJaneiro:
         return RJ;
-        break;
-      default: return SP;
+      case rioGrandeNorte:
+        return RN;
+      case rioGrandeSul:
+        return RS;
+      case rondonia:
+        return RO;
+      case roraima:
+        return RR;
+      case santaCatarina:
+        return SC;
+      case saoPaulo:
+        return SP;
+      case sergipe:
+        return SE;
+      case tocantins:
+        return TO;
+      default:
+        return null;
     }
   }
 }
