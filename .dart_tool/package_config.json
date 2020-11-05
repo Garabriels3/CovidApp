@@ -3,13 +3,13 @@
   "packages": [
     {
       "name": "_fe_analyzer_shared",
-      "rootUri": "file:///Users/gabriel.nascimento/development/flutter/.pub-cache/hosted/pub.dartlang.org/_fe_analyzer_shared-11.0.0",
+      "rootUri": "file:///Users/gabriel.nascimento/development/flutter/.pub-cache/hosted/pub.dartlang.org/_fe_analyzer_shared-7.0.0",
       "packageUri": "lib/",
       "languageVersion": "2.2"
     },
     {
       "name": "analyzer",
-      "rootUri": "file:///Users/gabriel.nascimento/development/flutter/.pub-cache/hosted/pub.dartlang.org/analyzer-0.40.4",
+      "rootUri": "file:///Users/gabriel.nascimento/development/flutter/.pub-cache/hosted/pub.dartlang.org/analyzer-0.39.17",
       "packageUri": "lib/",
       "languageVersion": "2.7"
     },
@@ -33,9 +33,9 @@
     },
     {
       "name": "build",
-      "rootUri": "file:///Users/gabriel.nascimento/development/flutter/.pub-cache/hosted/pub.dartlang.org/build-1.5.0",
+      "rootUri": "file:///Users/gabriel.nascimento/development/flutter/.pub-cache/hosted/pub.dartlang.org/build-1.3.0",
       "packageUri": "lib/",
-      "languageVersion": "2.9"
+      "languageVersion": "2.7"
     },
     {
       "name": "build_config",
@@ -51,21 +51,21 @@
     },
     {
       "name": "build_resolvers",
-      "rootUri": "file:///Users/gabriel.nascimento/development/flutter/.pub-cache/hosted/pub.dartlang.org/build_resolvers-1.4.3",
+      "rootUri": "file:///Users/gabriel.nascimento/development/flutter/.pub-cache/hosted/pub.dartlang.org/build_resolvers-1.3.11",
       "packageUri": "lib/",
-      "languageVersion": "2.9"
+      "languageVersion": "2.7"
     },
     {
       "name": "build_runner",
-      "rootUri": "file:///Users/gabriel.nascimento/development/flutter/.pub-cache/hosted/pub.dartlang.org/build_runner-1.10.4",
+      "rootUri": "file:///Users/gabriel.nascimento/development/flutter/.pub-cache/hosted/pub.dartlang.org/build_runner-1.10.2",
       "packageUri": "lib/",
       "languageVersion": "2.10"
     },
     {
       "name": "build_runner_core",
-      "rootUri": "file:///Users/gabriel.nascimento/development/flutter/.pub-cache/hosted/pub.dartlang.org/build_runner_core-6.0.3",
+      "rootUri": "file:///Users/gabriel.nascimento/development/flutter/.pub-cache/hosted/pub.dartlang.org/build_runner_core-6.0.1",
       "packageUri": "lib/",
-      "languageVersion": "2.9"
+      "languageVersion": "2.7"
     },
     {
       "name": "built_collection",
@@ -117,7 +117,7 @@
     },
     {
       "name": "code_builder",
-      "rootUri": "file:///Users/gabriel.nascimento/development/flutter/.pub-cache/hosted/pub.dartlang.org/code_builder-3.5.0",
+      "rootUri": "file:///Users/gabriel.nascimento/development/flutter/.pub-cache/hosted/pub.dartlang.org/code_builder-3.4.1",
       "packageUri": "lib/",
       "languageVersion": "2.7"
     },
@@ -140,6 +140,12 @@
       "languageVersion": "2.3"
     },
     {
+      "name": "csslib",
+      "rootUri": "file:///Users/gabriel.nascimento/development/flutter/.pub-cache/hosted/pub.dartlang.org/csslib-0.16.2",
+      "packageUri": "lib/",
+      "languageVersion": "2.2"
+    },
+    {
       "name": "cupertino_icons",
       "rootUri": "file:///Users/gabriel.nascimento/development/flutter/.pub-cache/hosted/pub.dartlang.org/cupertino_icons-0.1.3",
       "packageUri": "lib/",
@@ -147,9 +153,9 @@
     },
     {
       "name": "dart_style",
-      "rootUri": "file:///Users/gabriel.nascimento/development/flutter/.pub-cache/hosted/pub.dartlang.org/dart_style-1.3.8+1",
+      "rootUri": "file:///Users/gabriel.nascimento/development/flutter/.pub-cache/hosted/pub.dartlang.org/dart_style-1.3.6",
       "packageUri": "lib/",
-      "languageVersion": "2.9"
+      "languageVersion": "2.7"
     },
     {
       "name": "dio",
@@ -177,7 +183,7 @@
     },
     {
       "name": "firebase",
-      "rootUri": "file:///Users/gabriel.nascimento/development/flutter/.pub-cache/hosted/pub.dartlang.org/firebase-7.3.2",
+      "rootUri": "file:///Users/gabriel.nascimento/development/flutter/.pub-cache/hosted/pub.dartlang.org/firebase-7.3.0",
       "packageUri": "lib/",
       "languageVersion": "2.7"
     },
@@ -224,12 +230,6 @@
       "languageVersion": "2.7"
     },
     {
-      "name": "flutter_plugin_android_lifecycle",
-      "rootUri": "file:///Users/gabriel.nascimento/development/flutter/.pub-cache/hosted/pub.dartlang.org/flutter_plugin_android_lifecycle-1.0.11",
-      "packageUri": "lib/",
-      "languageVersion": "2.1"
-    },
-    {
       "name": "flutter_tags",
       "rootUri": "file:///Users/gabriel.nascimento/development/flutter/.pub-cache/hosted/pub.dartlang.org/flutter_tags-0.3.2",
       "packageUri": "lib/",
@@ -249,7 +249,7 @@
     },
     {
       "name": "geocoding",
-      "rootUri": "file:///Users/gabriel.nascimento/development/flutter/.pub-cache/hosted/pub.dartlang.org/geocoding-1.0.5",
+      "rootUri": "file:///Users/gabriel.nascimento/development/flutter/.pub-cache/hosted/pub.dartlang.org/geocoding-1.0.4+1",
       "packageUri": "lib/",
       "languageVersion": "2.7"
     },
@@ -261,21 +261,15 @@
     },
     {
       "name": "geolocator",
-      "rootUri": "file:///Users/gabriel.nascimento/development/flutter/.pub-cache/hosted/pub.dartlang.org/geolocator-6.1.3",
+      "rootUri": "file:///Users/gabriel.nascimento/development/flutter/.pub-cache/hosted/pub.dartlang.org/geolocator-6.0.0+4",
       "packageUri": "lib/",
       "languageVersion": "2.7"
     },
     {
       "name": "geolocator_platform_interface",
-      "rootUri": "file:///Users/gabriel.nascimento/development/flutter/.pub-cache/hosted/pub.dartlang.org/geolocator_platform_interface-1.0.7",
+      "rootUri": "file:///Users/gabriel.nascimento/development/flutter/.pub-cache/hosted/pub.dartlang.org/geolocator_platform_interface-1.0.4",
       "packageUri": "lib/",
       "languageVersion": "2.7"
-    },
-    {
-      "name": "get_it",
-      "rootUri": "file:///Users/gabriel.nascimento/development/flutter/.pub-cache/hosted/pub.dartlang.org/get_it-5.0.1",
-      "packageUri": "lib/",
-      "languageVersion": "2.1"
     },
     {
       "name": "glob",
@@ -284,22 +278,16 @@
       "languageVersion": "2.1"
     },
     {
-      "name": "google_maps_flutter",
-      "rootUri": "file:///Users/gabriel.nascimento/development/flutter/.pub-cache/hosted/pub.dartlang.org/google_maps_flutter-1.0.5",
-      "packageUri": "lib/",
-      "languageVersion": "2.1"
-    },
-    {
-      "name": "google_maps_flutter_platform_interface",
-      "rootUri": "file:///Users/gabriel.nascimento/development/flutter/.pub-cache/hosted/pub.dartlang.org/google_maps_flutter_platform_interface-1.0.4",
-      "packageUri": "lib/",
-      "languageVersion": "2.3"
-    },
-    {
       "name": "graphs",
       "rootUri": "file:///Users/gabriel.nascimento/development/flutter/.pub-cache/hosted/pub.dartlang.org/graphs-0.2.0",
       "packageUri": "lib/",
       "languageVersion": "2.0"
+    },
+    {
+      "name": "html",
+      "rootUri": "file:///Users/gabriel.nascimento/development/flutter/.pub-cache/hosted/pub.dartlang.org/html-0.14.0+4",
+      "packageUri": "lib/",
+      "languageVersion": "2.3"
     },
     {
       "name": "http",
@@ -369,21 +357,21 @@
     },
     {
       "name": "mobx",
-      "rootUri": "file:///Users/gabriel.nascimento/development/flutter/.pub-cache/hosted/pub.dartlang.org/mobx-1.2.1+4",
+      "rootUri": "file:///Users/gabriel.nascimento/development/flutter/.pub-cache/hosted/pub.dartlang.org/mobx-1.2.1+2",
       "packageUri": "lib/",
       "languageVersion": "2.7"
     },
     {
       "name": "mobx_codegen",
-      "rootUri": "file:///Users/gabriel.nascimento/development/flutter/.pub-cache/hosted/pub.dartlang.org/mobx_codegen-1.1.1+3",
+      "rootUri": "file:///Users/gabriel.nascimento/development/flutter/.pub-cache/hosted/pub.dartlang.org/mobx_codegen-1.1.0+2",
       "packageUri": "lib/",
       "languageVersion": "2.7"
     },
     {
       "name": "node_interop",
-      "rootUri": "file:///Users/gabriel.nascimento/development/flutter/.pub-cache/hosted/pub.dartlang.org/node_interop-1.2.0",
+      "rootUri": "file:///Users/gabriel.nascimento/development/flutter/.pub-cache/hosted/pub.dartlang.org/node_interop-1.1.1",
       "packageUri": "lib/",
-      "languageVersion": "2.9"
+      "languageVersion": "2.0"
     },
     {
       "name": "node_io",
@@ -465,13 +453,13 @@
     },
     {
       "name": "quiver",
-      "rootUri": "file:///Users/gabriel.nascimento/development/flutter/.pub-cache/hosted/pub.dartlang.org/quiver-2.1.4+1",
+      "rootUri": "file:///Users/gabriel.nascimento/development/flutter/.pub-cache/hosted/pub.dartlang.org/quiver-2.1.3",
       "packageUri": "lib/",
       "languageVersion": "2.0"
     },
     {
       "name": "reflectable",
-      "rootUri": "file:///Users/gabriel.nascimento/development/flutter/.pub-cache/hosted/pub.dartlang.org/reflectable-2.2.8",
+      "rootUri": "file:///Users/gabriel.nascimento/development/flutter/.pub-cache/hosted/pub.dartlang.org/reflectable-2.2.6",
       "packageUri": "lib/",
       "languageVersion": "2.3"
     },
@@ -531,9 +519,9 @@
     },
     {
       "name": "source_gen",
-      "rootUri": "file:///Users/gabriel.nascimento/development/flutter/.pub-cache/hosted/pub.dartlang.org/source_gen-0.9.8",
+      "rootUri": "file:///Users/gabriel.nascimento/development/flutter/.pub-cache/hosted/pub.dartlang.org/source_gen-0.9.7+1",
       "packageUri": "lib/",
-      "languageVersion": "2.10"
+      "languageVersion": "2.7"
     },
     {
       "name": "source_span",
@@ -603,13 +591,13 @@
     },
     {
       "name": "url_launcher",
-      "rootUri": "file:///Users/gabriel.nascimento/development/flutter/.pub-cache/hosted/pub.dartlang.org/url_launcher-5.7.8",
+      "rootUri": "file:///Users/gabriel.nascimento/development/flutter/.pub-cache/hosted/pub.dartlang.org/url_launcher-5.7.2",
       "packageUri": "lib/",
       "languageVersion": "2.1"
     },
     {
       "name": "url_launcher_linux",
-      "rootUri": "file:///Users/gabriel.nascimento/development/flutter/.pub-cache/hosted/pub.dartlang.org/url_launcher_linux-0.0.1+3",
+      "rootUri": "file:///Users/gabriel.nascimento/development/flutter/.pub-cache/hosted/pub.dartlang.org/url_launcher_linux-0.0.1+1",
       "packageUri": "lib/",
       "languageVersion": "2.1"
     },
@@ -621,13 +609,13 @@
     },
     {
       "name": "url_launcher_platform_interface",
-      "rootUri": "file:///Users/gabriel.nascimento/development/flutter/.pub-cache/hosted/pub.dartlang.org/url_launcher_platform_interface-1.0.9",
+      "rootUri": "file:///Users/gabriel.nascimento/development/flutter/.pub-cache/hosted/pub.dartlang.org/url_launcher_platform_interface-1.0.8",
       "packageUri": "lib/",
       "languageVersion": "2.1"
     },
     {
       "name": "url_launcher_web",
-      "rootUri": "file:///Users/gabriel.nascimento/development/flutter/.pub-cache/hosted/pub.dartlang.org/url_launcher_web-0.1.5",
+      "rootUri": "file:///Users/gabriel.nascimento/development/flutter/.pub-cache/hosted/pub.dartlang.org/url_launcher_web-0.1.4+1",
       "packageUri": "lib/",
       "languageVersion": "2.2"
     },
@@ -686,7 +674,7 @@
       "languageVersion": "2.7"
     }
   ],
-  "generated": "2020-11-05T01:49:54.591363Z",
+  "generated": "2020-11-05T02:05:36.577690Z",
   "generator": "pub",
   "generatorVersion": "2.10.0"
 }
