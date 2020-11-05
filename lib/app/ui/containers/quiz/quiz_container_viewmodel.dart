@@ -12,7 +12,6 @@ class QuizContainerViewModel {
   final geolocatorService = GetIt.I.get<GeolocatorService>();
   final geocodingService = GetIt.I.get<GeocodingService>();
   final repository = GetIt.I.get<CovidApiRepository>();
-  final _cache = SharedPreferencesCache();
 
   Future<DevicePositionModel> getDevicePosition() async {
     DevicePositionModel devicePosition =
