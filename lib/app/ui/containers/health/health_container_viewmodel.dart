@@ -8,7 +8,7 @@ class HealthContainerViewModel {
 
   Future time() async {}
   Future<DevicePositionModel> getData() async {
-    await Future.delayed(Duration(seconds: 8), () {});
+    await Future.delayed(Duration(seconds: 13), () {});
     model = await geolocatorService.getDevicePosition();
     return model;
   }

@@ -4,6 +4,7 @@ import 'package:covid_app/app/model/device_position_model.dart';
 import 'package:covid_app/app/respository/covid_api.dart';
 import 'package:covid_app/app/service/geocoding/geocoding_service.dart';
 import 'package:covid_app/app/service/geolocator/geolocator_service.dart';
+import 'package:covid_app/app/service/local/shared_preferences.dart';
 import 'package:covid_app/core/constants/string.dart';
 import 'package:get_it/get_it.dart';
 
@@ -11,6 +12,7 @@ class QuizContainerViewModel {
   final geolocatorService = GetIt.I.get<GeolocatorService>();
   final geocodingService = GetIt.I.get<GeocodingService>();
   final repository = GetIt.I.get<CovidApiRepository>();
+  final _cache = SharedPreferencesCache();
 
   Future<DevicePositionModel> getDevicePosition() async {
     DevicePositionModel devicePosition =

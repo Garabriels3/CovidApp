@@ -58,16 +58,16 @@ class _HomePageState extends State<HomePage> {
           },
           items: [
             BottomNavigationBarItem(
-              icon: new Icon(Icons.home),
-              title: new Text('Home'),
+              icon: Icon(Icons.home),
+              label: 'Home',
             ),
             BottomNavigationBarItem(
-              icon: new Icon(Icons.question_answer),
-              title: new Text('Quiz'),
+              icon: Icon(Icons.question_answer),
+              label: 'Quiz',
             ),
             BottomNavigationBarItem(
               icon: Icon(Icons.local_hospital),
-              title: Text('Hospitais'),
+              label: 'Hospitais',
             )
           ],
         ),

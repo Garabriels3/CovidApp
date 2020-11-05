@@ -1,15 +1,11 @@
 import 'package:covid_app/app/model/covid_symptom.dart';
-import 'package:covid_app/app/model/questions.dart';
+import 'package:covid_app/app/model/device_adress_model.dart';
 import 'package:covid_app/app/model/typeQuestions.dart';
-import 'package:covid_app/app/model/user.dart';
 import 'package:covid_app/app/service/firebaseAuth/firebase_auth_impl.dart';
 import 'package:covid_app/app/service/firebase_store/firebase_store.dart';
-import 'package:covid_app/app/service/local/shared_preferences.dart';
 import 'package:covid_app/app/ui/containers/questions/questions_container.dart';
-import 'package:covid_app/app/ui/containers/quiz/quiz_container.dart';
 import 'package:covid_app/app/ui/containers/symptoms/symptoms_container.dart';
 import 'package:covid_app/app/ui/finish_quiz.dart/quiz_result.dart';
-import 'package:covid_app/app/utils/empty_state.dart';
 import 'package:covid_app/core/constants/string.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -21,6 +17,7 @@ part 'quiz_viewmodel.g.dart';
 class QuizViewModel = _QuizViewModelBase with _$QuizViewModel;
 
 abstract class _QuizViewModelBase with Store {
+
   @observable
   var stepValue = 0;
 
@@ -57,6 +54,9 @@ abstract class _QuizViewModelBase with Store {
   @observable
   List<Tag> listQuestion = [];
 
+  @observable
+  DeviceAdressModel deviceAdress = DeviceAdressModel();
+
   final _store = FirebaseStore();
   final _auth = Auth();
 
@@ -69,7 +69,7 @@ abstract class _QuizViewModelBase with Store {
       List<CovidSymptoms> symptoms = result.item;
       listSymptoms.addAll(
         symptoms.map(
-          (e) => Tag(title: "${e.symptom}", active: false, customData: e),
+              (e) => Tag(title: "${e.symptom}", active: false, customData: e),
         ),
       );
     }
@@ -84,7 +84,7 @@ abstract class _QuizViewModelBase with Store {
       List<TypeQuestions> questions = result.item;
       listQuestion.addAll(
         questions.map(
-          (e) => Tag(title: "${e.question}", customData: e),
+              (e) => Tag(title: "${e.question}", customData: e),
         ),
       );
     }
@@ -127,10 +127,11 @@ abstract class _QuizViewModelBase with Store {
           Navigator.push(
             context,
             MaterialPageRoute(
-              builder: (_) => QuizResult(
-                orientationLabel: orientarionLabel,
-                isBadResult: isBadResult,
-              ),
+              builder: (_) =>
+                  QuizResult(
+                    orientationLabel: orientarionLabel,
+                    isBadResult: isBadResult,
+                  ),
             ),
           );
           // await saveData(context);
@@ -209,6 +210,7 @@ abstract class _QuizViewModelBase with Store {
   }
 
   Future sendAnswers() async {
-    _store.setQuestionList(currentUser, allegedSymptoms, orientarionLabel);
+    _store.setQuestionList(
+        currentUser, allegedSymptoms, orientarionLabel);
   }
 }

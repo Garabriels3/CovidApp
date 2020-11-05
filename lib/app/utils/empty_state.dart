@@ -9,7 +9,7 @@ class EmptyState extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: darkPrimaryColor,
-        title: Text("Details"),
+        title: Text("Detalhes"),
       ),
       body: Container(
         width: double.infinity,

@@ -139,6 +139,21 @@ mixin _$LoginViewModel on LoginViewModelBase, Store {
     });
   }
 
+  final _$isLoadingAtom = Atom(name: 'LoginViewModelBase.isLoading');
+
+  @override
+  bool get isLoading {
+    _$isLoadingAtom.reportRead();
+    return super.isLoading;
+  }
+
+  @override
+  set isLoading(bool value) {
+    _$isLoadingAtom.reportWrite(value, super.isLoading, () {
+      super.isLoading = value;
+    });
+  }
+
   final _$firebaseLoginAsyncAction =
       AsyncAction('LoginViewModelBase.firebaseLogin');
 
@@ -205,6 +220,7 @@ error: ${error},
 emailErrorLabel: ${emailErrorLabel},
 passwordErrorLabel: ${passwordErrorLabel},
 userId: ${userId},
+isLoading: ${isLoading},
 formIsValid: ${formIsValid}
     ''';
   }

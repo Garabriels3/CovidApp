@@ -3,7 +3,7 @@ import 'package:geolocator/geolocator.dart';
 
 class GeolocatorService {
   Future<bool> checkDevicePermission() async {
-    LocationPermission permission = await checkPermission();
+    LocationPermission permission = await Geolocator.checkPermission();
     switch (permission) {
       case LocationPermission.always:
         return true;
@@ -18,7 +18,7 @@ class GeolocatorService {
     bool check = await checkDevicePermission();
     if (check) {
       Position position =
-          await getCurrentPosition(desiredAccuracy: LocationAccuracy.medium);
+          await Geolocator.getCurrentPosition(desiredAccuracy: LocationAccuracy.medium);
       return DevicePositionModel.fromPosition(position);
     } else {
       return null;

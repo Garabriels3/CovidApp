@@ -14,7 +14,7 @@
         android:label="Covid Analytic"
         android:icon="@mipmap/logo_ic_laucher_round">
         <meta-data android:name="com.google.android.geo.API_KEY"
-               android:value="AIzaSyBpOiZv85O22Ic2KnFbzS7_uTjqFGDE0bo"/>
+               android:value="AIzaSyACJQUekpU5rjw4Tu0eRzfMXau_0JI6vBA"/>
         <activity
             android:name=".MainActivity"
             android:launchMode="singleTop"
