@@ -24,13 +24,15 @@ abstract class _NewsContainerViewModelBase with Store {
 
   void navigateToDetails(context, title, author, publicationAt, content) {
     Navigator.push(
-        context,
-        MaterialPageRoute(
-            builder: (_) => NewsDetailsPage(
-                  title: title,
-                  author: author,
-                  publicationAt: publicationAt,
-                  description: content,
-                )));
+      context,
+      MaterialPageRoute(
+        builder: (_) => NewsDetailsPage(
+          title: title,
+          author: author,
+          publicationAt: publicationAt,
+          description: content,
+        ),
+      ),
+    );
   }
 }

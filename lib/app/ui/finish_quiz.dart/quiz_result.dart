@@ -47,8 +47,8 @@ class _QuizResultState extends State<QuizResult> {
               ),
               Image.asset(
                 widget.isBadResult ? badResultImage : goodResultImage,
-                width: threeHundredFiftyTwo,
-                height: threeHundredFiftyTwo,
+                width: threeHundredTwenty,
+                height: threeHundredTwenty,
               ),
               SizedBox(height: twelve),
               Visibility(

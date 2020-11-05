@@ -1,6 +1,3 @@
-import 'package:covid_app/app/respository/covid_api.dart';
-import 'package:covid_app/app/service/geolocator/geocoding_service.dart';
-import 'package:covid_app/app/service/geolocator/geolocator_service.dart';
 import 'package:covid_app/app/ui/containers/quiz/quiz_container_viewmodel.dart';
 import 'package:covid_app/app/ui/quiz/quiz_page.dart';
 import 'package:covid_app/app/widgets/button_component.dart';
@@ -15,8 +12,7 @@ class QuizContainer extends StatelessWidget {
 
   QuizContainer({this.color});
 
-  QuizContainerViewModel vm = QuizContainerViewModel(
-      GeolocatorService(), GeocodingService(), CovidApiRepository());
+  QuizContainerViewModel vm = QuizContainerViewModel();
 
   @override
   Widget build(BuildContext context) {
@@ -59,9 +55,7 @@ Widget _body(context, vm) {
                         color: Color.fromRGBO(50, 92, 127, 0.9),
                         child: Column(
                           children: <Widget>[
-                            _text(
-                                title: "${snapshot.data.country}",
-                                fontSize: twentyFour),
+                            _text(title: "Brasil", fontSize: twentyFour),
                             _underlineBlackGradient(),
                             _row(
                                 title1: "Casos",
@@ -126,7 +120,9 @@ Widget _body(context, vm) {
             }
           },
         ),
-        SizedBox(height: twentyEight,),
+        SizedBox(
+          height: twentyFour,
+        ),
         Padding(
           padding: EdgeInsets.symmetric(horizontal: thirtyTwo),
           child: _text(
@@ -135,7 +131,7 @@ Widget _body(context, vm) {
               fontSize: twentyFour),
         ),
         Container(
-          margin: EdgeInsets.only(top: sixty, bottom: sixteen),
+          margin: EdgeInsets.only(top: fortyEight, bottom: twelve),
           child: ButtonComponent(
             title: quizButtonLabel,
             fillColor: rosePrimaryColor,

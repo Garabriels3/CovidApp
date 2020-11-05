@@ -10,7 +10,6 @@ import 'intern_components/drawer_component.dart';
 
 // ignore: must_be_immutable
 class HomePage extends StatefulWidget {
-
   User user = User();
 
   HomePage({this.user});
@@ -45,7 +44,10 @@ class _HomePageState extends State<HomePage> {
           backgroundColor: darkPrimaryColor,
           title: Text(titleContainers[_currentIndex]),
         ),
-        body: viewContainer[_currentIndex],
+        body: IndexedStack(
+          index: _currentIndex,
+          children: viewContainer,
+        ),
         bottomNavigationBar: BottomNavigationBar(
           fixedColor: rosePrimaryColor,
           currentIndex: _currentIndex,
@@ -56,16 +58,16 @@ class _HomePageState extends State<HomePage> {
           },
           items: [
             BottomNavigationBarItem(
-              icon: new Icon(Icons.home),
-              title: new Text('Home'),
+              icon: Icon(Icons.home),
+              label: 'Home',
             ),
             BottomNavigationBarItem(
-              icon: new Icon(Icons.question_answer),
-              title: new Text('Quiz'),
+              icon: Icon(Icons.question_answer),
+              label: 'Quiz',
             ),
             BottomNavigationBarItem(
               icon: Icon(Icons.local_hospital),
-              title: Text('Hospitais'),
+              label: 'Hospitais',
             )
           ],
         ),

@@ -1,4 +1,5 @@
 import 'package:covid_app/app/model/covid_symptom.dart';
+import 'package:covid_app/app/model/device_adress_model.dart';
 import 'package:covid_app/app/model/questions.dart';
 import 'package:covid_app/app/model/result_firebase.dart';
 import 'package:covid_app/app/model/typeQuestions.dart';
@@ -9,5 +10,6 @@ abstract class BaseFireStore {
   Future<Result<User>> getBasicUserData(String userUID);
   Future<Result<List<CovidSymptoms>>> getSymptomsData();
   Future<Result<List<TypeQuestions>>> getQuestionList();
-  Future<VoidResult> setQuestionList(String userUid, List<CovidSymptoms> finalAnswer, String result);
+  Future<VoidResult> setQuestionList(
+      String userUid, List<CovidSymptoms> finalAnswer, String result);
 }

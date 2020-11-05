@@ -192,6 +192,21 @@ mixin _$QuizViewModel on _QuizViewModelBase, Store {
     });
   }
 
+  final _$deviceAdressAtom = Atom(name: '_QuizViewModelBase.deviceAdress');
+
+  @override
+  DeviceAdressModel get deviceAdress {
+    _$deviceAdressAtom.reportRead();
+    return super.deviceAdress;
+  }
+
+  @override
+  set deviceAdress(DeviceAdressModel value) {
+    _$deviceAdressAtom.reportWrite(value, super.deviceAdress, () {
+      super.deviceAdress = value;
+    });
+  }
+
   final _$getSymptomsAsyncAction =
       AsyncAction('_QuizViewModelBase.getSymptoms');
 
@@ -278,7 +293,8 @@ isGoodResult: ${isGoodResult},
 orientarionLabel: ${orientarionLabel},
 listSymptoms: ${listSymptoms},
 allegedSymptoms: ${allegedSymptoms},
-listQuestion: ${listQuestion}
+listQuestion: ${listQuestion},
+deviceAdress: ${deviceAdress}
     ''';
   }
 }

@@ -1,12 +1,12 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:covid_app/app/model/covid_symptom.dart';
+import 'package:covid_app/app/model/device_adress_model.dart';
 import 'package:covid_app/app/model/questions.dart';
 import 'package:covid_app/app/model/quiz_parameters.dart';
 import 'package:covid_app/app/model/result_firebase.dart';
 import 'package:covid_app/app/model/typeQuestions.dart';
 import 'package:covid_app/app/model/user.dart';
 import 'package:covid_app/app/service/firebase_store/base_firestore.dart';
-import 'package:covid_app/app/ui/quiz/quiz_viewmodel.dart';
 
 class FirebaseStore implements BaseFireStore {
   Firestore databaseReference = Firestore();
@@ -70,9 +70,7 @@ class FirebaseStore implements BaseFireStore {
 
   @override
   Future<VoidResult> setQuestionList(
-      String userUid, 
-      List<CovidSymptoms> finalAnswer, 
-      String result) async {
+      String userUid, List<CovidSymptoms> finalAnswer, String result) async {
     try {
       await databaseReference
           .collection("users")

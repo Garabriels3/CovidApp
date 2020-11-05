@@ -39,6 +39,9 @@ abstract class LoginViewModelBase with Store {
   @observable
   String userId = "";
 
+  @observable
+  bool isLoading = false;
+
   final _auth = Auth();
   final store = FirebaseStore();
   final _cache = SharedPreferencesCache();
@@ -98,7 +101,8 @@ abstract class LoginViewModelBase with Store {
 
   @action
   Future<void> firebaseLogin(dynamic context) async {
-    var result = await _auth.signIn(email.trim(), password.trim());
+    isLoading = true;
+    var result = await _auth.signIn(email.trim(), password.trim()).whenComplete(() => isLoading = false);
     userId = result.userId;
     user = await store.getBasicUserData(userId).then((value) => value.item);
 
