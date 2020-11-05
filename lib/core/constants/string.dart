@@ -55,7 +55,7 @@ const articlesJsonList = "articles";
 
 // BASE URL
 const baseUrl =
-    "http://newsapi.org/v2/top-headlines?country=br&q=covid&apiKey=ebcb8413b826477a902fd8fc88f25e04";
+    "http://newsapi.org/v2/everything?q=covid&apiKey=ebcb8413b826477a902fd8fc88f25e04";
 const urlMakeExam = 'https://agendamentoonline.lavoisier.com.br/login/email';
 // END POINTS
 const articlesBr =
