@@ -11,6 +11,7 @@ class CovidApp extends StatelessWidget {
       DeviceOrientation.portraitDown,
     ]);
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       title: 'Covid Analytic',
       theme: ThemeData(
         visualDensity: VisualDensity.adaptivePlatformDensity,
